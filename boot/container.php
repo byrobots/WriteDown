@@ -17,12 +17,3 @@ $container->add('request', function() {
 });
 
 $container->add('emitter', Zend\Diactoros\Response\SapiEmitter::class);
-
-$container->add('router', function () use ($container) {
-    return new League\Route\RouteCollection($container);
-});
-
-/**
- * Jump back to processing the request.
- */
-return $container;
