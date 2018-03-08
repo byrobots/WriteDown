@@ -4,8 +4,8 @@
     "type": "project",
     "license": "MIT",
     "require": {
+        "league/container": "^2.4",
         "league/route": "^3.0",
-        "pimple/pimple": "~3.0",
         "zendframework/zend-diactoros": "^1.7"
     },
     "require-dev": {
