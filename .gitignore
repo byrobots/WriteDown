@@ -1,3 +1,5 @@
+/db/writedown
+/vendor/
+
 .DS_Store
 composer.phar
-/vendor/
