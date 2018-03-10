@@ -20,5 +20,5 @@ $container->add('emitter', Zend\Diactoros\Response\SapiEmitter::class);
 
 $container->add('db', function () {
     $configBuilder = new WriteDown\DB\ConfigBuilder;
-    return new WriteDown\DB\Drivers\Eloquent($configBuilder->generate());
+    return new WriteDown\DB\Drivers\Doctrine($configBuilder->generate());
 });
