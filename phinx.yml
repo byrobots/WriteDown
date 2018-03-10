@@ -1,3 +1,5 @@
+# TODO: Populate values from environment as applicable
+
 paths:
     migrations: '%%PHINX_CONFIG_DIR%%/db/migrations'
     seeds: '%%PHINX_CONFIG_DIR%%/db/seeds'
