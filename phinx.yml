@@ -1,5 +1,3 @@
-# TODO: Populate values from environment as applicable
-
 paths:
     migrations: '%%PHINX_CONFIG_DIR%%/db/migrations'
     seeds: '%%PHINX_CONFIG_DIR%%/db/seeds'
@@ -15,5 +13,6 @@ environments:
     testing:
         adapter: sqlite
         memory: true
+        name: ./db/writedown-test
 
 version_order: creation
