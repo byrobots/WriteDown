@@ -4,6 +4,7 @@
     "type": "project",
     "license": "MIT",
     "require": {
+        "container-interop/container-interop": "^1.2",
         "doctrine/orm": "^2.6",
         "league/container": "^2.4",
         "league/route": "^3.0",
