@@ -23,3 +23,5 @@ $container->add('database', function () {
     $database      = new WriteDown\Database\Drivers\Doctrine($configBuilder->generate());
     return $database->getManager();
 });
+
+$container->add('api', 'WriteDown\API\API')->withArgument('database');
