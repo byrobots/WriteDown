@@ -11,9 +11,9 @@ class CreatePostsTable extends AbstractMigration
             ->addColumn('slug', 'string')
             ->addColumn('excerpt', 'text', ['null' => true])
             ->addColumn('body', 'text')
-            ->addColumn('publish_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('created_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addColumn('updated_at', 'datetime', ['null' => true])
+            ->addColumn('publish_at', 'datetime', ['null' => true])
+            ->addColumn('created_at', 'datetime')
+            ->addColumn('updated_at', 'datetime')
             ->addIndex(['slug'], ['unique' => true])
             ->create();
     }

@@ -1,4 +1,6 @@
-/db/writedown
+/db/writedown*
+!/db/writedown-test-clean
+
 /vendor/
 
 .DS_Store
