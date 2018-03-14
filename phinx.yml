@@ -8,11 +8,6 @@ environments:
 
     development:
         adapter: sqlite
-        name: ./db/writedown
-
-    testing:
-        adapter: sqlite
-        memory: true
-        name: ./db/writedown-test
+        name: '%%PHINX_CONFIG_DIR%%/db/writedown'
 
 version_order: creation
