@@ -13,7 +13,7 @@ $container->add(
     Zend\Diactoros\Response::class
 );
 
-$container->add('Psr\Http\Message\RequestInterface', function () {
+$container->add('Psr\Http\Message\RequestInterface', function() {
     return Zend\Diactoros\ServerRequestFactory::fromGlobals(
         $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES
     );
@@ -24,7 +24,7 @@ $container->add(
     Zend\Diactoros\Response\SapiEmitter::class
 );
 
-$container->add('Doctrine\ORM\EntityManagerInterface', function () {
+$container->add('Doctrine\ORM\EntityManagerInterface', function() {
     $configBuilder = new WriteDown\Database\ConfigBuilder\Doctrine;
     $database      = new WriteDown\Database\Drivers\Doctrine($configBuilder->generate());
     return $database->getManager();
