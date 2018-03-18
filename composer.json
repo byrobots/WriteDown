@@ -29,9 +29,12 @@
         }
     },
     "config": {
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "7.1"
+        },
         "preferred-install": "dist",
-        "sort-packages": true,
-        "optimize-autoloader": true
+        "sort-packages": true
     },
     "minimum-stability": "dev",
     "prefer-stable": true
