@@ -30,5 +30,8 @@ $container->add('Doctrine\ORM\EntityManagerInterface', function () {
     return $database->getManager();
 });
 
+$container->add('WriteDown\API\ResponseBuilder', WriteDown\API\ResponseBuilder::class);
+
 $container->add('api', 'WriteDown\API\API')
-    ->withArgument('Doctrine\ORM\EntityManagerInterface');
+    ->withArgument('Doctrine\ORM\EntityManagerInterface')
+    ->withArgument('WriteDown\API\ResponseBuilder');
