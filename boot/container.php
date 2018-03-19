@@ -32,6 +32,9 @@ $container->add('Doctrine\ORM\EntityManagerInterface', function() {
 
 $container->add('WriteDown\API\ResponseBuilder', WriteDown\API\ResponseBuilder::class);
 
+$container->add('WriteDown\Validator\Validator', WriteDown\Validator\Valitron::class);
+
 $container->add('api', 'WriteDown\API\API')
     ->withArgument('Doctrine\ORM\EntityManagerInterface')
-    ->withArgument('WriteDown\API\ResponseBuilder');
+    ->withArgument('WriteDown\API\ResponseBuilder')
+    ->withArgument('WriteDown\Validator\Validator');
