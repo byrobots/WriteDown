@@ -1,3 +1,4 @@
+/.idea
 /db/writedown*
 !/db/writedown-test-clean
 
