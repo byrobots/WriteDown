@@ -9,7 +9,7 @@ $container->addServiceProvider(WriteDown\Providers\HTTPServiceProvider::class);
 
 // Define additional services
 $container->add('Doctrine\ORM\EntityManagerInterface', function() {
-    $configBuilder = new WriteDown\Database\ConfigBuilder\Doctrine;
-    $database      = new WriteDown\Database\Drivers\Doctrine($configBuilder->generate());
+    $configBuilder = new \WriteDown\Database\DoctrineConfigBuilder;
+    $database      = new \WriteDown\Database\DoctrineDriver($configBuilder->generate());
     return $database->getManager();
 });
