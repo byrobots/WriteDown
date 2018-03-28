@@ -7,7 +7,7 @@ $writedown = new WriteDown\WriteDown(new League\Container\Container);
 require __DIR__ . '/container.php';
 
 // Load all route files.
-foreach (glob(__DIR__ . '/../routes/*.php') as $filename) {
+foreach (glob(__DIR__ . '/../app/Http/routes.php') as $filename) {
     include $filename;
 }
 
