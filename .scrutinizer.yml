@@ -1,5 +1,5 @@
 filter:
-    excluded_paths: [tests/*]
+    excluded_paths: [app/*, public/*, tests/*]
 checks:
     php:
         code_rating: true
@@ -27,7 +27,7 @@ tools:
             paths: ['writedown']
     php_loc:
         enabled: true
-        excluded_dirs: [vendor, tests]
+        excluded_dirs: [app, tests, vendor]
     php_cpd:
         enabled: true
-        excluded_dirs: [vendor, tests]
+        excluded_dirs: [app, tests, vendor]
