@@ -15,7 +15,7 @@ module.exports = function (grunt) {
                     'node_modules/simplemde/dist/simplemde.min.js',
                     'resources/assets/js/app.js'
                 ],
-                dest: 'public/js/app.js'
+                dest: 'public/js/admin.js'
             }
         },
 
@@ -26,7 +26,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'public/css/app.css': 'resources/assets/sass/app.scss'
+                    'public/css/admin.css': 'resources/assets/sass/app.scss'
                 }
             }
         }
