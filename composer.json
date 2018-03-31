@@ -4,6 +4,7 @@
     "type": "project",
     "license": "MIT",
     "require": {
+        "aura/session": "^2.1",
         "container-interop/container-interop": "^1.2",
         "doctrine/orm": "^2.6",
         "league/commonmark": "^0.17",
