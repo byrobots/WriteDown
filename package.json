@@ -1,0 +1,25 @@
+{
+    "name": "writedown",
+    "version": "1.0.0",
+    "description": "Frontend assets for WriteDown.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:byrobots/writedown.git"
+    },
+    "author": "By Robots",
+    "license": "MIT",
+    "dependencies": {
+        "bootstrap": "^4.0.0",
+        "grunt": "^1.0.2",
+        "grunt-cli": "^1.2.0",
+        "grunt-contrib-concat": "^1.0.1",
+        "grunt-sass": "^2.1.0",
+        "jquery": "^3.2.1",
+        "npm": "^5.8.0",
+        "simplemde": "^1.11.2"
+    }
+}
