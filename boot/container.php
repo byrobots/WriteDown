@@ -14,3 +14,5 @@ $container->add('Doctrine\ORM\EntityManagerInterface', function() {
     $database      = new \WriteDown\Database\DoctrineDriver($configBuilder->generate());
     return $database->getManager();
 });
+
+$container->add('view', new \Slim\Views\PhpRenderer('../app/Views'));

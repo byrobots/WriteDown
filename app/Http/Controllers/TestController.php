@@ -13,9 +13,6 @@ class TestController extends Controller
      */
     public function index()
     {
-        $this->response->getBody()
-            ->write('<marquee>Doesn\'t look like anything to me.</marquee>');
-
-        return $this->response;
+        return $this->view->render($this->response, 'test.php', []);
     }
 }

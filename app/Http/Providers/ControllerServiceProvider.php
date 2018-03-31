@@ -24,7 +24,8 @@ class ControllerServiceProvider extends AbstractServiceProvider
     {
         $this->getContainer()->inflector(ControllerInterface::class)
             ->invokeMethod('setRequest', ['Psr\Http\Message\RequestInterface'])
-            ->invokeMethod('setResponse', ['Psr\Http\Message\ResponseInterface']);
+            ->invokeMethod('setResponse', ['Psr\Http\Message\ResponseInterface'])
+            ->invokeMethod('setView', ['view']);
 
         $this->getContainer()
             ->add('TestController', TestController::class);
