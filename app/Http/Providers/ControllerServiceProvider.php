@@ -2,7 +2,7 @@
 
 namespace App\Http\Providers;
 
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\Admin\AuthController;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use WriteDown\Http\ControllerInterface;
 
@@ -14,7 +14,7 @@ class ControllerServiceProvider extends AbstractServiceProvider
      * @var array
      */
     protected $provides = [
-        'TestController',
+        'Admin\AuthController',
     ];
 
     /**
@@ -29,6 +29,6 @@ class ControllerServiceProvider extends AbstractServiceProvider
             ->invokeMethod('setView', ['view']);
 
         $this->getContainer()
-            ->add('TestController', TestController::class);
+            ->add('Admin\AuthController', AuthController::class);
     }
 }

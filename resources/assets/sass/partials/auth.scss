@@ -1,0 +1,23 @@
+.login-container {
+    padding-top: 60px;
+}
+
+.login-header {
+    .logo-header {
+        display: block;
+        margin: 0 auto 15px;
+        width: 64px;
+        height: auto;
+    }
+
+    .title-header {
+        text-align: center;
+    }
+}
+
+.login-form {
+    @media (min-width: 992px) {
+        padding-left: 30px;
+        border-left: 1px solid #16161c;
+    }
+}
