@@ -13,6 +13,8 @@ class AuthController extends Controller
      */
     public function loginForm()
     {
-        return $this->view->render($this->response, 'admin/auth/login.php', []);
+        return $this->view->render($this->response, 'admin/auth/login.php', [
+            'csrf' => $this->csrf->get(),
+        ]);
     }
 }
