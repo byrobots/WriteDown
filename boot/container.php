@@ -16,3 +16,7 @@ $container->add('Doctrine\ORM\EntityManagerInterface', function() {
 });
 
 $container->add('view', new \Slim\Views\PhpRenderer('../app/Views'));
+
+$container->add('WriteDown\CSRF\CSRFInterface', \WriteDown\CSRF\Hash::class)
+    ->withArgument('WriteDown\Sessions\SessionInterface')
+    ->withArgument(new \WriteDown\Auth\Token);
