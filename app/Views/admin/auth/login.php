@@ -21,7 +21,7 @@
             </div>
 
             <div class="col-12 col-sm-6 col-lg-4">
-                <form class="login-form" action="" method="post">
+                <form class="login-form" action="/admin/login" method="post">
                     <input type="hidden" name="csrf" value="<?= $csrf ?>">
 
                     <div class="form-group">
