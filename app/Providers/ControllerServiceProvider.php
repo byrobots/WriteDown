@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Http\Controllers\Admin\AuthController;
 use League\Container\ServiceProvider\AbstractServiceProvider;
-use WriteDown\Http\ControllerInterface;
+use WriteDown\Http\Interfaces\ControllerInterface;
 
 class ControllerServiceProvider extends AbstractServiceProvider
 {

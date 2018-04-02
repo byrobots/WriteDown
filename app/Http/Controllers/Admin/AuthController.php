@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use WriteDown\Http\Controller;
+use WriteDown\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
