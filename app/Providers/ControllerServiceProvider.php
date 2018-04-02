@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Providers;
+namespace App\Providers;
 
 use App\Http\Controllers\Admin\AuthController;
 use League\Container\ServiceProvider\AbstractServiceProvider;
