@@ -17,4 +17,14 @@ class AuthController extends Controller
             'csrf' => $this->csrf->get(),
         ]);
     }
+
+    /**
+     * Validate the login.
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function validateLogin()
+    {
+        die('Validate login.');
+    }
 }
