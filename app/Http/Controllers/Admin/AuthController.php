@@ -25,6 +25,13 @@ class AuthController extends Controller
      */
     public function validateLogin()
     {
-        die('Validate login.');
+        if (!$this->auth->verifyCredentials(
+            $this->request->getParsedBody()['email'],
+            $this->request->getParsedBody()['password']
+        )) {
+            die('Bad Login');
+        }
+
+        die('Good login.');
     }
 }
