@@ -27,7 +27,8 @@ class ControllerServiceProvider extends AbstractServiceProvider
             ->invokeMethod('setResponse', ['Psr\Http\Message\ResponseInterface'])
             ->invokeMethod('setSessions', ['WriteDown\Sessions\SessionInterface'])
             ->invokeMethod('setView', ['view'])
-            ->invokeMethod('setCSRF', ['WriteDown\CSRF\CSRFInterface']);
+            ->invokeMethod('setCSRF', ['WriteDown\CSRF\CSRFInterface'])
+            ->invokeMethod('setAuth', ['WriteDown\Auth\Interfaces\AuthInterface']);
 
         $this->getContainer()
             ->add('Admin\AuthController', AuthController::class);
