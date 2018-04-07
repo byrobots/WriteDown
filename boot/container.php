@@ -15,4 +15,7 @@ $container->add('Doctrine\ORM\EntityManagerInterface', function() {
     return $database->getManager();
 });
 
+$container->add('WriteDown\Auth\AuthInterface', \WriteDown\Auth\Auth::class)
+    ->withArgument('Doctrine\ORM\EntityManagerInterface');
+
 $container->add('view', new \Slim\Views\PhpRenderer('../app/Views'));
