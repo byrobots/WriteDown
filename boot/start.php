@@ -4,7 +4,8 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 // Load the environment variables
-if (getenv('environment') !== 'testing') {
+// When testing environment variables are specified in phpunit.xml.
+if (getenv('ENVIRONMENT') !== 'testing') {
     $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
     $dotenv->load();
 }
