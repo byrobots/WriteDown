@@ -21,6 +21,10 @@
             </div>
 
             <div class="col-12 col-sm-6 col-lg-4">
+                <?php if (!empty($error)) { ?>
+                    <span class="alert alert-danger"><?= $error ?></span>
+                <?php } ?>
+
                 <form class="login-form" action="/admin/login" method="post">
                     <input type="hidden" name="csrf" value="<?= $csrf ?>">
 
