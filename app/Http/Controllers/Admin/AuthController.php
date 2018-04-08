@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use WriteDown\Http\Controllers\Controller;
+use Zend\Diactoros\Response\RedirectResponse;
 
 class AuthController extends Controller
 {
@@ -22,16 +23,23 @@ class AuthController extends Controller
      * Validate the login.
      *
      * @return \Psr\Http\Message\ResponseInterface
+     * @throws \Exception
      */
     public function validateLogin()
     {
-        if (!$this->auth->verifyCredentials(
+        $user = $this->auth->verifyCredentials(
             $this->request->getParsedBody()['email'],
             $this->request->getParsedBody()['password']
-        )) {
-            die('Bad Login');
+        );
+
+        if (!$user) {
+            $this->sessions->setFlash('error', 'Can not login.');
+            return new RedirectResponse('/admin/login');
         }
 
-        die('Good login.');
+        $token = $this->auth->generate();
+        $this->api->user()->update($user->id, ['token' => $token]);
+        $this->sessions->set('auth_token', $token);
+        die('Logged in.');
     }
 }
