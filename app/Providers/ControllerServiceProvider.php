@@ -26,6 +26,7 @@ class ControllerServiceProvider extends AbstractServiceProvider
             ->invokeMethod('setRequest', ['Psr\Http\Message\RequestInterface'])
             ->invokeMethod('setResponse', ['Psr\Http\Message\ResponseInterface'])
             ->invokeMethod('setSessions', ['WriteDown\Sessions\SessionInterface'])
+            ->invokeMethod('setAPI', ['WriteDown\API\Interfaces\APIInterface'])
             ->invokeMethod('setView', ['view'])
             ->invokeMethod('setCSRF', ['WriteDown\CSRF\CSRFInterface'])
             ->invokeMethod('setAuth', ['WriteDown\Auth\Interfaces\AuthInterface']);
