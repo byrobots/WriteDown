@@ -12,8 +12,10 @@ $writedown = new WriteDown\WriteDown(new League\Container\Container);
 require __DIR__ . '/container.php';
 
 // Initialise some middleware
-$csrfMiddleware = [new \WriteDown\HTTP\Middleware\CSRFMiddleware(
-    $writedown->getContainer()->get('WriteDown\CSRF\CSRFInterface')
+$csrfMiddleware = [new \WriteDown\HTTP\Middleware\CSRFMiddleware($writedown->csrf()), 'validate'];
+$authMiddleware = [new \WriteDown\HTTP\Middleware\AuthenticatedMiddleware(
+    $writedown->auth(),
+    $writedown->session()
 ), 'validate'];
 
 // Load routes

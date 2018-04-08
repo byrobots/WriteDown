@@ -15,7 +15,8 @@ class AuthController extends Controller
     public function loginForm()
     {
         return $this->view->render($this->response, 'admin/auth/login.php', [
-            'csrf' => $this->csrf->get(),
+            'csrf'  => $this->csrf->get(),
+            'error' => $this->sessions->getFlash('error'), // TODO: Not working, either not being set or not making it this far.
         ]);
     }
 
@@ -27,19 +28,24 @@ class AuthController extends Controller
      */
     public function validateLogin()
     {
+        // Attempt to verify the submitted details
         $user = $this->auth->verifyCredentials(
             $this->request->getParsedBody()['email'],
             $this->request->getParsedBody()['password']
         );
 
+        // Sad trombone
         if (!$user) {
             $this->sessions->setFlash('error', 'Can not login.');
             return new RedirectResponse('/admin/login');
         }
 
+        // Generate and set the user's authentication token
         $token = $this->auth->generate();
         $this->api->user()->update($user->id, ['token' => $token]);
         $this->sessions->set('auth_token', $token);
-        die('Logged in.');
+
+        // Onwards to the admin area
+        return new RedirectResponse('/admin');
     }
 }
