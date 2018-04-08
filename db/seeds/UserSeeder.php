@@ -1,19 +1,30 @@
 <?php
 
-use Phinx\Seed\AbstractSeed;
-
-class UserSeeder extends AbstractSeed
+class UserSeeder extends BaseSeeder
 {
+    /**
+     * @throws \Exception
+     */
     public function run()
     {
-        $now   = new DateTime('now');
-        $posts = $this->table('users');
-        $posts->insert([
+        if (!getenv('SEED_USER_EMAIL')) {
+            throw new Exception('Seed email not set.');
+        }
+
+        if (!getenv('SEED_USER_PASSWORD')) {
+            throw new Exception('Seed password not set.');
+        }
+
+        $now  = new DateTime('now');
+        $data = [
             'email'      => getenv('SEED_USER_EMAIL'),
             'password'   => password_hash(getenv('SEED_USER_PASSWORD'), PASSWORD_DEFAULT),
             'token'      => null,
             'created_at' => $now->format('Y-m-d H:i:s'),
             'updated_at' => $now->format('Y-m-d H:i:s'),
-        ])->save();
+        ];
+
+        $posts = $this->table('users');
+        $posts->insert($data)->save();
     }
 }
