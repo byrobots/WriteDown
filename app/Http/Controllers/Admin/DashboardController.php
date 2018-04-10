@@ -13,6 +13,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return $this->view->render($this->response, 'admin/dashboard/index.php');
+        return $this->view->render($this->response, 'admin/dashboard/index.php', [
+            'user' => $this->loggedInAs(),
+        ]);
     }
 }
