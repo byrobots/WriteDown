@@ -13,6 +13,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        die('Logged in!');
+        return $this->view->render($this->response, 'admin/dashboard/index.php');
     }
 }
