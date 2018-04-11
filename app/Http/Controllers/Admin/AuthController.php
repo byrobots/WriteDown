@@ -48,4 +48,18 @@ class AuthController extends Controller
         // Onwards to the admin area
         return new RedirectResponse('/admin');
     }
+
+    /**
+     * Log the user out.
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function logout()
+    {
+        $user = $this->loggedInAs();
+        $this->api->user()->update($user->id, ['token' => null]);
+        $this->sessions->set('auth_token', null);
+
+        return new RedirectResponse('/');
+    }
 }

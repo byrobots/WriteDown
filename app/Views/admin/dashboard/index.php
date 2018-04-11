@@ -19,7 +19,7 @@
             <a class="p-2 text-dark" href="#">Posts</a>
             <a class="p-2 text-dark" href="#">Users</a>
         </nav>
-        <a class="btn btn-outline-warning" href="#">Logout</a>
+        <a class="btn btn-outline-warning" href="/admin/logout">Logout</a>
     </div>
     <script src="/js/admin.js"></script>
 </body>

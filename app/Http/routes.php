@@ -14,5 +14,9 @@ $writedown->getRouter()
  * Logged in administration routes.
  */
 $writedown->getRouter()->group('/admin', function ($route) {
+    // Log the user out
+    $route->get('/logout', 'Admin\AuthController::logout');
+
+    // Admin dashboard
     $route->get('/', 'Admin\DashboardController::index');
 })->middleware($authMiddleware);
