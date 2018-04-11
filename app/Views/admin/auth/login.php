@@ -14,9 +14,11 @@
             <div class="col-12 col-sm-6 col-lg-2 offset-lg-3">
                 <header class="login-header">
                     <h2 class="logo-header">
-                        <img alt="By Robots" src="/img/logo-small.png" srcset="/img/logo-small@2x.png 2x">
+                        <a href="https://www.by-robots.com">
+                            <img alt="By Robots" src="/img/logo-small.png" srcset="/img/logo-small@2x.png 2x">
+                        </a>
                     </h2>
-                    <h1 class="title-header h3">WriteDown</h1>
+                    <h1 class="title-header h3">Write Down</h1>
                 </header>
             </div>
 

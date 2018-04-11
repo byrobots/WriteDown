@@ -1,0 +1,25 @@
+/**
+ * Titles
+ */
+#masthead {
+    a {
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    img {
+        margin-right: 15px;
+    }
+}
+
+/**
+ * Extras
+ */
+img {
+    display: block;
+    height: auto;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
