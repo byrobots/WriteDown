@@ -9,4 +9,5 @@
 // Partials contains SCSS broken down into categories.
 @import "../../../node_modules/bootstrap/dist/css/bootstrap";
 @import "../../../node_modules/simplemde/dist/simplemde.min";
+@import "partials/base";
 @import "partials/auth";
