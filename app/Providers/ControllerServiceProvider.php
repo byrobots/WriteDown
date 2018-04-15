@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostController;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use WriteDown\Http\Interfaces\ControllerInterface;
 
@@ -17,6 +18,7 @@ class ControllerServiceProvider extends AbstractServiceProvider
     protected $provides = [
         'Admin\AuthController',
         'Admin\DashboardController',
+        'Admin\PostController',
     ];
 
     /**
@@ -41,5 +43,8 @@ class ControllerServiceProvider extends AbstractServiceProvider
 
         $this->getContainer()
             ->add('Admin\DashboardController', DashboardController::class);
+
+        $this->getContainer()
+            ->add('Admin\PostController', PostController::class);
     }
 }
