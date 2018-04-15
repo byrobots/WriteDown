@@ -9,5 +9,6 @@
 // Partials contains SCSS broken down into categories.
 @import "../../../node_modules/bootstrap/dist/css/bootstrap";
 @import "../../../node_modules/simplemde/dist/simplemde.min";
+@import "../../../node_modules/jquery-datetimepicker/build/jquery.datetimepicker.min";
 @import "partials/base";
 @import "partials/auth";
