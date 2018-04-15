@@ -9,4 +9,10 @@ $(document).ready(function () {
             tabSize: 4
         });
     });
+
+    // Date/time pickers
+    $.datetimepicker.setLocale('en');
+    $('.datetimepicker').datetimepicker({
+        format:'Y-m-d H:i:s'
+    });
 });

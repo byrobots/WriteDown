@@ -13,6 +13,7 @@ module.exports = function (grunt) {
                     'node_modules/bootstrap/dist/js/bootstrap.js',
                     'node_modules/chosen-js/chosen.jquery.js',
                     'node_modules/simplemde/dist/simplemde.min.js',
+                    'node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.js',
                     'resources/assets/js/app.js'
                 ],
                 dest: 'public/js/admin.js'

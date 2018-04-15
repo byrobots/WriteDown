@@ -28,6 +28,11 @@ include __DIR__ . '/../parts/header.php' ?>
         </div>
 
         <div class="form-group">
+            <label for="publish_at">Publish At</label>
+            <input name="publish_at" type="text" class="form-control datetimepicker" id="publish_at">
+        </div>
+
+        <div class="form-group">
             <input type="submit" value="Save" class="btn btn-primary">
         </div>
     </form>
