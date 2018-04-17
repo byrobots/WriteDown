@@ -21,3 +21,22 @@
     </nav>
     <a class="btn btn-outline-warning" href="/admin/logout">Logout</a>
 </div>
+
+<div class="container">
+    <h1><?= $pagetitle ?></h1>
+
+    <?php if (isset($error) and !empty($error)) { ?>
+        <span class="alert alert-danger"><?= $error ?></span>
+    <?php } ?>
+
+    <?php if (isset($errors) and count($errors) > 0) { ?>
+        <span class="alert alert-danger">
+            <ul>
+                <?php foreach ($errors as $fieldErrors) {
+                    foreach ($fieldErrors as $singleError) { ?>
+                        <li><?= $singleError ?></li>
+                    <?php }
+                } ?>
+            </ul>
+        </span>
+    <?php } ?>
