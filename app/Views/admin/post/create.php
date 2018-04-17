@@ -18,9 +18,8 @@ include __DIR__ . '/../parts/header.php' ?>
 
     <div class="form-group">
         <label for="excerpt">Excerpt</label>
-        <textarea name="excerpt" class="form-control" id="excerpt">
-            <?= array_key_exists('excerpt', $old) ? $old['excerpt'] : '' ?>
-        </textarea>
+        <textarea name="excerpt" class="form-control" id="excerpt"><?=
+            array_key_exists('excerpt', $old) ? $old['excerpt'] : '' ?></textarea>
     </div>
 
     <div class="form-group">
