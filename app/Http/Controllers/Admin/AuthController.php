@@ -16,7 +16,7 @@ class AuthController extends Controller
     {
         return $this->view->render($this->response, 'admin/auth/login.php', [
             'csrf'  => $this->csrf->get(),
-            'error' => $this->sessions->getFlash('error'), // TODO: Not working, either not being set or not making it this far.
+            'error' => $this->sessions->getFlash('error'),
         ]);
     }
 
@@ -58,7 +58,7 @@ class AuthController extends Controller
     {
         $user = $this->loggedInAs();
         $this->api->user()->update($user->id, ['token' => null]);
-        $this->sessions->set('auth_token', null);
+        $this->sessions->destroy();
 
         return new RedirectResponse('/');
     }
