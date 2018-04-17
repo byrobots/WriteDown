@@ -26,4 +26,6 @@ $writedown->getRouter()->group('/admin', function ($route) use ($csrfMiddleware)
     $route->get('/posts/new', 'Admin\PostController::create');
     $route->post('/posts', 'Admin\PostController::store')
         ->middleware($csrfMiddleware);
+
+    $route->get('/posts/{postID}', 'Admin\PostController::edit');
 })->middleware($authMiddleware);

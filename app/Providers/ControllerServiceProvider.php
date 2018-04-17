@@ -28,13 +28,13 @@ class ControllerServiceProvider extends AbstractServiceProvider
     {
         // Set various dependencies all controllers have
         $this->getContainer()->inflector(ControllerInterface::class)
-            ->invokeMethod('setRequest', ['Psr\Http\Message\RequestInterface'])
+            ->invokeMethod('setRequest',  ['Psr\Http\Message\RequestInterface'])
             ->invokeMethod('setResponse', ['Psr\Http\Message\ResponseInterface'])
             ->invokeMethod('setSessions', ['WriteDown\Sessions\SessionInterface'])
-            ->invokeMethod('setAPI', ['WriteDown\API\Interfaces\APIInterface'])
-            ->invokeMethod('setView', ['view']) // TODO: Interface
-            ->invokeMethod('setCSRF', ['WriteDown\CSRF\CSRFInterface'])
-            ->invokeMethod('setAuth', ['WriteDown\Auth\Interfaces\AuthInterface']);
+            ->invokeMethod('setAPI',      ['WriteDown\API\Interfaces\APIInterface'])
+            ->invokeMethod('setView',     ['view']) // TODO: Interface
+            ->invokeMethod('setCSRF',     ['WriteDown\CSRF\CSRFInterface'])
+            ->invokeMethod('setAuth',     ['WriteDown\Auth\Interfaces\AuthInterface']);
 
         // Now define the controllers themselves.
         // First up, the admin area.
