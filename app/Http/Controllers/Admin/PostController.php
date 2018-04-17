@@ -43,15 +43,9 @@ class PostController extends Controller
      */
     public function store()
     {
-        $data      = $this->request->getParsedBody();
-        $publishAt = new \DateTime($data['publish_at']);
-        $result    = $this->api->post()->create([
-            'title'      => $data['title'],
-            'slug'       => $data['slug'],
-            'excerpt'    => $data['excerpt'],
-            'body'       => $data['body'],
-            'publish_at' => $publishAt,
-        ]);
+        $data               = $this->request->getParsedBody();
+        $data['publish_at'] = new \DateTime($data['publish_at']);
+        $result             = $this->api->post()->create($data);
 
         if ($result['success']) {
             $this->sessions
@@ -88,5 +82,38 @@ class PostController extends Controller
             'old'    => $this->sessions->getFlash('old') ? $this->sessions->getFlash('old') : [],
             'post'   => $post,
         ]);
+    }
+
+    /**
+     * Save changes.
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request
+     * @param \Psr\Http\Message\ResponseInterface      $response
+     * @param array                                    $args
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function update(ServerRequestInterface $request, ResponseInterface $response, array $args)
+    {
+        $post = $this->api->post()->read($args['postID']);
+        if (!$post['success']) {
+            $this->sessions->setFlash('error', 'Sorry, that post was not found.');
+            return new RedirectResponse('/admin/posts');
+        }
+
+        $data               = $this->request->getParsedBody();
+        $data['publish_at'] = new \DateTime($data['publish_at']);
+        $result             = $this->api->post()->update($post['data']->id, $data);
+
+        if ($result['success']) {
+            $this->sessions
+                ->setFlash('success', 'The post, ' . $result['data']->title . ', has been updated.');
+
+            return new RedirectResponse('/admin/posts');
+        }
+
+        $this->sessions->setFlash('errors', $result['data']);
+        $this->sessions->setFlash('old', $data);
+        return new RedirectResponse('/admin/posts/' . $post['data']->id);
     }
 }

@@ -18,22 +18,21 @@ include __DIR__ . '/../parts/header.php' ?>
 
     <div class="form-group">
         <label for="excerpt">Excerpt</label>
-        <textarea name="excerpt" class="form-control" id="excerpt">
-            <?= array_key_exists('excerpt', $old) ? $old['excerpt'] : $post['data']->excerpt ?>
-        </textarea>
+        <textarea name="excerpt" class="form-control" id="excerpt"><?=
+            array_key_exists('excerpt', $old) ? $old['excerpt'] : $post['data']->excerpt ?></textarea>
     </div>
 
     <div class="form-group">
         <label for="body">Body</label>
-        <textarea name="body" class="form-control simplemde" id="body">
-            <?= array_key_exists('body', $old) ? $old['body'] : $post['data']->body ?>
-        </textarea>
+        <textarea name="body" class="form-control simplemde" id="body"><?=
+            array_key_exists('body', $old) ? $old['body'] : $post['data']->body ?></textarea>
     </div>
 
     <div class="form-group">
         <label for="publish_at">Publish At</label>
-        <input name="publish_at" type="text" class="form-control datetimepicker" id="publish_at"
-               value="<?= array_key_exists('publish_at', $old) ? $old['publish_at'] : $post['data']->publish_at->format('Y-m-d H:i:s') ?>">
+        <input name="publish_at" type="text" class="form-control datetimepicker"
+            id="publish_at" value="<?= array_key_exists('publish_at', $old) ?
+            $old['publish_at']->format('Y-m-d H:i:s') : $post['data']->publish_at->format('Y-m-d H:i:s') ?>">
     </div>
 
     <div class="form-group">
