@@ -30,4 +30,6 @@ $writedown->getRouter()->group('/admin', function ($route) use ($csrfMiddleware)
     $route->get('/posts/{postID}', 'Admin\PostController::edit');
     $route->post('/posts/{postID}', 'Admin\PostController::update')
         ->middleware($csrfMiddleware);
+
+    $route->get('/posts/{postID}/delete', 'Admin\PostController::delete');
 })->middleware($authMiddleware);
