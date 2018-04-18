@@ -1,4 +1,4 @@
-<?php $pagetitle = 'Editing ' . $resource['data']->name;
+<?php $pagetitle = 'Editing ' . $resource['data']->email;
 include __DIR__ . '/../parts/header.php' ?>
 
 <form action="/admin/users/<?= $resource['data']->id ?>" method="post">
