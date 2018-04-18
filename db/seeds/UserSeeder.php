@@ -18,7 +18,7 @@ class UserSeeder extends BaseSeeder
         $now  = new DateTime('now');
         $data = [
             'email'      => getenv('SEED_USER_EMAIL'),
-            'password'   => password_hash(getenv('SEED_USER_PASSWORD'), PASSWORD_DEFAULT),
+            'password'   => getenv('SEED_USER_PASSWORD'),
             'token'      => null,
             'created_at' => $now->format('Y-m-d H:i:s'),
             'updated_at' => $now->format('Y-m-d H:i:s'),
