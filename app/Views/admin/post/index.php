@@ -1,7 +1,7 @@
 <?php $pagetitle = 'Posts';
 include __DIR__ . '/../parts/header.php' ?>
 
-<?php if (count($posts['data']) < 1) { ?>
+<?php if (count($resources['data']) < 1) { ?>
     <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <p class="lead">No posts yet - <a href="/admin/posts/new">get writing</a>!</p>
     </div>
@@ -17,7 +17,7 @@ include __DIR__ . '/../parts/header.php' ?>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($posts['data'] as $post) { ?>
+            <?php foreach ($resources['data'] as $post) { ?>
                 <tr>
                     <td scope="row"><?= $post->id ?></td>
                     <td><?= $post->title ?></td>
