@@ -32,4 +32,17 @@ $writedown->getRouter()->group('/admin', function ($route) use ($csrfMiddleware)
         ->middleware($csrfMiddleware);
 
     $route->get('/posts/{resourceID}/delete', 'Admin\PostController::delete');
+
+    // Users CRUD
+    $route->get('/users', 'Admin\UserController::index');
+
+    $route->get('/users/new', 'Admin\UserController::create');
+    $route->post('/users', 'Admin\UserController::store')
+        ->middleware($csrfMiddleware);
+
+    $route->get('/users/{resourceID}', 'Admin\UserController::edit');
+    $route->post('/users/{resourceID}', 'Admin\UserController::update')
+        ->middleware($csrfMiddleware);
+
+    $route->get('/users/{resourceID}/delete', 'Admin\UserController::delete');
 })->middleware($authMiddleware);

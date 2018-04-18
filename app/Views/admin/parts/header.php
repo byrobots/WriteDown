@@ -17,7 +17,7 @@
 
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="/admin/posts">Posts</a>
-        <a class="p-2 text-dark" href="#">Users</a>
+        <a class="p-2 text-dark" href="/admin/users">Users</a>
     </nav>
     <a class="btn btn-outline-warning" href="/admin/logout">Logout</a>
 </div>

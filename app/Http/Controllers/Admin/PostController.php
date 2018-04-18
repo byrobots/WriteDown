@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use WriteDown\API\Interfaces\APIInterface;
-use Zend\Diactoros\Response\RedirectResponse;
 
 class PostController extends CRUDController
 {
