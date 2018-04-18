@@ -95,20 +95,19 @@ class PostController extends Controller
      */
     public function update(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-        $post = $this->api->post()->read($args['postID']);
-        if (!$post['success']) {
-            $this->sessions->setFlash('error', 'Sorry, that post was not found.');
-            return new RedirectResponse('/admin/posts');
-        }
-
         $data               = $this->request->getParsedBody();
         $data['publish_at'] = new \DateTime($data['publish_at']);
-        $result             = $this->api->post()->update($post['data']->id, $data);
+        $result             = $this->api->post()->update($args['postID'], $data);
 
         if ($result['success']) {
             $this->sessions
                 ->setFlash('success', 'The post, ' . $result['data']->title . ', has been updated.');
 
+            return new RedirectResponse('/admin/posts');
+        }
+
+        if ($result['data'] == ['Not found.']) {
+            $this->sessions->setFlash('error', 'That post was not found.');
             return new RedirectResponse('/admin/posts');
         }
 
