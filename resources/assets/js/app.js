@@ -1,4 +1,11 @@
 $(document).ready(function () {
+    // Confirm clicks
+    $('.confirm').click(function () {
+        if (!window.confirm('Are you sure?')) {
+            return false;
+        }
+    });
+
     // Create all the WYSIWYG editors
     var editors = [];
 

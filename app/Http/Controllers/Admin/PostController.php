@@ -116,4 +116,27 @@ class PostController extends Controller
         $this->sessions->setFlash('old', $data);
         return new RedirectResponse('/admin/posts/' . $post['data']->id);
     }
+
+    /**
+     * Delete a post.
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request
+     * @param \Psr\Http\Message\ResponseInterface      $response
+     * @param array                                    $args
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function delete(ServerRequestInterface $request, ResponseInterface $response, array $args)
+    {
+        $result = $this->api->post()->delete($args['postID']);
+        if ($result['success']) {
+            $this->sessions
+                ->setFlash('success', 'The post has been deleted.');
+
+            return new RedirectResponse('/admin/posts');
+        }
+
+        $this->sessions->setFlash('error', 'The post doesn&rsquo;t exist.');
+        return new RedirectResponse('/admin/posts/');
+    }
 }

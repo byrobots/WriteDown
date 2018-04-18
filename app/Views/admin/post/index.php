@@ -12,7 +12,8 @@ include __DIR__ . '/../parts/header.php' ?>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Published?</th>
-                <th></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -34,6 +35,7 @@ include __DIR__ . '/../parts/header.php' ?>
                         } ?>
                     </td>
                     <td><a href="/admin/posts/<?= $post->id ?>" class="btn btn-warning">Edit</a></td>
+                    <td><a href="/admin/posts/<?= $post->id ?>/delete" class="btn btn-danger confirm">Delete</a></td>
                 </tr>
             <?php } ?>
         </tbody>
