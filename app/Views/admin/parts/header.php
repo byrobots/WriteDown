@@ -18,8 +18,8 @@
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="/admin/posts">Posts</a>
         <a class="p-2 text-dark" href="/admin/users">Users</a>
+        <a class="btn btn-outline-warning" href="/admin/logout">Logout</a>
     </nav>
-    <a class="btn btn-outline-warning" href="/admin/logout">Logout</a>
 </div>
 
 <div class="container">
