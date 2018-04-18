@@ -1,6 +1,10 @@
 <?php $pagetitle = 'Users';
 include __DIR__ . '/../parts/header.php' ?>
 
+<nav class="nav nav-pills nav-justified sub-nav">
+    <a class="nav-link active" href="/admin/users/new">New</a>
+</nav>
+
 <table class="table">
     <thead>
         <tr>
