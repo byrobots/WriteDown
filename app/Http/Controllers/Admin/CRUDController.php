@@ -43,14 +43,18 @@ class CRUDController extends Controller
     /**
      * List all resources.
      *
+     * @param \Psr\Http\Message\ServerRequestInterface $request
+     * @param \Psr\Http\Message\ResponseInterface      $response
+     * @param array                                    $args
+     *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function index()
+    public function index(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
         $resources = $this->api->{$this->endpoint}()->index([
             'where'      => [],
             'pagination' => [
-                'current_page' => 1,
+                'current_page' => $args['page'],
                 'per_page'     => getenv('MAX_ITEMS'),
             ],
         ]);
