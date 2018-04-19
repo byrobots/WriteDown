@@ -54,7 +54,7 @@ class CRUDController extends Controller
         $resources = $this->api->{$this->endpoint}()->index([
             'where'      => [],
             'pagination' => [
-                'current_page' => $args['page'],
+                'current_page' => array_key_exists('page', $args) ? $args['page'] : 1,
                 'per_page'     => getenv('MAX_ITEMS'),
             ],
         ]);
