@@ -1,0 +1,32 @@
+// Modules ----------
+// Modules contain SCSS that doesn't output, i.e. variables and mixins.
+// For consistency, and to reduce debugging errors, import variables first,
+// followed by mixins.
+@import "modules/colours";
+@import "modules/fonts";
+
+// Partials ----------
+// Partials contains SCSS broken down into categories.
+@import "../../../node_modules/bootstrap/dist/css/bootstrap";
+@import "partials/base";
+
+#masthead {
+    margin-bottom: 2em;
+    padding-top: 1em;
+    text-align: center;
+}
+
+.post-list {
+    list-style: none;
+
+    .post {
+        margin: 0 0 1em;
+        padding: 1em 0;
+        border-bottom: 1px solid #16161c;
+
+        .post-published {
+            font-size: .75em;
+        }
+    }
+}
+

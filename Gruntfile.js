@@ -27,7 +27,8 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'public/css/admin.css': 'resources/assets/sass/app.scss'
+                    'public/css/admin.css': 'resources/assets/sass/app.scss',
+                    'public/css/by-robots.css': 'resources/assets/sass/by-robots.scss'
                 }
             }
         }
