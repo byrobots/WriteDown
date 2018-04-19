@@ -20,6 +20,7 @@ class ControllerServiceProvider extends AbstractServiceProvider
         'Admin\AuthController',
         'Admin\PostController',
         'Admin\UserController',
+        'PostController',
     ];
 
     /**
@@ -47,5 +48,9 @@ class ControllerServiceProvider extends AbstractServiceProvider
 
         $this->getContainer()
             ->add('Admin\UserController', UserController::class);
+
+        // Now the frontend
+        $this->getContainer()
+            ->add('PostController', \App\Http\Controllers\PostController::class);
     }
 }

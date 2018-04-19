@@ -1,6 +1,14 @@
 <?php
 
 /**
+ * Front facing posts.
+ */
+$writedown->getRouter()->get('/', 'PostController::index');
+$writedown->getRouter()->get('/{page:number}', 'PostController::index');
+
+$writedown->getRouter()->get('/{slug}', 'PostController::read');
+
+/**
  * Admin login routes.
  */
 $writedown->getRouter()

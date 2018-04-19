@@ -29,7 +29,7 @@ include __DIR__ . '/../parts/header.php' ?>
                             if ($post->publish_at < new DateTime('now')) { ?>
                                 Yes
                             <?php } else { ?>
-                                Published on
+                                Will be published on
                                 <?= $post->publish_at->format('l jS F Y') ?> at
                                 <?= $post->publish_at->format('H:i:s') ?>
                             <?php }
