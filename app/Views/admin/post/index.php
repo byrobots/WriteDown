@@ -1,4 +1,5 @@
 <?php $pagetitle = 'Posts';
+$subnav          = '<a class="nav-link active" href="/admin/posts/new">New</a>';
 include __DIR__ . '/../parts/header.php' ?>
 
 <?php if (count($resources['data']) < 1) { ?>
@@ -6,10 +7,6 @@ include __DIR__ . '/../parts/header.php' ?>
         <p class="lead">No posts yet - <a href="/admin/posts/new">get writing</a>!</p>
     </div>
 <?php } else { ?>
-    <nav class="nav nav-pills nav-justified sub-nav">
-        <a class="nav-link active" href="/admin/posts/new">New</a>
-    </nav>
-
     <table class="table">
         <thead>
             <tr>

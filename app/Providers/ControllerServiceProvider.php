@@ -18,7 +18,6 @@ class ControllerServiceProvider extends AbstractServiceProvider
      */
     protected $provides = [
         'Admin\AuthController',
-        'Admin\DashboardController',
         'Admin\PostController',
         'Admin\UserController',
     ];
@@ -42,9 +41,6 @@ class ControllerServiceProvider extends AbstractServiceProvider
         // First up, the admin area.
         $this->getContainer()
             ->add('Admin\AuthController', AuthController::class);
-
-        $this->getContainer()
-            ->add('Admin\DashboardController', DashboardController::class);
 
         $this->getContainer()
             ->add('Admin\PostController', PostController::class);

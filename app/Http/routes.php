@@ -17,9 +17,6 @@ $writedown->getRouter()->group('/admin', function ($route) use ($csrfMiddleware)
     // Log the user out
     $route->get('/logout', 'Admin\AuthController::logout');
 
-    // Admin dashboard
-    $route->get('/', 'Admin\DashboardController::index');
-
     // Posts CRUD
     $route->get('/posts', 'Admin\PostController::index');
 
