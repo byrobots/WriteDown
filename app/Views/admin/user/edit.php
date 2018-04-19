@@ -1,7 +1,7 @@
 <?php $pagetitle = 'Editing ' . $resource['data']->email;
 include __DIR__ . '/../parts/header.php' ?>
 
-<form action="/admin/users/<?= $resource['data']->id ?>" method="post">
+<form action="/admin/users/edit/<?= $resource['data']->id ?>" method="post">
     <input type="hidden" name="csrf" value="<?= $csrf ?>">
 
     <div class="form-group">

@@ -16,8 +16,8 @@ include __DIR__ . '/../parts/header.php' ?>
             <tr>
                 <td scope="row"><?= $user->id ?></td>
                 <td><?= $user->email ?></td>
-                <td><a href="/admin/users/<?= $user->id ?>" class="btn btn-warning">Edit</a></td>
-                <td><a href="/admin/users/<?= $user->id ?>/delete" class="btn btn-danger confirm">Delete</a></td>
+                <td><a href="/admin/users/edit/<?= $user->id ?>" class="btn btn-warning">Edit</a></td>
+                <td><a href="/admin/users/delete/<?= $user->id ?>" class="btn btn-danger confirm">Delete</a></td>
             </tr>
         <?php } ?>
     </tbody>

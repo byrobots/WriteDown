@@ -47,9 +47,17 @@ class CRUDController extends Controller
      */
     public function index()
     {
+        $resources = $this->api->{$this->endpoint}()->index([
+            'where'      => [],
+            'pagination' => [
+                'current_page' => 1,
+                'per_page'     => getenv('MAX_ITEMS'),
+            ],
+        ]);
+
         return $this->view->render($this->response, 'admin/' . $this->viewFolder . '/index.php', [
             'error'     => $this->sessions->getFlash('error'),
-            'resources' => $this->api->{$this->endpoint}()->index(['where' => []]),
+            'resources' => $resources,
             'success'   => $this->sessions->getFlash('success'),
         ]);
     }
@@ -148,7 +156,7 @@ class CRUDController extends Controller
 
         $this->sessions->setFlash('errors', $result['data']);
         $this->sessions->setFlash('old', $this->data);
-        return new RedirectResponse('/admin/' . $this->resourcePath . '/' . $args['resourceID']);
+        return new RedirectResponse('/admin/' . $this->resourcePath . '/edit/' . $args['resourceID']);
     }
 
     /**
