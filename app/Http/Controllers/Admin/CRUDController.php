@@ -50,6 +50,7 @@ class CRUDController extends Controller
         return $this->view->render($this->response, 'admin/' . $this->viewFolder . '/index.php', [
             'error'     => $this->sessions->getFlash('error'),
             'resources' => $this->api->{$this->endpoint}()->index(['where' => []]),
+            'success'   => $this->sessions->getFlash('success'),
         ]);
     }
 
@@ -62,8 +63,8 @@ class CRUDController extends Controller
     {
         return $this->view->render($this->response, 'admin/' . $this->viewFolder . '/create.php', [
             'csrf'   => $this->csrf->get(),
-            'errors' => $this->sessions->getFlash('errors') ? $this->sessions->getFlash('errors') : [],
-            'old'    => $this->sessions->getFlash('old')    ? $this->sessions->getFlash('old')    : [],
+            'errors' => $this->sessions->getFlash('errors') ?: [],
+            'old'    => $this->sessions->getFlash('old')    ?: [],
         ]);
     }
 
@@ -87,7 +88,7 @@ class CRUDController extends Controller
         }
 
         $this->sessions->setFlash('errors', $result['data']);
-        $this->sessions->setFlash('old', $data);
+        $this->sessions->setFlash('old', $this->data);
         return new RedirectResponse('/admin/' . $this->resourcePath . '/new');
     }
 
@@ -110,9 +111,10 @@ class CRUDController extends Controller
 
         return $this->view->render($this->response, 'admin/' . $this->viewFolder . '/edit.php', [
             'csrf'     => $this->csrf->get(),
-            'errors'   => $this->sessions->getFlash('errors') ? $this->sessions->getFlash('errors') : [],
-            'old'      => $this->sessions->getFlash('old')    ? $this->sessions->getFlash('old')     : [],
+            'errors'   => $this->sessions->getFlash('errors') ?: [],
+            'old'      => $this->sessions->getFlash('old')    ?: [],
             'resource' => $resource,
+            'success'  => $this->sessions->getFlash('success'),
         ]);
     }
 
@@ -146,7 +148,7 @@ class CRUDController extends Controller
 
         $this->sessions->setFlash('errors', $result['data']);
         $this->sessions->setFlash('old', $this->data);
-        return new RedirectResponse('/admin/' . $this->resourcePath . '/' . $result['data']->id);
+        return new RedirectResponse('/admin/' . $this->resourcePath . '/' . $args['resourceID']);
     }
 
     /**

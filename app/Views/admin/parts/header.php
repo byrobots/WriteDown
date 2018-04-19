@@ -23,7 +23,19 @@
 </div>
 
 <div class="container">
-    <h1><?= $pagetitle ?></h1>
+    <div class="row">
+        <h1 class="col-12 col-sm-6"><?= $pagetitle ?></h1>
+
+        <div class="col-12 col-sm-6">
+            <nav class="nav nav-pills nav-justified subnav">
+                <?= isset($subnav) ? $subnav : '' ?>
+            </nav>
+        </div>
+    </div>
+
+    <?php if (isset($success) and !empty($success)) { ?>
+        <span class="alert alert-success"><?= $success ?></span>
+    <?php } ?>
 
     <?php if (isset($error) and !empty($error)) { ?>
         <span class="alert alert-danger"><?= $error ?></span>

@@ -46,7 +46,7 @@ class AuthController extends Controller
         $this->sessions->set('auth_token', $token);
 
         // Onwards to the admin area
-        return new RedirectResponse('/admin');
+        return new RedirectResponse('/admin/posts');
     }
 
     /**
