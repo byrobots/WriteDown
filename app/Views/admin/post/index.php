@@ -35,12 +35,14 @@ include __DIR__ . '/../parts/header.php' ?>
                             <?php }
                         } ?>
                     </td>
-                    <td><a href="/admin/posts/<?= $post->id ?>" class="btn btn-warning">Edit</a></td>
-                    <td><a href="/admin/posts/<?= $post->id ?>/delete" class="btn btn-danger confirm">Delete</a></td>
+                    <td><a href="/admin/posts/edit/<?= $post->id ?>" class="btn btn-warning">Edit</a></td>
+                    <td><a href="/admin/posts/delete/<?= $post->id ?>" class="btn btn-danger confirm">Delete</a></td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
+
+    <?php include __DIR__ . '/../parts/pagination.php' ?>
 <?php } ?>
 
 <?php include __DIR__ . '/../parts/footer.php' ?>

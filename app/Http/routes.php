@@ -19,27 +19,29 @@ $writedown->getRouter()->group('/admin', function ($route) use ($csrfMiddleware)
 
     // Posts CRUD
     $route->get('/posts', 'Admin\PostController::index');
+    $route->get('/posts/{page:number}', 'Admin\PostController::index');
 
     $route->get('/posts/new', 'Admin\PostController::create');
     $route->post('/posts', 'Admin\PostController::store')
         ->middleware($csrfMiddleware);
 
-    $route->get('/posts/{resourceID}', 'Admin\PostController::edit');
-    $route->post('/posts/{resourceID}', 'Admin\PostController::update')
+    $route->get('/posts/edit/{resourceID}', 'Admin\PostController::edit');
+    $route->post('/posts/edit/{resourceID}', 'Admin\PostController::update')
         ->middleware($csrfMiddleware);
 
-    $route->get('/posts/{resourceID}/delete', 'Admin\PostController::delete');
+    $route->get('/posts/delete/{resourceID}', 'Admin\PostController::delete');
 
     // Users CRUD
     $route->get('/users', 'Admin\UserController::index');
+    $route->get('/users/{page:number}', 'Admin\UserController::index');
 
     $route->get('/users/new', 'Admin\UserController::create');
     $route->post('/users', 'Admin\UserController::store')
         ->middleware($csrfMiddleware);
 
-    $route->get('/users/{resourceID}', 'Admin\UserController::edit');
-    $route->post('/users/{resourceID}', 'Admin\UserController::update')
+    $route->get('/users/edit/{resourceID}', 'Admin\UserController::edit');
+    $route->post('/users/edit/{resourceID}', 'Admin\UserController::update')
         ->middleware($csrfMiddleware);
 
-    $route->get('/users/{resourceID}/delete', 'Admin\UserController::delete');
+    $route->get('/users/delete/{resourceID}', 'Admin\UserController::delete');
 })->middleware($authMiddleware);
