@@ -12,11 +12,11 @@ if (count($posts['data']) < 1) { ?>
                 <header>
                     <h2 class="h3"><a href="<?= $post->slug ?>"><?= $post->title ?></a></h2>
                     <p class="post-published">Published on <?= $post->publish_at->format('l jS F Y \a\t H:i:s') ?></p>
-
-                    <?php if (!empty($post->excerpt)) { ?>
-                        <p><?= $post->excerpt ?></p>
-                    <?php } ?>
                 </header>
+
+                <?php if (!empty($post->excerpt)) { ?>
+                    <p><?= $post->excerpt ?></p>
+                <?php } ?>
             </li>
         <?php } ?>
     </ol>

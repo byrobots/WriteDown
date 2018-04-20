@@ -36,7 +36,8 @@ class ControllerServiceProvider extends AbstractServiceProvider
             ->invokeMethod('setAPI',      ['WriteDown\API\Interfaces\APIInterface'])
             ->invokeMethod('setView',     ['view']) // TODO: Interface
             ->invokeMethod('setCSRF',     ['WriteDown\CSRF\CSRFInterface'])
-            ->invokeMethod('setAuth',     ['WriteDown\Auth\Interfaces\AuthInterface']);
+            ->invokeMethod('setAuth',     ['WriteDown\Auth\Interfaces\AuthInterface'])
+            ->invokeMethod('setMarkdown', ['WriteDown\Markdown\MarkdownInterface']);
 
         // Now define the controllers themselves.
         // First up, the admin area.

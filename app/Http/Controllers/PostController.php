@@ -42,7 +42,14 @@ class PostController extends Controller
      */
     public function read(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-        $post = []; // TODO
+        $post = $this->api->post()->bySlug($args['slug']);
+
+        if (!$post['success']) {
+            http_response_code(404);
+            exit;
+        }
+
+        $post['data']->body = $this->markdown->markdownToHtml($post['data']->body);
         return $this->view->render($this->response, 'post/read.php', [
             'post' => $post,
         ]);
