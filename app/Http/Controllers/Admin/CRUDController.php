@@ -55,7 +55,7 @@ class CRUDController extends Controller
             'where'      => [],
             'pagination' => [
                 'current_page' => array_key_exists('page', $args) ? $args['page'] : 1,
-                'per_page'     => getenv('MAX_ITEMS'),
+                'per_page'     => env('MAX_ITEMS', 10),
             ],
         ]);
 

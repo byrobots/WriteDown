@@ -7,18 +7,18 @@ class UserSeeder extends BaseSeeder
      */
     public function run()
     {
-        if (!getenv('SEED_USER_EMAIL')) {
+        if (!env('SEED_USER_EMAIL')) {
             throw new Exception('Seed email not set.');
         }
 
-        if (!getenv('SEED_USER_PASSWORD')) {
+        if (!env('SEED_USER_PASSWORD')) {
             throw new Exception('Seed password not set.');
         }
 
         $now  = new DateTime('now');
         $data = [
-            'email'      => getenv('SEED_USER_EMAIL'),
-            'password'   => password_hash(getenv('SEED_USER_PASSWORD'), PASSWORD_DEFAULT),
+            'email'      => env('SEED_USER_EMAIL'),
+            'password'   => password_hash(env('SEED_USER_PASSWORD'), PASSWORD_DEFAULT),
             'token'      => null,
             'created_at' => $now->format('Y-m-d H:i:s'),
             'updated_at' => $now->format('Y-m-d H:i:s'),

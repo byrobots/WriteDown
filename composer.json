@@ -24,6 +24,9 @@
         "phpunit/phpunit": "~7.0"
     },
     "autoload": {
+        "files": [
+            "writedown/Helpers/helpers.php"
+        ],
         "psr-4": {
             "App\\": "app/",
             "WriteDown\\": "writedown/"
