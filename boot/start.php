@@ -5,10 +5,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 // Load the environment variables
 // When testing environment variables are specified in phpunit.xml.
-if (getenv('ENVIRONMENT') !== 'testing') {
-    $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
-    $dotenv->load();
-}
+$dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
+$dotenv->load();
 
 // Get the WriteDown object, load providers
 $writedown = new WriteDown\WriteDown(new League\Container\Container);
