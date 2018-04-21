@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\BaseController;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use WriteDown\Http\Controllers\Controller;
 use Zend\Diactoros\Response\RedirectResponse;
 
 /**
  * Provides a simple, reusable, CRUD interface for resources.
  */
-class CRUDController extends Controller
+class CRUDController extends BaseController
 {
     /**
      * The folder that contains views for this resource.

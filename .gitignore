@@ -1,7 +1,8 @@
 /.idea
 
-/db/writedown*
-!/db/writedown-test-clean
+/db/*
+!/db/migrations
+!/db/seeds
 
 /public/css/*
 /public/js/*
@@ -14,4 +15,3 @@
 .DS_Store
 .env
 composer.phar
-ocular.phar

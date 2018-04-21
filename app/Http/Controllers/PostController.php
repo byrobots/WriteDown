@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use WriteDown\Http\Controllers\Controller;
 
-class PostController extends Controller
+class PostController extends BaseController
 {
     /**
      * The blog roll.
