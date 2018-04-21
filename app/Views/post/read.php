@@ -9,7 +9,7 @@ include __DIR__ . '/../parts/header.php' ?>
     </header>
 
     <?php if (!empty($post['data']->excerpt)) { ?>
-        <p><?= $post['data']->excerpt ?></p>
+        <p class="post-excerpt"><?= $post['data']->excerpt ?></p>
     <?php } ?>
 
     <?= $post['data']->body ?>

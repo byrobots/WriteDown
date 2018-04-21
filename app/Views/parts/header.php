@@ -10,10 +10,10 @@
 </head>
 <body>
 <div id="masthead">
-    <a href="https://www.by-robots.com">
+    <a href="/">
         <img alt="By Robots" src="/img/logo-tiny.png" srcset="/img/logo-tiny@2x.png 2x">
     </a>
-    <h2 class="my-0 mr-md-auto font-weight-normal">By Robots</h2>
+    <h2 class="my-0 mr-md-auto h1">By Robots</h2>
 </div>
 
 <div class="container">
