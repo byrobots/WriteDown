@@ -4,39 +4,20 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "aura/session": "^2.1",
-        "container-interop/container-interop": "^1.2",
-        "doctrine/orm": "^2.6",
-        "league/commonmark": "^0.17",
-        "league/container": "^2.4",
-        "league/html-to-markdown": "^4.6",
-        "league/route": "^3.0",
+        "byrobots/writedown-core": "dev-master",
         "robmorgan/phinx": "^0.9.2",
         "slim/php-view": "^2.2",
-        "vlucas/phpdotenv": "^2.4",
-        "vlucas/valitron": "^1.4",
-        "zendframework/zend-diactoros": "^1.7"
+        "vlucas/phpdotenv": "^2.4"
     },
     "require-dev": {
-        "filp/whoops": "~2.0",
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "^1.0",
-        "phpunit/phpunit": "~7.0"
+        "filp/whoops": "~2.0"
     },
     "autoload": {
-        "files": [
-            "writedown/Helpers/helpers.php"
-        ],
         "psr-4": {
-            "App\\": "app/",
-            "WriteDown\\": "writedown/"
+            "App\\": "app/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
+    "autoload-dev": {},
     "config": {
         "optimize-autoloader": true,
         "platform": {
@@ -46,5 +27,11 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/byrobots/writedown-core"
+        }
+    ]
 }

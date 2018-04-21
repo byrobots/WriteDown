@@ -4,14 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Slim\Views\PhpRenderer;
 
 class PostController extends CRUDController
 {
     /**
      * Set-up CRUDController.
+     *
+     * @param \Slim\Views\PhpRenderer $view
      */
-    public function __construct()
+    public function __construct(PhpRenderer $view)
     {
+        parent::__construct($view);
+
         $this->viewFolder   = 'post';
         $this->resourcePath = 'posts';
         $this->endpoint     = 'post';

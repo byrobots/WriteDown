@@ -3,7 +3,7 @@ include __DIR__ . '/../parts/header.php';
 
 if (count($posts['data']) < 1) { ?>
     <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <p class="lead">Nothing yet, but check back soon!</p>
+        <p class="lead">Nothing here yet, but check back soon!</p>
     </div>
 <?php } else { ?>
     <ol class="col-md-8 offset-md-2 post-list">
