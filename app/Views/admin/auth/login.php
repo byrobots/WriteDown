@@ -18,7 +18,7 @@
                             <img alt="By Robots" src="/img/logo-small.png" srcset="/img/logo-small@2x.png 2x">
                         </a>
                     </h2>
-                    <h1 class="title-header h3">Write Down</h1>
+                    <h1 class="title-header h3">WriteDown</h1>
                 </header>
             </div>
 

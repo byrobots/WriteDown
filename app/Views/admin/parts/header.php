@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Write Down - <?= $pagetitle ?></title>
+    <title>WriteDown - <?= $pagetitle ?></title>
 
     <link href="/css/admin.css" rel="stylesheet">
 </head>
@@ -13,7 +13,7 @@
     <a href="https://www.by-robots.com">
         <img alt="By Robots" src="/img/logo-tiny.png" srcset="/img/logo-tiny@2x.png 2x">
     </a>
-    <h2 class="my-0 mr-md-auto font-weight-normal">Write Down</h2>
+    <h2 class="my-0 mr-md-auto font-weight-normal">WriteDown</h2>
 
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="/admin/posts">Posts</a>

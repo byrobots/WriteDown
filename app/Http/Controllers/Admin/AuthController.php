@@ -16,7 +16,7 @@ class AuthController extends BaseController
     {
         return $this->view->render($this->response, 'admin/auth/login.php', [
             'csrf'  => $this->csrf->get(),
-            'error' => $this->sessions->getFlash('error'),
+            'error' => $this->session->getFlash('error'),
         ]);
     }
 
@@ -36,14 +36,14 @@ class AuthController extends BaseController
 
         // Sad trombone
         if (!$user) {
-            $this->sessions->setFlash('error', 'Can not login.');
+            $this->session->setFlash('error', 'Can not login.');
             return new RedirectResponse('/admin/login');
         }
 
         // Generate and set the user's authentication token
         $token = $this->auth->generate();
         $this->api->user()->update($user->id, ['token' => $token]);
-        $this->sessions->set('auth_token', $token);
+        $this->session->set('auth_token', $token);
 
         // Onwards to the admin area
         return new RedirectResponse('/admin/posts');
@@ -58,7 +58,7 @@ class AuthController extends BaseController
     {
         $user = $this->loggedInAs();
         $this->api->user()->update($user->id, ['token' => null]);
-        $this->sessions->destroy();
+        $this->session->destroy();
 
         return new RedirectResponse('/');
     }

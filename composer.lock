@@ -74,12 +74,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/byrobots/writedown-core.git",
-                "reference": "1b6e4ecf032e7904374c67fb097ea880b8adc742"
+                "reference": "ba21356070095933ee43b72f7ef509f57fb81d4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/byrobots/writedown-core/zipball/1b6e4ecf032e7904374c67fb097ea880b8adc742",
-                "reference": "1b6e4ecf032e7904374c67fb097ea880b8adc742",
+                "url": "https://api.github.com/repos/byrobots/writedown-core/zipball/ba21356070095933ee43b72f7ef509f57fb81d4e",
+                "reference": "ba21356070095933ee43b72f7ef509f57fb81d4e",
                 "shasum": ""
             },
             "require": {
@@ -115,12 +115,12 @@
             "license": [
                 "MIT"
             ],
-            "description": "Write Down's core code.",
+            "description": "WriteDown's core code.",
             "support": {
                 "source": "https://github.com/byrobots/writedown-core/tree/master",
                 "issues": "https://github.com/byrobots/writedown-core/issues"
             },
-            "time": "2018-04-21T14:48:10+00:00"
+            "time": "2018-04-22T08:37:24+00:00"
         },
         {
             "name": "container-interop/container-interop",

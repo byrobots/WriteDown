@@ -60,9 +60,9 @@ class CRUDController extends BaseController
         ]);
 
         return $this->view->render($this->response, 'admin/' . $this->viewFolder . '/index.php', [
-            'error'     => $this->sessions->getFlash('error'),
+            'error'     => $this->session->getFlash('error'),
             'resources' => $resources,
-            'success'   => $this->sessions->getFlash('success'),
+            'success'   => $this->session->getFlash('success'),
         ]);
     }
 
@@ -75,8 +75,8 @@ class CRUDController extends BaseController
     {
         return $this->view->render($this->response, 'admin/' . $this->viewFolder . '/create.php', [
             'csrf'   => $this->csrf->get(),
-            'errors' => $this->sessions->getFlash('errors') ?: [],
-            'old'    => $this->sessions->getFlash('old')    ?: [],
+            'errors' => $this->session->getFlash('errors') ?: [],
+            'old'    => $this->session->getFlash('old')    ?: [],
         ]);
     }
 
@@ -93,14 +93,14 @@ class CRUDController extends BaseController
 
         $result = $this->api->{$this->endpoint}()->create($this->data);
         if ($result['success']) {
-            $this->sessions
+            $this->session
                 ->setFlash('success', 'The new ' . $this->viewFolder . ' has been saved.');
 
             return new RedirectResponse('/admin/' . $this->resourcePath);
         }
 
-        $this->sessions->setFlash('errors', $result['data']);
-        $this->sessions->setFlash('old', $this->data);
+        $this->session->setFlash('errors', $result['data']);
+        $this->session->setFlash('old', $this->data);
         return new RedirectResponse('/admin/' . $this->resourcePath . '/new');
     }
 
@@ -117,16 +117,16 @@ class CRUDController extends BaseController
     {
         $resource = $this->api->{$this->endpoint}()->read($args['resourceID']);
         if (!$resource['success']) {
-            $this->sessions->setFlash('error', 'Sorry, that ' . $this->viewFolder . ' was not found.');
+            $this->session->setFlash('error', 'Sorry, that ' . $this->viewFolder . ' was not found.');
             return new RedirectResponse('/admin/' . $this->resourcePath);
         }
 
         return $this->view->render($this->response, 'admin/' . $this->viewFolder . '/edit.php', [
             'csrf'     => $this->csrf->get(),
-            'errors'   => $this->sessions->getFlash('errors') ?: [],
-            'old'      => $this->sessions->getFlash('old')    ?: [],
+            'errors'   => $this->session->getFlash('errors') ?: [],
+            'old'      => $this->session->getFlash('old')    ?: [],
             'resource' => $resource,
-            'success'  => $this->sessions->getFlash('success'),
+            'success'  => $this->session->getFlash('success'),
         ]);
     }
 
@@ -147,19 +147,19 @@ class CRUDController extends BaseController
 
         $result = $this->api->{$this->endpoint}()->update($args['resourceID'], $this->data);
         if ($result['success']) {
-            $this->sessions
+            $this->session
                 ->setFlash('success', 'The ' . $this->viewFolder . ' has been updated.');
 
             return new RedirectResponse('/admin/' . $this->resourcePath);
         }
 
         if ($result['data'] == ['Not found.']) {
-            $this->sessions->setFlash('error', 'That ' . $this->viewFolder . ' was not found.');
+            $this->session->setFlash('error', 'That ' . $this->viewFolder . ' was not found.');
             return new RedirectResponse('/admin/' . $this->resourcePath);
         }
 
-        $this->sessions->setFlash('errors', $result['data']);
-        $this->sessions->setFlash('old', $this->data);
+        $this->session->setFlash('errors', $result['data']);
+        $this->session->setFlash('old', $this->data);
         return new RedirectResponse('/admin/' . $this->resourcePath . '/edit/' . $args['resourceID']);
     }
 
@@ -176,13 +176,13 @@ class CRUDController extends BaseController
     {
         $result = $this->api->{$this->endpoint}()->delete($args['resourceID']);
         if ($result['success']) {
-            $this->sessions
+            $this->session
                 ->setFlash('success', 'The ' . $this->viewFolder . ' has been deleted.');
 
             return new RedirectResponse('/admin/' . $this->resourcePath);
         }
 
-        $this->sessions->setFlash('error', 'The ' . $this->viewFolder . ' doesn&rsquo;t exist.');
+        $this->session->setFlash('error', 'The ' . $this->viewFolder . ' doesn&rsquo;t exist.');
         return new RedirectResponse('/admin/' . $this->resourcePath);
     }
 }
