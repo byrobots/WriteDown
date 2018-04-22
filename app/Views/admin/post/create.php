@@ -29,11 +29,21 @@ include __DIR__ . '/../parts/header.php' ?>
     </div>
 
     <div class="form-group">
+        <?php $publishAt = null;
+
+        if (empty($old)) {
+            $publishAt = date("Y-m-d H:i:s");
+        } else if ($old['publish_at']) {
+            $publishAt = $old['publish_at']->format('Y-m-d H:i:s');
+        } ?>
+
         <label for="publish_at">Publish At</label>
-        <input name="publish_at" type="text" class="form-control datetimepicker" id="publish_at"
-               value="<?= array_key_exists('publish_at', $old) ?
-                   $old['publish_at']->format('Y-m-d H:i:s') : date('Y-m-d H:i:s') ?>">
-        <small id="publish_at_help" class="form-text text-muted">Leave blank to have the post unpublished indefinitely. You can change this later.</small>
+        <input name="publish_at" type="text" class="form-control datetimepicker"
+               id="publish_at" value="<?= $publishAt ?>">
+
+        <small id="publish_at_help" class="form-text text-muted">
+            Leave blank to have the post unpublished indefinitely. You can change this later.
+        </small>
     </div>
 
     <div class="form-group">

@@ -29,10 +29,17 @@ include __DIR__ . '/../parts/header.php' ?>
     </div>
 
     <div class="form-group">
+        <?php $publishAt = null;
+
+        if (isset($old['publish_at'])) {
+            $publishAt = $old['publish_at']->format('Y-m-d H:i:s');
+        } else if (!array_key_exists('publish_at', $old) and isset($resource['data']->publish_at)) {
+            $publishAt = $resource['data']->publish_at->format('Y-m-d H:i:s');
+        } ?>
+
         <label for="publish_at">Publish At</label>
         <input name="publish_at" type="text" class="form-control datetimepicker"
-            id="publish_at" value="<?= array_key_exists('publish_at', $old) ?
-            $old['publish_at']->format('Y-m-d H:i:s') : $resource['data']->publish_at->format('Y-m-d H:i:s') ?>">
+            id="publish_at" value="<?= $publishAt ?>">
     </div>
 
     <div class="form-group">
