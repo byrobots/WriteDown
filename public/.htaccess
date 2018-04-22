@@ -9,6 +9,11 @@
     RewriteCond %{HTTP:X-Forwarded-Proto} !=https
     RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=302,L]
 
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
     # Re-write requests to WriteDown
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
