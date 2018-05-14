@@ -9,7 +9,7 @@ class CreateTagsTable extends AbstractMigration
     {
 	    $table = $this->table('tags');
 	    $table->addColumn('name', 'string')
-	          ->addIndex(['email'], ['unique' => true])
+	          ->addIndex(['name'], ['unique' => true])
 	          ->create();
     }
 }
