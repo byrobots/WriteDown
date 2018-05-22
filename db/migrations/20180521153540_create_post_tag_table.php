@@ -14,8 +14,6 @@ class CreatePostTagTable extends AbstractMigration
 
         $table->addColumn('post_id', 'integer')
             ->addColumn('tag_id', 'integer')
-            ->addColumn('created_at', 'datetime')
-            ->addColumn('updated_at', 'datetime')
             ->addForeignKey('post_id', 'posts', 'id', ['delete' => 'CASCADE', 'update' => 'NO_ACTION'])
             ->addForeignKey('tag_id', 'tags', 'id', ['delete' => 'CASCADE', 'update' => 'NO_ACTION'])
             ->create();
