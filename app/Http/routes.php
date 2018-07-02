@@ -52,4 +52,18 @@ $writedown->getRouter()->group('/admin', function ($route) use ($csrfMiddleware)
         ->middleware($csrfMiddleware);
 
     $route->get('/users/delete/{resourceID}', 'Admin\UserController::delete');
+
+    // Tag CRUD
+    $route->get('/tags', 'Admin\TagController::index');
+    $route->get('/tags/{page:number}', 'Admin\TagController::index');
+
+    $route->get('/tags/new', 'Admin\TagController::create');
+    $route->post('/tags', 'Admin\TagController::store')
+          ->middleware($csrfMiddleware);
+
+    $route->get('/tags/edit/{resourceID}', 'Admin\TagController::edit');
+    $route->post('/tags/edit/{resourceID}', 'Admin\TagController::update')
+          ->middleware($csrfMiddleware);
+
+    $route->get('/tags/delete/{resourceID}', 'Admin\TagController::delete');
 })->middleware($authMiddleware);
