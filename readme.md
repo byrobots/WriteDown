@@ -16,8 +16,4 @@ These instructions are temporary.
 6. `./vendor/bin/phinx seed:run`
 7. `grunt default`
 
-## Migrations
-Migrations are built using [Phinx](https://phinx.org/). Documentation is
-available [here](http://docs.phinx.org/en/latest/index.html).
-
 
