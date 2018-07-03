@@ -22,7 +22,7 @@ include __DIR__ . '/../parts/header.php' ?>
                     <td scope="row"><?= $tag->id ?></td>
                     <td><?= $tag->name ?></td>
                     <td><a href="/admin/tags/edit/<?= $tag->id ?>" class="btn btn-warning">Edit</a></td>
-                    <td><a href="/admin/tags/delete/<?= $tag->id ?>" class="btn btn-danger confirm">Delete</a></td>
+                    <td><a href="/admin/tags/delete/<?= $tag->id ?>?csrf=<?= $csrf ?>" class="btn btn-danger confirm">Delete</a></td>
                 </tr>
             <?php } ?>
         </tbody>

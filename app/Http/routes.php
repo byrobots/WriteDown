@@ -37,7 +37,8 @@ $writedown->getRouter()->group('/admin', function ($route) use ($csrfMiddleware)
     $route->post('/posts/edit/{resourceID}', 'Admin\PostController::update')
         ->middleware($csrfMiddleware);
 
-    $route->get('/posts/delete/{resourceID}', 'Admin\PostController::delete');
+    $route->get('/posts/delete/{resourceID}', 'Admin\PostController::delete')
+        ->middleware($csrfMiddleware);
 
     // Users CRUD
     $route->get('/users', 'Admin\UserController::index');
@@ -51,7 +52,8 @@ $writedown->getRouter()->group('/admin', function ($route) use ($csrfMiddleware)
     $route->post('/users/edit/{resourceID}', 'Admin\UserController::update')
         ->middleware($csrfMiddleware);
 
-    $route->get('/users/delete/{resourceID}', 'Admin\UserController::delete');
+    $route->get('/users/delete/{resourceID}', 'Admin\UserController::delete')
+        ->middleware($csrfMiddleware);
 
     // Tag CRUD
     $route->get('/tags', 'Admin\TagController::index');
@@ -65,5 +67,6 @@ $writedown->getRouter()->group('/admin', function ($route) use ($csrfMiddleware)
     $route->post('/tags/edit/{resourceID}', 'Admin\TagController::update')
           ->middleware($csrfMiddleware);
 
-    $route->get('/tags/delete/{resourceID}', 'Admin\TagController::delete');
+    $route->get('/tags/delete/{resourceID}', 'Admin\TagController::delete')
+        ->middleware($csrfMiddleware);
 })->middleware($authMiddleware);

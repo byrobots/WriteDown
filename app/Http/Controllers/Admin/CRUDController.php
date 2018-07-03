@@ -60,6 +60,7 @@ class CRUDController extends BaseController
         ]);
 
         return $this->view->render($this->response, 'admin/' . $this->viewFolder . '/index.php', [
+            'csrf'      => $this->csrf->get(),
             'error'     => $this->session->getFlash('error'),
             'resources' => $resources,
             'success'   => $this->session->getFlash('success'),

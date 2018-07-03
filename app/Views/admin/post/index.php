@@ -36,7 +36,7 @@ include __DIR__ . '/../parts/header.php' ?>
                         } ?>
                     </td>
                     <td><a href="/admin/posts/edit/<?= $post->id ?>" class="btn btn-warning">Edit</a></td>
-                    <td><a href="/admin/posts/delete/<?= $post->id ?>" class="btn btn-danger confirm">Delete</a></td>
+                    <td><a href="/admin/posts/delete/<?= $post->id ?>?csrf=<?= $csrf ?>" class="btn btn-danger confirm">Delete</a></td>
                 </tr>
             <?php } ?>
         </tbody>
