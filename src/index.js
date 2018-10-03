@@ -1,9 +1,9 @@
 import Vue from 'vue';
-import App from './App.vue';
-
+import Form from './Form.vue';
 import './style.scss';
 
-new Vue({
+// Mount the app
+const app = new Vue({
     el: '#app',
-    render: h => h(App)
+    render: h => h(Form)
 });

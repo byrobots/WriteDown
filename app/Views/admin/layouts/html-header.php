@@ -7,4 +7,3 @@
     <title><?php echo $pagetitle ?> - WriteDown</title>
 </head>
 <body>
-    <div id="app"></div>
