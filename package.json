@@ -1,10 +1,9 @@
 {
     "name": "writedown",
     "version": "1.0.0",
-    "description": "Frontend assets for WriteDown.",
-    "main": "index.js",
+    "description": "WriteDown - A really simple blogging platform.",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "webpack --config webpack.config.dev.js"
     },
     "repository": {
         "type": "git",
@@ -13,14 +12,16 @@
     "author": "By Robots",
     "license": "MIT",
     "dependencies": {
-        "bootstrap": "4.1",
-        "grunt": "^1.0.3",
-        "grunt-cli": "^1.2",
-        "grunt-contrib-concat": "^1.0",
-        "grunt-sass": "^2.1",
-        "jquery": "^3.2",
-        "jquery-datetimepicker": "^2.5",
-        "npm": "^6.1.0",
-        "simplemde": "^1.11"
+        "@fortawesome/fontawesome-free": "^5.3.1",
+        "vue": "^2.5.17",
+        "vue-router": "^3.0.1"
+    },
+    "devDependencies": {
+        "css-loader": "^1.0.0",
+        "vue-loader": "^15.4.2",
+        "vue-style-loader": "^4.1.2",
+        "vue-template-compiler": "^2.5.17",
+        "webpack": "^4.20.2",
+        "webpack-cli": "^3.1.2"
     }
 }

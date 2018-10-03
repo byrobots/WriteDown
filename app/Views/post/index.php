@@ -1,27 +1,14 @@
-<?php $pagetitle = 'Home';
-include __DIR__ . '/../parts/header.php';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-if (count($posts['data']) < 1) { ?>
-    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <p class="lead">Nothing here yet, but check back soon!</p>
-    </div>
-<?php } else { ?>
-    <ol class="col-md-8 offset-md-2 post-list">
-        <?php foreach ($posts['data'] as $post) { ?>
-            <li class="post">
-                <header>
-                    <h2 class="h3"><a href="<?= $post->slug ?>"><?= $post->title ?></a></h2>
-                    <p class="post-published">Published on <?= $post->publish_at->format('l jS F Y \a\t H:i:s') ?></p>
-                </header>
+    <title>WriteDown, meet Vue.js!</title>
+</head>
+<body>
+    <div id="app"></div>
 
-                <?php if (!empty($post->excerpt)) { ?>
-                    <p><?= $post->excerpt ?></p>
-                <?php } ?>
-            </li>
-        <?php } ?>
-    </ol>
-
-    <?php include __DIR__ . '/../parts/pagination.php';
-}
-
-include __DIR__ . '/../parts/footer.php' ?>
+    <script src="/dist/WriteDown.js" type="text/javascript"></script>
+</body>
+</html>
