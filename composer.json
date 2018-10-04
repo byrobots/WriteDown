@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "byrobots/writedown-core": "dev-master",
-        "slim/php-view": "^2.2",
+        "twig/twig": "^2.0",
         "vlucas/phpdotenv": "^2.4"
     },
     "require-dev": {
