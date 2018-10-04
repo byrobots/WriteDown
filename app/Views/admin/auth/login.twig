@@ -1,6 +1,8 @@
 {% set pagetitle = 'Hello there!' %}
+
 {% extends 'admin/layouts/guest.twig' %}
 
 {% block content %}
-    <div id="login-page"></div>
+    <div id="login-page"
+         data-pagetitle="{{ pagetitle|striptags|title }}"></div>
 {% endblock %}

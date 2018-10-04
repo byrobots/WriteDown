@@ -1,7 +1,21 @@
+/**
+ * External
+ */
 import Vue from 'vue';
-import Login from './login.vue';
 
+/**
+ * Internal
+ */
+import login from './login.vue';
+
+/**
+ * The Vue instance
+ */
 new Vue({
+    components: { login },
+    data: () => ({
+        pagetitle: '',
+    }),
     el: '#login-page',
-    render: h => h(Login),
+    render: h => h(login),
 });
