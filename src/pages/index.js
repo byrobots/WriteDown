@@ -1,1 +1,4 @@
-import Admin_login_Form from './admin/auth/login';
+/**
+ * Import ALL THE PAGES!
+ */
+import login from './login';
