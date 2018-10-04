@@ -7,3 +7,8 @@
     <title><?php echo $pagetitle ?> - WriteDown</title>
 </head>
 <body>
+    <div id="app"></div>
+
+    <script src="/dist/WriteDown.js" type="text/javascript"></script>
+</body>
+</html>
