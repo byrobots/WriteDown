@@ -1,19 +1,9 @@
 import Vue from 'vue';
+import App from './App.vue'
 
-/**
- * Components.
- */
-import LoginForm from './components/LoginForm.vue';
-
-/**
- * Import general style rules.
- */
 import './style.scss';
 
-/**
- * Now we can mount the app.
- */
-const app = new Vue({
+new Vue({
     el: '#app',
-    render: h => h(Form)
+    components: { App }
 });
