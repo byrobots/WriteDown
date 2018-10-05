@@ -9,6 +9,7 @@ import Vue from 'vue';
 import store from '../../store';
 import login from './login.vue';
 import loginform from '../../components/loginform';
+import footersignoff from '../../components/footer-signoff';
 import './style.scss';
 
 new Vue({

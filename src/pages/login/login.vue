@@ -5,6 +5,7 @@
         </header>
 
         <loginform v-bind:pagetitle="pagetitle"></loginform>
+        <footersignoff />
     </div>
 </template>
 
