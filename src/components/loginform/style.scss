@@ -1,10 +1,16 @@
 @import '../../sass/organise';
 
-.login-form {
+#login-form-container {
     width: 100%;
-    margin: 0 1em;
+    margin: 0 1em 1em;
     padding: 2em;
     border: 1px solid $colour-border;
     border-radius: .5vh;
     background: #fff;
+
+    .spinner {
+        display: block;
+        text-align: center;
+        font-size: 4em;
+    }
 }
