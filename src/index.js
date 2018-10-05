@@ -1,7 +1,7 @@
 /**
- * Import base styles that apply to everything.
+ * Internal
  */
-import './style.scss';
+import './style.scss'; // These are our base styles that apply everywhere
 
 /**
  * Loads all pages.
