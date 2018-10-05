@@ -9,6 +9,7 @@ import Vue from 'vue';
 import store from '../../store';
 import login from './login.vue';
 import loginform from '../../components/loginform';
+import './style.scss';
 
 new Vue({
     beforeMount () {

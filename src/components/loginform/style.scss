@@ -1,4 +1,10 @@
-form {
-    padding: 1em;
+@import '../../sass/organise';
+
+.login-form {
+    width: 100%;
+    margin: 0 1em;
+    padding: 2em;
+    border: 1px solid $colour-border;
+    border-radius: .5vh;
     background: #fff;
 }

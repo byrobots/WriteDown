@@ -1,0 +1,28 @@
+.form-row {
+    margin: 0 0 2em;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    label {
+        display: block;
+        margin-bottom: .5em;
+    }
+
+    input {
+        width: 100%;
+        padding: 1em;
+    }
+
+    .submit-button {
+        width: 100%;
+        padding: 1em;
+        font-weight: bold;
+        color: #fff;
+        background: $colour-default-state;
+        border: none;
+        border-bottom: 3px solid darken($colour-default-state, 10%);
+        border-radius: .5vh;
+    }
+}
