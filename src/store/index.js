@@ -16,11 +16,17 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     getters: {
+        csrf: state => {
+            return state.csrf;
+        },
         pagetitle: state => {
             return state.pagetitle;
         }
     },
     mutations: {
+        csrf (state, value) {
+                state.csrf = value;
+        },
         pagetitle (state, value) {
             state.pagetitle = value;
         }

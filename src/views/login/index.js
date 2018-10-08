@@ -15,6 +15,7 @@ import './style.scss';
 
 new Vue({
     beforeMount () {
+        store.commit('csrf', this.$el.attributes['data-csrf'].value);
         store.commit('pagetitle', this.$el.attributes['data-pagetitle'].value);
     },
     el: '#login-page',

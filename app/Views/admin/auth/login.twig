@@ -4,5 +4,6 @@
 
 {% block content %}
     <div id="login-page"
-         data-pagetitle="{{ pagetitle|striptags|title }}"></div>
+        data-pagetitle="{{ pagetitle|striptags|title }}"
+        data-csrf="{{ csrf }}"></div>
 {% endblock %}

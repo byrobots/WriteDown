@@ -1,10 +1,10 @@
 <template>
     <div id="login-container">
         <header>
-            <h1>{{ pagetitle }}</h1>
+            <h1 v-text="pagetitle"></h1>
         </header>
 
-        <loginform v-bind:pagetitle="pagetitle"></loginform>
+        <loginform></loginform>
         <footersignoff />
     </div>
 </template>
