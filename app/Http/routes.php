@@ -14,9 +14,18 @@ $writedown->getRouter()->get('/{slug}', 'PostController::read');
 $writedown->getRouter()
     ->get('/admin/login', 'Admin\AuthController::loginForm');
 
-$writedown->getRouter()
-    ->post('/admin/login', 'Admin\AuthController::validateLogin')
-    ->middleware($csrfMiddleware);
+/**
+ * API Routes.
+ *
+ * These expose the HTTP API used for making asyncronous requests in the
+ * frontend. Not to be confused with the API provided by the writedown-core
+ * package.
+ */
+$writedown->getRouter()->group('/api', function ($route) use ($csrfMiddleware) {
+    // For authenticating a user
+    $route->post('/login', 'API\AuthController::validateLogin')
+        ->middleware($csrfMiddleware); // TODO: API specific middleware
+});
 
 /**
  * Logged in administration routes.

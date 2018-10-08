@@ -115,12 +115,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/byrobots/writedown-core.git",
-                "reference": "fe16c8a9aa13e2178cbdd81b9d2832174f4f7afe"
+                "reference": "eceb0ef2c2bacc1c9e15f24a3ceb2f1f624053e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/byrobots/writedown-core/zipball/fe16c8a9aa13e2178cbdd81b9d2832174f4f7afe",
-                "reference": "fe16c8a9aa13e2178cbdd81b9d2832174f4f7afe",
+                "url": "https://api.github.com/repos/byrobots/writedown-core/zipball/eceb0ef2c2bacc1c9e15f24a3ceb2f1f624053e7",
+                "reference": "eceb0ef2c2bacc1c9e15f24a3ceb2f1f624053e7",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +162,7 @@
                 "source": "https://github.com/byrobots/writedown-core/tree/master",
                 "issues": "https://github.com/byrobots/writedown-core/issues"
             },
-            "time": "2018-10-08T15:14:20+00:00"
+            "time": "2018-10-08T15:49:34+00:00"
         },
         {
             "name": "container-interop/container-interop",
