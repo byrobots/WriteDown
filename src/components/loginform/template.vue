@@ -24,7 +24,15 @@
 </template>
 
 <script>
+    /**
+     * Components
+     */
     import spinner from '../spinner';
+
+    /**
+     * Classes
+     */
+    import Do_Login from '../../classes/do-login.js';
 
     export default {
         components: { spinner },
@@ -38,7 +46,8 @@
                 event.preventDefault();
                 this.showSpinner = true;
 
-                // TODO: Attempt to login with the details
+                const login = new Do_Login;
+                login.make_request();
             }
         },
     };
