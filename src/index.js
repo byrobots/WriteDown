@@ -4,6 +4,6 @@
 import './style.scss'; // These are our base styles that apply everywhere
 
 /**
- * Loads all pages.
+ * Loads all views.
  */
-require('./pages/index');
+require('./views/index');

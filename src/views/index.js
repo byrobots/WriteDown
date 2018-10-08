@@ -1,4 +1,4 @@
 /**
- * Import ALL THE PAGES!
+ * Import ALL THE VIEWS!
  */
 import login from './login';
