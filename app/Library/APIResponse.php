@@ -16,7 +16,7 @@ class APIResponse
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    protected function respond($payload, $success = true, $statusCode = 200, array $headers = [])
+    public function respond($payload, $success = true, $statusCode = 200, array $headers = [])
     {
         $data          = new \stdClass;
         $data->success = $success;

@@ -8,8 +8,6 @@ use App\Library\APIResponse;
 class BaseController extends Controller
 {
     /**
-     * For responding to API requests.
-     *
      * @var \App\Library\APIResponse
      */
     protected $response;

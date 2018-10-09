@@ -21,10 +21,10 @@ $writedown->getRouter()
  * frontend. Not to be confused with the API provided by the writedown-core
  * package.
  */
-$writedown->getRouter()->group('/api', function ($route) use ($csrfMiddleware) {
+$writedown->getRouter()->group('/api', function ($route) use ($apiCsrfMiddleware) {
     // For authenticating a user
     $route->post('/login', 'API\AuthController::validateLogin')
-        ->middleware($csrfMiddleware); // TODO: API specific middleware
+        ->middleware($apiCsrfMiddleware);
 });
 
 /**

@@ -16,8 +16,9 @@ $writedown = new ByRobots\WriteDown\WriteDown(new League\Container\Container);
 require __DIR__ . '/container.php';
 
 // Initialise some middleware
-$csrfMiddleware = [new \ByRobots\WriteDown\HTTP\Middleware\CSRFMiddleware($writedown->csrf()), 'validate'];
-$authMiddleware = [new \ByRobots\WriteDown\HTTP\Middleware\AuthenticatedMiddleware(
+$apiCsrfMiddleware = [new \App\HTTP\Middleware\ApiCsrfMiddleware($writedown->csrf()), 'validate'];
+$csrfMiddleware    = [new \ByRobots\WriteDown\HTTP\Middleware\CSRFMiddleware($writedown->csrf()), 'validate'];
+$authMiddleware    = [new \ByRobots\WriteDown\HTTP\Middleware\AuthenticatedMiddleware(
     $writedown->auth(),
     $writedown->session()
 ), 'validate'];
