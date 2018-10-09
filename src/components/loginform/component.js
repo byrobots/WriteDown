@@ -15,6 +15,8 @@ export default {
     components: { spinner },
     data () {
         return {
+            email: '',
+            password: '',
             showSpinner: false,
         };
     },
@@ -25,11 +27,8 @@ export default {
             this.showSpinner = true;
 
             // Create an instance of the login class and attempt the login
-            const login        = new login;
-            const login_result = login.make_request();
-
-            // Act on the result
-            switch (login_result) {
+            const api = new login();
+            switch (api.make_request(this.email, this.password)) {
                 case true:
                     break;
 

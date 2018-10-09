@@ -3,12 +3,12 @@
         <form method="post" action="" id="login-form" v-if="false === showSpinner">
             <div class="form-row">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" v-model="email">
             </div>
 
             <div class="form-row">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password">
+                <input type="password" name="password" id="password" v-model="password">
             </div>
 
             <div class="form-row">
