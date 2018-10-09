@@ -17,11 +17,7 @@ class ControllerServiceProvider extends AbstractServiceProvider
      */
     protected $provides = [
         'Admin\AuthController',
-        'Admin\PostController',
-        'Admin\TagController',
-        'Admin\UserController',
         'API\AuthController',
-        'PostController',
     ];
 
     /**
@@ -34,25 +30,8 @@ class ControllerServiceProvider extends AbstractServiceProvider
             ->add('Admin\AuthController', AuthController::class)
             ->withArgument('view');
 
-        $this->getContainer()
-            ->add('Admin\PostController', PostController::class)
-            ->withArgument('view');
-
-        $this->getContainer()
-             ->add('Admin\TagController', TagController::class)
-             ->withArgument('view');
-
-        $this->getContainer()
-            ->add('Admin\UserController', UserController::class)
-            ->withArgument('view');
-
         // The API.
         $this->getContainer()
             ->add('API\AuthController', \App\Http\Controllers\API\AuthController::class);
-
-        // Now the frontend
-        $this->getContainer()
-            ->add('PostController', \App\Http\Controllers\PostController::class)
-            ->withArgument('view');
     }
 }

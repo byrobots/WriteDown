@@ -18,18 +18,4 @@ class AuthController extends BaseController
             'csrf'  => $this->csrf->get(),
         ]);
     }
-
-    /**
-     * Log the user out.
-     *
-     * @return \Psr\Http\Message\ResponseInterface
-     */
-    public function logout()
-    {
-        $user = $this->loggedInAs();
-        $this->api->user()->update($user->id, ['token' => null]);
-        $this->session->destroy();
-
-        return new RedirectResponse('/');
-    }
 }
