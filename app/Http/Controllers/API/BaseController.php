@@ -3,26 +3,22 @@
 namespace App\Http\Controllers\API;
 
 use ByRobots\WriteDown\Http\Controllers\Controller;
-use Zend\Diactoros\Response\JsonResponse;
+use App\Library\APIResponse;
 
 class BaseController extends Controller
 {
     /**
-     * Render a template and return a response.
+     * For responding to API requests.
      *
-     * @param mixed $payload
-     * @param bool  $success
-     * @param int   $statusCode
-     * @param array $headers
-     *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @var \App\Library\APIResponse
      */
-    protected function respond($payload, $success = true, $statusCode = 200, array $headers = [])
-    {
-        $data          = new \stdClass;
-        $data->success = $success;
-        $data->data    = $payload;
+    protected $response;
 
-        return new JsonResponse($data, $statusCode, $headers);
+    /**
+     * Construct the controller.
+     */
+    public function __construct()
+    {
+        $this->response = new APIResponse;
     }
 }
