@@ -6,7 +6,9 @@
 .DS_Store
 .env
 /db/*
+/logs/*
 composer.phar
 
 !/db/migrations
 !/db/seeds
+!/logs/.gitkeep
