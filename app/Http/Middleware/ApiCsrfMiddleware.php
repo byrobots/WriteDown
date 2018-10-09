@@ -49,19 +49,19 @@ class ApiCsrfMiddleware
     {
         switch ($request->getMethod()) {
             case 'POST':
-                $token = isset($request->getParsedBody()['csrf']) ?
-                    $request->getParsedBody()['csrf'] : '';
+                $body = $request->getParsedBody();
                 break;
             case 'GET':
-                $token = isset($request->getQueryParams()['csrf']) ?
-                    $request->getQueryParams()['csrf'] : '';
+                $body = $request->getQueryParams();
                 break;
             default:
-                return $this->response->respond('', false, 400);;
+                return $this->response->respond('Invalid request.', false, 400);;
         }
 
+        $token = isset($body['csrf']) ? $body['csrf'] : '';
         if (!$this->csrf->isValid($token)) {
-            return $this->response->respond('', false, 400);
+            writeLog()->warning('Got here.');
+            return $this->response->respond('Bad CSRF.', false, 400);
         }
 
         return $next($request, $response);

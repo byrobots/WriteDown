@@ -25,12 +25,12 @@ class ControllerServiceProvider extends AbstractServiceProvider
      */
     public function register()
     {
-        // First up, the admin area.
+        // Admin routes.
         $this->getContainer()
             ->add('Admin\AuthController', AuthController::class)
             ->withArgument('view');
 
-        // The API.
+        // API endpoints.
         $this->getContainer()
             ->add('API\AuthController', \App\Http\Controllers\API\AuthController::class);
     }

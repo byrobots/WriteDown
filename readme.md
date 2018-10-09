@@ -5,27 +5,6 @@ A simple Markdown blogging platform.
 WriteDown is currently in development. There will be breaking changes until a
 release is tagged.
 
-## About this Frontend
-This is the simplest frontend. It allows WriteDown to be run in one PHP hosting
-environment.
-
-## Installation
-These instructions are temporary. Before any release candidate is tagged they'll
-likely be tidied up and simplified.
-
-1. `git clone git@github.com:byrobots/writedown.git && cd writedown` - Clone the
-repository and move into the directory.
-2. `cp .env.sample .env` - Copies the blank config file to what will be the
-live, in use one. Edit accordingly. Config value descriptions are available
-below.
-3. `npm install && composer install` - Install frontend build tools and PHP
-dependencies.
-4. `./vendor/bin/phinx migrate` - Run database migrations. This will create the
-tables necessary for WriteDown to work.
-5. `./vendor/bin/phinx seed:run` - Populates WriteDown with initial required
-data. This will generate your admin user based on information set in `.env`.
-6. `grunt default` - Builds frontend assets.
-
 ### Config Values
 These are values that can be set in the `.env` file.
 

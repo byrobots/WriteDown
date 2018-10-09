@@ -8,9 +8,6 @@
 
 /**
  * Set-up our Single Source of Truth.
- *
- * @see {@link https://vuejs.org/v2/guide/state-management.html|Vue.js documentation}
- * @var {object}
  */
 Vue.use(Vuex);
 
