@@ -61,9 +61,6 @@ class ApiCsrfMiddleware
         }
 
         if (!$this->csrf->isValid($token)) {
-            writeLog()
-                ->warning(json_encode($request->getParsedBody()));
-
             return $this->response->respond('', false, 400);
         }
 

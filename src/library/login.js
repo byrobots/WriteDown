@@ -26,8 +26,6 @@ export default class login {
                 csrf: store.state.csrf,
                 email: email,
                 password: password,
-            }, {
-                withCredentials: true,
             });
 
             return true;
