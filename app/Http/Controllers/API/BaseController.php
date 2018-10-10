@@ -10,13 +10,13 @@ class BaseController extends Controller
     /**
      * @var \App\Library\APIResponse
      */
-    protected $response;
+    protected $apiResponse;
 
     /**
      * Construct the controller.
      */
     public function __construct()
     {
-        $this->response = new APIResponse;
+        $this->apiResponse = new APIResponse;
     }
 }

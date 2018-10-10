@@ -2,6 +2,7 @@
  * External
  */
 const axios = require('axios');
+const qs    = require('qs');
 
 /**
  * Internal
@@ -22,15 +23,15 @@ export default class login {
      */
     async make_request (email, password) {
         try {
-            await axios.post('/api/login', {
+            const data = {
                 csrf: store.state.csrf,
                 email: email,
                 password: password,
-            });
+            };
 
+            await axios.post('/api/login', qs.stringify(data));
             return true;
         } catch (error) {
-            console.log(error);
             return false;
         }
     }

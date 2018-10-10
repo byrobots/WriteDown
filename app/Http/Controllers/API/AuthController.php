@@ -23,7 +23,7 @@ class AuthController extends BaseController
 
         // Sad trombone
         if (!$user) {
-            return $this->response->respond('Bad login details.', false, 400);
+            return $this->apiResponse->respond('Bad login details.', false, 400);
         }
 
         // Generate and set the user's authentication token
@@ -32,6 +32,6 @@ class AuthController extends BaseController
         $this->session->set('auth_token', $token);
 
         // Onwards to the admin area
-        return $this->response->respond('Login OK.');
+        return $this->apiResponse->respond('Login OK.');
     }
 }

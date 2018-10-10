@@ -20,7 +20,7 @@ class ApiCsrfMiddleware
     /**
      * @var \App\Library\APIResponse;
      */
-    private $response;
+    private $apiResponse;
 
     /**
      * Get our act together.
@@ -31,8 +31,8 @@ class ApiCsrfMiddleware
      */
     public function __construct(CSRFInterface $csrf)
     {
-        $this->csrf     = $csrf;
-        $this->response = new APIResponse;
+        $this->csrf        = $csrf;
+        $this->apiResponse = new APIResponse;
     }
 
     /**
@@ -60,8 +60,7 @@ class ApiCsrfMiddleware
 
         $token = isset($body['csrf']) ? $body['csrf'] : '';
         if (!$this->csrf->isValid($token)) {
-            writeLog()->warning('Got here.');
-            return $this->response->respond('Bad CSRF.', false, 400);
+            return $this->apiResponse->respond('Bad CSRF.', false, 400);
         }
 
         return $next($request, $response);
