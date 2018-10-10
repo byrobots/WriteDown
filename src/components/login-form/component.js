@@ -39,14 +39,18 @@ export default {
                     // the user on their way.
                     this.showSpinner     = false;
                     this.showSuccessIcon = true;
+
+                    // Program in a slight delay so the user actually gets a
+                    // chance to see the result.
+                    setTimeout(() => {
+                        window.location.href = '/admin/dashboard';
+                    }, 500);
                 }).catch((response) => {
                     // Bad login details. Show the error icon before providing
                     // the form for another attempt.
                     this.showSpinner   = false;
                     this.showErrorIcon = true;
 
-                    // Program in a slight delay so the user actually gets a
-                    // chance to see the result.
                     setTimeout(() => {
                         this.showErrorIcon = false;
                         this.showForm      = true;
