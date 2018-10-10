@@ -1,6 +1,7 @@
 /**
  * Components
  */
+import erroricon from '../error-icon';
 import spinner from '../spinner';
 
 /**
@@ -12,16 +13,21 @@ import login from '../../library/login.js';
  * The component's defintion
  */
 export default {
-    components: { spinner },
+    components: { erroricon, spinner },
     data: () => ({
         email: '',
         password: '',
+        showErrorIcon: false,
+        showForm: true,
         showSpinner: false,
     }),
     methods: {
+        /**
+         * Submits data provided by the user to see if it's valid.
+         */
         attemptLogin (event) {
-            // Prevent the default submit action and show the spinner component
             event.preventDefault();
+            this.showForm    = false;
             this.showSpinner = true;
 
             const api = new login();
@@ -30,6 +36,13 @@ export default {
                     break;
 
                 default:
+                    this.showSpinner   = false;
+                    this.showErrorIcon = true;
+
+                    setTimeout(() => {
+                        this.showErrorIcon = false;
+                        this.showForm      = true;
+                    }, 500);
             }
         }
     }

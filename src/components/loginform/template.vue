@@ -1,6 +1,6 @@
 <template>
     <section id="login-form-container">
-        <form method="post" action="" id="login-form" v-if="false === showSpinner">
+        <form method="post" action="" id="login-form" v-if="true === showForm">
             <div class="form-row">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" v-model="email">
@@ -20,6 +20,7 @@
         </form>
 
         <spinner v-if="true === showSpinner" />
+        <erroricon v-if="true === showErrorIcon" />
     </section>
 </template>
 
