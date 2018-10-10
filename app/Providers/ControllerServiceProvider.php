@@ -3,9 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\PostController;
-use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\DashboardController;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
 class ControllerServiceProvider extends AbstractServiceProvider
@@ -17,6 +15,7 @@ class ControllerServiceProvider extends AbstractServiceProvider
      */
     protected $provides = [
         'Admin\AuthController',
+        'Admin\DashboardController',
         'API\AuthController',
     ];
 
@@ -28,6 +27,10 @@ class ControllerServiceProvider extends AbstractServiceProvider
         // Admin routes.
         $this->getContainer()
             ->add('Admin\AuthController', AuthController::class)
+            ->withArgument('view');
+
+        $this->getContainer()
+            ->add('Admin\DashboardController', DashboardController::class)
             ->withArgument('view');
 
         // API endpoints.

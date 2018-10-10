@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\BaseController;
-use Zend\Diactoros\Response\RedirectResponse;
 
 class AuthController extends BaseController
 {
