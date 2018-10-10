@@ -4,8 +4,8 @@
             <h1 v-text="pagetitle"></h1>
         </header>
 
-        <loginform></loginform>
-        <footersignoff />
+        <login-form />
+        <footer-signoff />
     </div>
 </template>
 

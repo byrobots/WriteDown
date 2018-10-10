@@ -6,9 +6,9 @@ import Vue from 'vue';
 /**
  * Internal
  */
-import successicon from './template.vue';
+import successIcon from './template.vue';
 import './style.scss';
 
-Vue.component('successicon', successicon);
+Vue.component('success-icon', successIcon);
 
-export default successicon;
+export default successIcon;

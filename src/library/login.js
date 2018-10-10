@@ -12,7 +12,7 @@ import store from '../store';
 /**
  * Makes asyncronous login requests with a supplied username and password.
  */
-export default class login {
+export default class Login {
     /**
      * Entry point for usage. Takes an email and password and requests a login.
      *
@@ -21,7 +21,7 @@ export default class login {
      *
      * @returns {Promise} Will throw an error if login fails.
      */
-    async make_request (email, password) {
+    async makeRequest (email, password) {
         const data = {
             csrf: store.state.csrf,
             email: email,

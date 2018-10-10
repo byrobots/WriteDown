@@ -6,9 +6,9 @@ import Vue from 'vue';
 /**
  * Internal
  */
-import erroricon from './template.vue';
+import errorIcon from './template.vue';
 import './style.scss';
 
-Vue.component('erroricon', erroricon);
+Vue.component('error-icon', errorIcon);
 
-export default erroricon;
+export default errorIcon;

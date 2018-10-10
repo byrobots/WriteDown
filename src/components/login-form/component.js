@@ -1,20 +1,20 @@
 /**
  * Components
  */
-import erroricon from '../error-icon';
+import errorIcon from '../error-icon';
 import spinner from '../spinner';
-import successicon from '../success-icon';
+import successIcon from '../success-icon';
 
 /**
  * Classes
  */
-import login from '../../library/login.js';
+import Login from '../../library/login.js';
 
 /**
  * The component's defintion
  */
 export default {
-    components: { erroricon, spinner, successicon },
+    components: { errorIcon, spinner, successIcon },
     data: () => ({
         email: '',
         password: '',
@@ -32,8 +32,8 @@ export default {
             this.showForm    = false;
             this.showSpinner = true;
 
-            const api = new login();
-            api.make_request(this.email, this.password)
+            const api = new Login();
+            api.makeRequest(this.email, this.password)
                 .then((response) => {
                     // Login OK. Show the success icon briefly before sending
                     // the user on their way.
@@ -45,6 +45,8 @@ export default {
                     this.showSpinner   = false;
                     this.showErrorIcon = true;
 
+                    // Program in a slight delay so the user actually gets a
+                    // chance to see the result.
                     setTimeout(() => {
                         this.showErrorIcon = false;
                         this.showForm      = true;

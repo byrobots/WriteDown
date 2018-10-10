@@ -19,9 +19,9 @@
             </div>
         </form>
 
-        <erroricon v-if="true === showErrorIcon" />
+        <error-icon v-if="true === showErrorIcon" />
         <spinner v-if="true === showSpinner" />
-        <successicon v-if="true === showSuccessIcon" />
+        <success-icon v-if="true === showSuccessIcon" />
     </section>
 </template>
 

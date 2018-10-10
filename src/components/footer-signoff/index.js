@@ -6,9 +6,9 @@ import Vue from 'vue';
 /**
  * Internal
  */
-import footersignoff from './template.vue';
+import footerSignoff from './template.vue';
 import './style.scss';
 
-Vue.component('footersignoff', footersignoff);
+Vue.component('footer-signoff', footerSignoff);
 
-export default footersignoff;
+export default footerSignoff;

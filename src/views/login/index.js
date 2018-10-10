@@ -6,9 +6,9 @@ import Vue from 'vue';
 /**
  * Internal
  */
-import footersignoff from '../../components/footer-signoff';
+import footerSignoff from '../../components/footer-signoff';
 import login from './login.vue';
-import loginform from '../../components/loginform';
+import loginForm from '../../components/login-form';
 import store from '../../store';
 
 import './style.scss';
