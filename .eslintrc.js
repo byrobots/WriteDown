@@ -3,5 +3,5 @@ module.exports = {
     rules: {},
     parserOptions: {
         ecmaVersion: 2017,
-    }
+    },
 };

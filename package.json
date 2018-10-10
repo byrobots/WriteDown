@@ -4,6 +4,7 @@
     "description": "WriteDown - A really simple blogging platform.",
     "scripts": {
         "build": "webpack --config webpack.config.dev.js",
+        "lint": "eslint --ext .js,.vue src --fix",
         "watch": "webpack --watch --config webpack.config.dev.js"
     },
     "repository": {

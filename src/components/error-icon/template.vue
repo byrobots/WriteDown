@@ -1,5 +1,5 @@
 <template>
-    <i class="fas fa-times error"></i>
+  <i class="fas fa-times error"/>
 </template>
 
 <script>

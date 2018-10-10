@@ -1,12 +1,12 @@
 <template>
-    <div id="login-container">
-        <header>
-            <h1 v-text="pagetitle"></h1>
-        </header>
+  <div id="login-container">
+    <header>
+      <h1 v-text="pagetitle"/>
+    </header>
 
-        <login-form />
-        <footer-signoff />
-    </div>
+    <login-form />
+    <footer-signoff />
+  </div>
 </template>
 
 <script>

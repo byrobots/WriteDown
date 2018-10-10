@@ -1,5 +1,5 @@
 <template>
-    <i class="fas fa-spinner spinner"></i>
+  <i class="fas fa-spinner spinner"/>
 </template>
 
 <script>

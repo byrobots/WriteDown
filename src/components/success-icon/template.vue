@@ -1,5 +1,5 @@
 <template>
-    <i class="fas fa-check success"></i>
+  <i class="fas fa-check success"/>
 </template>
 
 <script>
