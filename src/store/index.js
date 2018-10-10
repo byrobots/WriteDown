@@ -21,12 +21,8 @@ const store = new Vuex.Store({
         }
     },
     mutations: {
-        csrf (state, value) {
-                state.csrf = value;
-        },
-        pagetitle (state, value) {
-            state.pagetitle = value;
-        }
+        csrf: (state, value) => state.csrf = value,
+        pagetitle: (state, value) => state.pagetitle = value,
     },
     state: {},
 });
