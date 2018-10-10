@@ -19,20 +19,15 @@ export default class login {
      * @param {string} email
      * @param {string} password
      *
-     * @return {boolean} TRUE if login is successful, otherwise FALSE.
+     * @returns {Promise} Will throw an error if login fails.
      */
     async make_request (email, password) {
-        try {
-            const data = {
-                csrf: store.state.csrf,
-                email: email,
-                password: password,
-            };
+        const data = {
+            csrf: store.state.csrf,
+            email: email,
+            password: password,
+        };
 
-            await axios.post('/api/login', qs.stringify(data));
-            return true;
-        } catch (error) {
-            return false;
-        }
+        return await axios.post('/api/login', qs.stringify(data));
     }
 };

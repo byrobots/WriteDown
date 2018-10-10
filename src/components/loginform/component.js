@@ -3,6 +3,7 @@
  */
 import erroricon from '../error-icon';
 import spinner from '../spinner';
+import successicon from '../success-icon';
 
 /**
  * Classes
@@ -13,13 +14,14 @@ import login from '../../library/login.js';
  * The component's defintion
  */
 export default {
-    components: { erroricon, spinner },
+    components: { erroricon, spinner, successicon },
     data: () => ({
         email: '',
         password: '',
         showErrorIcon: false,
         showForm: true,
         showSpinner: false,
+        showSuccessIcon: false,
     }),
     methods: {
         /**
@@ -31,11 +33,15 @@ export default {
             this.showSpinner = true;
 
             const api = new login();
-            switch (api.make_request(this.email, this.password)) {
-                case true:
-                    break;
-
-                default:
+            api.make_request(this.email, this.password)
+                .then((response) => {
+                    // Login OK. Show the success icon briefly before sending
+                    // the user on their way.
+                    this.showSpinner     = false;
+                    this.showSuccessIcon = true;
+                }).catch((response) => {
+                    // Bad login details. Show the error icon before providing
+                    // the form for another attempt.
                     this.showSpinner   = false;
                     this.showErrorIcon = true;
 
@@ -43,7 +49,7 @@ export default {
                         this.showErrorIcon = false;
                         this.showForm      = true;
                     }, 500);
-            }
+                });
         }
     }
 };
