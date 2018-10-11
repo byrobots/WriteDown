@@ -1,0 +1,11 @@
+{% set pagetitle = 'Dashboard' %}
+
+{% extends 'admin/layouts/guest.twig' %}
+
+{% block content %}
+    <div id="dashboard"
+        data-pagetitle="{{ pagetitle|striptags|title }}"
+        data-csrf="{{ csrf }}">
+        <p>You&rsquo;re logged in!</p>
+    </div>
+{% endblock %}
