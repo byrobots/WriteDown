@@ -6,20 +6,20 @@
 
  import 'es6-promise/auto';
 
+ /**
+  * Internal.
+  */
+ import getters from './getters';
+ import mutations from './mutations';
+
 /**
  * Set-up our Single Source of Truth.
  */
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-    getters: {
-        csrf: (state) => state.csrf,
-        pagetitle: (state) => state.pagetitle,
-    },
-    mutations: {
-        csrf: (state, value) => { state.csrf = value },
-        pagetitle: (state, value) => { state.pagetitle = value },
-    },
+    getters: getters,
+    mutations: mutations,
     state: {},
 });
 

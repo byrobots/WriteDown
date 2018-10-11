@@ -6,11 +6,11 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[{*.php,composer.json,*.md}]
+[{*.php,composer.json,*.md,*.js}]
 indent_style = space
 indent_size = 4
 
-[{*.html,*.less,*.sass,*.css,*.js,*.json}]
+[{*.html,*.less,*.sass,*.css,*.json}]
 indent_style = space
 indent_size = 2
 
