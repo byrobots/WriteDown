@@ -13,12 +13,14 @@ import store from '../../store';
 
 import './style.scss';
 
-new Vue({
-    el: '#login-page',
-    beforeMount () {
-        store.commit('csrf', this.$el.attributes['data-csrf'].value);
-        store.commit('pagetitle', this.$el.attributes['data-pagetitle'].value);
-    },
-    render: h => h(login),
-    store: store,
-});
+if (document.getElementById('login-page')) {
+    new Vue({
+        el: '#login-page',
+        beforeMount () {
+            store.commit('csrf', this.$el.attributes['data-csrf'].value);
+            store.commit('pagetitle', this.$el.attributes['data-pagetitle'].value);
+        },
+        render: h => h(login),
+        store: store,
+    });
+}
