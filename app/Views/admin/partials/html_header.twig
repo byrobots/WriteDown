@@ -8,4 +8,7 @@
 
     <link rel="icon" href="/favicon.png">
 </head>
-<body>
+<body
+    {% if bodyId is defined %}
+        id="{{ bodyId }}"
+    {% endif %}>
