@@ -4,9 +4,9 @@
     width: 100%;
     margin: 0 1em 1em;
     padding: 2em;
-    border: 1px solid $colour-border;
+    border: 1px solid $colour-border-default;
     border-radius: .5vh;
-    background: #fff;
+    background: $colour-background-light;
 
     .error,
     .spinner,

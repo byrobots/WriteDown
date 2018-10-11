@@ -19,10 +19,10 @@
         width: 100%;
         padding: 1em;
         font-weight: bold;
-        color: #fff;
-        background: $colour-default-state;
+        color: $colour-words-light;
+        background: $colour-state-default;
         border: none;
-        border-bottom: 3px solid darken($colour-default-state, 10%);
+        border-bottom: 3px solid darken($colour-state-default, 10%);
         border-radius: .5vh;
     }
 }

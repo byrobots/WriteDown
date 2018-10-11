@@ -1,3 +1,15 @@
 {% include 'admin/partials/html_header.twig' %}
-    {% block content %}{% endblock %}
+    <header id="navbar">
+        <h2>WriteDown</h2>
+    </header>
+
+    <section id="container">
+        <aside id="sidebar">
+
+        </aside>
+
+        <article id="content">
+            {% block content %}{% endblock %}
+        </article>
+    </section>
 {% include 'admin/partials/html_footer.twig' %}

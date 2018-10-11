@@ -41,8 +41,8 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 2em;
     font-size: 1.5em;
-    color: $colour-dark-text;
-    background: lighten($colour-border, 40%);
+    color: $colour-words-default;
+    background: lighten($colour-border-default, 40%);
 }
 
 h1,

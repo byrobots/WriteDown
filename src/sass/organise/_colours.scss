@@ -1,8 +1,14 @@
-// Lines
-$colour-border: #888;
+// Backgrounds
+$colour-background-default: #eee;
+$colour-background-light: #fff;
 
-// Words
-$colour-dark-text: #16161d;
+// Lines
+$colour-border-default: #888;
 
 // States
-$colour-default-state: #00b2ff;
+$colour-state-default: #00b2ff;
+$colour-state-default-dark: darken($colour-state-default, 10%);
+
+// Words
+$colour-words-default: #16161d;
+$colour-words-light: #fff;
