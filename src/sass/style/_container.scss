@@ -1,7 +1,25 @@
 /**
- * Contains the sidebar and main content area when a user is logged in.
+ * This container will allow us to have elements fit the remaining height of the
+ * browser window so there can be a nice full height sidebar and content area
+ * on larger screens.
+ */
+#positioning-container {
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+    }
+}
+
+/**
+ * Contains the sidebar and main content elements themselves.
  */
 #container {
-    display: flex;
     width: 100%;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex: 1;
+        height: 100%;
+    }
 }

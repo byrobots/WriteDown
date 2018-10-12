@@ -1,0 +1,22 @@
+/**
+ * The main content container on admin screens.
+ */
+#content {
+    padding: 1em;
+
+    *:first-child {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    *:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        height: 100%;
+        padding: 2em;
+        overflow: auto;
+    }
+}

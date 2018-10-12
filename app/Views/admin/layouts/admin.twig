@@ -1,15 +1,17 @@
 {% include 'admin/partials/html_header.twig' %}
-    <header id="navbar">
-        <h2>WriteDown</h2>
-    </header>
+    <div id="positioning-container">
+        <header id="navbar">
+            <h2>WriteDown</h2>
+        </header>
 
-    <section id="container">
-        <aside id="sidebar">
+        <section id="container">
+            <aside id="sidebar">
 
-        </aside>
+            </aside>
 
-        <article id="content">
-            {% block content %}{% endblock %}
-        </article>
-    </section>
+            <article id="content">
+                {% block content %}{% endblock %}
+            </article>
+        </section>
+    </div>
 {% include 'admin/partials/html_footer.twig' %}
