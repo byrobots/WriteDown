@@ -42,7 +42,7 @@ body {
     line-height: 2em;
     font-size: 1.5em;
     color: $colour-words-default;
-    background: lighten($colour-border-default, 40%);
+    background: $colour-background-default;
 }
 
 h1,

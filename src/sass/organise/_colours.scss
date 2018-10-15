@@ -2,9 +2,6 @@
 $colour-background-default: #eee;
 $colour-background-light: #fff;
 
-// Lines
-$colour-border-default: #888;
-
 // States
 $colour-state-default: #ec4d42;
 $colour-state-default-dark: darken($colour-state-default, 10%);
@@ -12,3 +9,6 @@ $colour-state-default-dark: darken($colour-state-default, 10%);
 // Words
 $colour-words-default: #16161d;
 $colour-words-light: #fff;
+
+// Lines
+$colour-border-default: lighten($colour-words-default, 10%);

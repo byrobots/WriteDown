@@ -7,14 +7,24 @@ import Vue from 'vue';
  * Internal
  */
 import index from './index.vue';
-import mixin from '../../mixins/pages.js';
+import instance from '../../mixins/instance.js';
+import Post from '../../library/post.js';
 
 import './style.scss';
 
 if (document.getElementById('post-index')) {
     new Vue({
         el: '#post-index',
-        mixins: [mixin],
+        mixins: [instance],
+        beforeMount () {
+            const api = new Post();
+            api.index()
+                .then((response) => {
+                    store.commit('posts', response.data.data);
+                }).catch((response) => {
+                    // TODO
+                });
+        },
         render: h => h(index),
     });
 }

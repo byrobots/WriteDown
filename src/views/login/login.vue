@@ -10,7 +10,10 @@
 </template>
 
 <script>
+    import page from '../../mixins/page.js';
+
     export default {
+        mixins: [page],
         computed: {
             pagetitle () {
                 return this.$store.state.pagetitle;

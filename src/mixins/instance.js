@@ -4,7 +4,7 @@
 import store from '../store';
 
 /**
- * Default mixin for all pages.
+ * Default mixin for all instances.
  */
 export default {
     beforeMount () {

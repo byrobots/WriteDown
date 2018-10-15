@@ -9,14 +9,14 @@ import Vue from 'vue';
 import footerSignoff from '../../components/footer-signoff';
 import login from './login.vue';
 import loginForm from '../../components/login-form';
-import mixin from '../../mixins/pages.js';
+import instance from '../../mixins/instance.js';
 
 import './style.scss';
 
 if (document.getElementById('login-page')) {
     new Vue({
         el: '#login-page',
-        mixins: [mixin],
+        mixins: [instance],
         render: h => h(login),
     });
 }
