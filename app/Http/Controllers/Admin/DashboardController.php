@@ -13,8 +13,6 @@ class DashboardController extends BaseController
      */
     public function index()
     {
-        return $this->respond('admin/dashboard/index.twig', [
-            'csrf'  => $this->csrf->get(),
-        ]);
+        return $this->respond('admin/dashboard/index.twig');
     }
 }

@@ -28,4 +28,6 @@ $writedown
     ->getRouter()
     ->group('/admin', function ($route) use ($csrfMiddleware) {
         $route->get('/dashboard', 'Admin\DashboardController::index');
+
+        $route->get('/posts', 'Admin\PostController::index');
     })->middleware($authMiddleware);

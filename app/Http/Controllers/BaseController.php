@@ -35,7 +35,7 @@ class BaseController extends Controller
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    protected function respond($template, array $parameters, $statusCode = 200, array $headers = [])
+    protected function respond($template, array $parameters = [], $statusCode = 200, array $headers = [])
     {
         $response = new HtmlResponse(
             $this->view->render($template, $parameters),
