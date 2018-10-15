@@ -9,18 +9,14 @@ import Vue from 'vue';
 import footerSignoff from '../../components/footer-signoff';
 import login from './login.vue';
 import loginForm from '../../components/login-form';
-import store from '../../store';
+import mixin from '../../mixins/pages.js';
 
 import './style.scss';
 
 if (document.getElementById('login-page')) {
     new Vue({
         el: '#login-page',
-        beforeMount () {
-            store.commit('csrf', this.$el.attributes['data-csrf'].value);
-            store.commit('pagetitle', this.$el.attributes['data-pagetitle'].value);
-        },
+        mixins: [mixin],
         render: h => h(login),
-        store: store,
     });
 }
