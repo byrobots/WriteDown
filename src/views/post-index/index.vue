@@ -1,6 +1,6 @@
 <template>
   <section id="post-index-container">
-    <h1>{{ pagetitle }}</h1>
+    <h1 v-text="pagetitle"/>
     <p v-if="'undefined' === typeof posts || null === posts || 0 === posts.length">
       Nothing here. You should write something!
     </p>

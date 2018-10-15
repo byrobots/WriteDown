@@ -9,6 +9,7 @@ import Vue from 'vue';
 import index from './index.vue';
 import instance from '../../mixins/instance.js';
 import Post from '../../library/post.js';
+import store from '../../store';
 
 import './style.scss';
 
