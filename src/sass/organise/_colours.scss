@@ -11,4 +11,4 @@ $colour-words-default: #16161d;
 $colour-words-light: #fff;
 
 // Lines
-$colour-border-default: lighten($colour-words-default, 10%);
+$colour-border-default: darken($colour-background-default, 25%);
