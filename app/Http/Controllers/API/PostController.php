@@ -26,7 +26,10 @@ class PostController extends BaseController
             ],
         ]);
 
-        // TODO: Add meta data to response
-        return $this->apiResponse->respond($posts['data']);
+        return $this
+            ->apiResponse
+            ->setData($posts['data'])
+            ->setMeta($posts['meta'])
+            ->respond();
     }
 }
