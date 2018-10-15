@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
-class ControllerServiceProvider extends AbstractServiceProvider
+class AdminControllerServiceProvider extends AbstractServiceProvider
 {
     /**
      * Services provided by the service provider.
@@ -18,7 +18,6 @@ class ControllerServiceProvider extends AbstractServiceProvider
         'Admin\AuthController',
         'Admin\DashboardController',
         'Admin\PostController',
-        'API\AuthController',
     ];
 
     /**
@@ -26,7 +25,6 @@ class ControllerServiceProvider extends AbstractServiceProvider
      */
     public function register()
     {
-        // Admin routes.
         $this->getContainer()
             ->add('Admin\AuthController', AuthController::class)
             ->withArgument('view');
@@ -38,9 +36,5 @@ class ControllerServiceProvider extends AbstractServiceProvider
         $this->getContainer()
             ->add('Admin\PostController', PostController::class)
             ->withArgument('view');
-
-        // API endpoints.
-        $this->getContainer()
-            ->add('API\AuthController', \App\Http\Controllers\API\AuthController::class);
     }
 }

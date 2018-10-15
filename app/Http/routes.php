@@ -1,9 +1,9 @@
 <?php
 
+$router = $writedown->getRouter();
+
 // Admin login. The only admin route that doesn't require authentication.
-$writedown
-    ->getRouter()
-    ->get('/admin/login', 'Admin\AuthController::loginForm');
+$router->get('/admin/login', 'Admin\AuthController::loginForm');
 
 /**
  * API Routes.
@@ -12,20 +12,19 @@ $writedown
  * frontend. Not to be confused with the API provided by the writedown-core
  * package.
  */
-$writedown
-    ->getRouter()
+ $router
+    ->post('/login', 'API\AuthController::validateLogin')
+    ->middleware($apiCsrfMiddleware);
+
+$router
     ->group('/api', function ($route) use ($apiCsrfMiddleware) {
-        // Authenticates login credentials.
-        $route
-            ->post('/login', 'API\AuthController::validateLogin')
-            ->middleware($apiCsrfMiddleware);
-    });
+        $route->get('posts', 'API\PostController::index');
+    })->middleware($authMiddleware);
 
 /**
  * Logged in administration routes.
  */
-$writedown
-    ->getRouter()
+$router
     ->group('/admin', function ($route) use ($csrfMiddleware) {
         $route->get('/dashboard', 'Admin\DashboardController::index');
 
