@@ -13,7 +13,7 @@ $router->get('/admin/login', 'Admin\AuthController::loginForm');
  * package.
  */
  $router
-    ->post('/login', 'API\AuthController::validateLogin')
+    ->post('/api/login', 'API\AuthController::validateLogin')
     ->middleware($apiCsrfMiddleware);
 
 $router
