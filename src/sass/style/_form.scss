@@ -14,15 +14,8 @@
         width: 100%;
         padding: 1em;
     }
+}
 
-    .submit-button {
-        width: 100%;
-        padding: 1em;
-        font-weight: bold;
-        color: $colour-words-light;
-        background: $colour-state-default;
-        border: none;
-        border-bottom: 3px solid darken($colour-state-default, 10%);
-        border-radius: .5vh;
-    }
+.submit-button {
+    @extend %button;
 }

@@ -1,9 +1,21 @@
 <template>
   <section id="post-index-container">
-    <h1 v-text="pagetitle"/>
-    <p v-if="'undefined' === typeof posts || null === posts || 0 === posts.length">
-      Nothing here. You should write something!
-    </p>
+    <h1 
+      class="pagetitle" 
+      v-text="pagetitle"/>
+    <div v-if="!posts || posts.length < 1">
+      <p>
+        Nothing here. You should write something!
+      </p>
+
+      <div class="call-to-action">
+        <a 
+          href="#" 
+          class="button">
+          Let&rsquo;s do that
+        </a>
+      </div>
+    </div>
   </section>
 </template>
 
