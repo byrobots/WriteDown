@@ -3,8 +3,15 @@
 {% extends 'admin/layouts/admin.twig' %}
 
 {% block content %}
-    <div id="post-index"
-        data-pagetitle="{{ pagetitle|striptags|title }}"
-        data-csrf="{{ csrf }}">
-    </div>
+    <section id="post-index-container">
+        <h1 class="pagetitle">{{ pagetitle }}</h1>
+
+        {% if posts|length < 1 %}
+            <p>Nothing here. You should write something!</p>
+
+            <div class="call-to-action">
+                <a href="#" class="button">Let&rsquo;s write!</a>
+            </div>
+        {% endif %}
+    </section>
 {% endblock %}

@@ -1,0 +1,9 @@
+#post-index-container {
+    .call-to-action {
+        text-align: center;
+
+        @media screen and (min-width: 768px) {
+            padding-top: 4em;
+        }
+    }
+}
