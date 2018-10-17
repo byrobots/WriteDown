@@ -29,4 +29,5 @@ $router
         $route->get('/dashboard', 'Admin\DashboardController::index');
 
         $route->get('/posts', 'Admin\PostController::index');
+        $route->get('/posts/new', 'Admin\PostController::create');
     })->middleware($authMiddleware);

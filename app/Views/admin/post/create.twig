@@ -1,0 +1,9 @@
+{% set pagetitle = 'New Post' %}
+
+{% extends 'admin/layouts/admin.twig' %}
+
+{% block content %}
+    <div id="post-create"
+        data-pagetitle="{{ pagetitle|striptags|title }}"
+        data-csrf="{{ csrf }}"></div>
+{% endblock %}

@@ -1,11 +1,10 @@
 <template>
-  <div id="login-container">
+  <div id="post-create-container">
     <header>
-      <h1 v-text="pagetitle"/>
+      <h1 
+        class="pagetitle" 
+        v-text="pagetitle"/>
     </header>
-
-    <login-form />
-    <footer-signoff />
   </div>
 </template>
 

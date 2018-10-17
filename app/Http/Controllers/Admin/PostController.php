@@ -33,4 +33,18 @@ class PostController extends BaseController
             'posts' => $posts['data'],
         ]);
     }
+
+    /**
+     * Show the new post page.
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function create()
+    {
+        return $this->respond('admin/post/create.twig', [
+            'csrf'   => $this->csrf->get(),
+            'errors' => $this->session->getFlash('errors') ?: [],
+            'old'    => $this->session->getFlash('old')    ?: [],
+        ]);
+    }
 }
