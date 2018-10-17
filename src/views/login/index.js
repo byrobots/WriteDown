@@ -13,9 +13,9 @@ import instance from '../../mixins/instance.js';
 
 import './style.scss';
 
-if (document.getElementById('login-page')) {
+if (document.getElementById('login')) {
     new Vue({
-        el: '#login-page',
+        el: '#login',
         mixins: [instance],
         render: h => h(login),
     });
