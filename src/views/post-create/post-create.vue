@@ -9,24 +9,32 @@
         v-text="pagetitle"/>
     </header>
 
-    <div class="form-row">
+    <div
+      id="post-title-row"
+      class="form-row">
       <label for="post-title">Title</label>
-      <input 
-        id="post-title" 
-        type="text" 
+      <input
+        id="post-title"
+        type="text"
         name="post-title">
+
+      <div class="generated-url-container">
+        URL: <code class="generated-url">{{ slug }}</code>
+      </div>
     </div>
 
-    <div class="form-row">
+    <div
+      id="post-excerpt-row"
+      class="form-row">
       <label for="post-excerpt">Excerpt</label>
-      <input 
-        id="post-excerpt" 
-        type="text" 
+      <input
+        id="post-excerpt"
+        type="text"
         name="post-excerpt">
     </div>
 
-    <wysiwyg 
-      label="Body" 
+    <wysiwyg
+      label="Body"
       identifier="post-content"/>
 
     <div class="form-row">
@@ -43,6 +51,9 @@
     import page from '../../mixins/page.js';
 
     export default {
-        mixins: [ page ],
+        mixins: [page],
+        data: () => ({
+            slug: 'Add a title to generate the URL',
+        }),
     };
 </script>
