@@ -34,7 +34,7 @@ export default {
 
             const api = new Login();
             api.makeRequest(this.email, this.password)
-                .then((response) => {
+                .then(response => {
                     // Login OK. Show the success icon briefly before sending
                     // the user on their way.
                     this.showSpinner     = false;
@@ -45,7 +45,7 @@ export default {
                     setTimeout(() => {
                         window.location.href = '/admin/dashboard';
                     }, 500);
-                }).catch((response) => {
+                }).catch(response => {
                     // Bad login details. Show the error icon before providing
                     // the form for another attempt.
                     this.showSpinner   = false;

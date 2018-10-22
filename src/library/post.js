@@ -13,11 +13,11 @@ import store from '../store';
  */
 export default class Post {
     /**
-     * Get the posts index.
+     * Attempt to store a new post.
      *
      * @returns {Promise}
      */
-    async index () {
-        return await axios.get('/api/posts');
+    async store () {
+        return await axios.post('/api/posts/store');
     }
 };

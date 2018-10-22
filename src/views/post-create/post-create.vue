@@ -15,11 +15,12 @@
       <label for="post-title">Title</label>
       <input
         id="post-title"
+        v-model="postTitle"
         type="text"
         name="post-title">
 
       <div class="generated-url-container">
-        URL: <code class="generated-url">{{ slug }}</code>
+        URL: <code class="generated-url">{{ postSlug }}</code>
       </div>
     </div>
 
@@ -29,6 +30,7 @@
       <label for="post-excerpt">Excerpt</label>
       <input
         id="post-excerpt"
+        v-model="postExcerpt"
         type="text"
         name="post-excerpt">
     </div>
@@ -39,7 +41,8 @@
 
     <div class="form-row">
       <button
-        class="submit-button">
+        class="submit-button"
+        @click="attemptStore">
         <i class="fas fa-save"/>
         Save
       </button>
@@ -48,12 +51,39 @@
 </template>
 
 <script>
+    /**
+     * Internal
+     */
     import page from '../../mixins/page.js';
+
+    /**
+     * Classes
+     */
+    import Post from '../../library/post.js';
 
     export default {
         mixins: [page],
         data: () => ({
-            slug: 'Add a title to generate the URL',
+            postBody: '',
+            postExcerpt: '',
+            postTitle: '',
+            postSlug: 'Add a title to generate the URL',
         }),
+        methods: {
+            /**
+             * Submits data provided by the user to see if it's valid.
+             */
+            attemptStore (event) {
+                event.preventDefault();
+
+                const api = new Post();
+                api.store()
+                    .then(response => {
+                        //
+                    }).catch(response => {
+                        //
+                    });
+            },
+        },
     };
 </script>
