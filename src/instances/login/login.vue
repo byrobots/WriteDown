@@ -10,9 +10,15 @@
 </template>
 
 <script>
+    /**
+     * Internal.
+     */
+    import footerSignoff from '../../components/footer-signoff';
+    import loginForm from '../../components/login-form';
     import page from '../../mixins/page.js';
 
     export default {
+        components: {footerSignoff, loginForm},
         mixins: [page],
     };
 </script>

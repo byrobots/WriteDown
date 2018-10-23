@@ -1,9 +1,14 @@
 /**
+ * External
+ */
+window.SimpleMDE = require('simplemde');
+
+/**
  * Internal
  */
 import './style.scss'; // These are our base styles that apply everywhere
 
 /**
- * Loads all views.
+ * Loads all instances.
  */
-require('./views/index');
+require('./instances/index');

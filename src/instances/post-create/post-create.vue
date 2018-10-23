@@ -35,9 +35,13 @@
         name="post-excerpt">
     </div>
 
-    <wysiwyg
-      label="Body"
-      identifier="post-content"/>
+    <div class="form-row">
+      <label for="post-body">Body</label>
+      <textarea
+        id="post-body"
+        name="post-body"
+        class="wysiwyg-editor"/>
+    </div>
 
     <div class="form-row">
       <button
@@ -64,11 +68,17 @@
     export default {
         mixins: [page],
         data: () => ({
+            editor: null,
             postBody: '',
             postExcerpt: '',
             postTitle: '',
             postSlug: 'Add a title to generate the URL',
         }),
+        mounted: function () {
+            this.editor = new SimpleMDE({
+                element: document.getElementById('post-body'),
+            });
+        },
         methods: {
             /**
              * Submits data provided by the user to see if it's valid.
