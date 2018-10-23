@@ -32,6 +32,41 @@ A `component` does not *need* to be functional - if it can be re-used across
 however, and does not provide functionality, consider having it as part of the
 `instance` instead.
 
+A `component` that performs a job, such as `login-form`, should be a `component`
+regardless of how many times it is used.
+
 ## Component Structure
+Components reside in the `components` folder, which in turn is organised into
+folders named after their respective components.
+
+The `component` is then split into three or four files:
+
+1. `component.js`: Optionally exports the component.
+2. `index.js`: Privides the entry point to the component.
+3. `style.scss`: Styles for the component.
+4. `template.vue`: The component template.
+
+### `component.js`
+When a component starts growing it can make the component file (`template.vue`)
+feel cluttered so we define the `export` in it's own separate file and include
+it in the `.vue` with:
+
+``` html
+<script src="./component.js"></script>
+```
+
+### `index.js`
+Provides the entry point for the `component` to be used. Adds it to `Vue.js`.
+
+### `style.scss`
+SASS styles specifically for the component. Add the following to the top of the
+file to use variables:
+
+``` css
+@import '../../sass/organise';
+```
+
+### `template.vue`
+The component template. On simpler components it may also contain the `export`.
 
 ## Instance Structure
