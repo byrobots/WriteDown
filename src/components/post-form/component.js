@@ -8,7 +8,7 @@ import successIcon from '../success-icon';
 /**
  * Classes
  */
-import Login from '../../library/post.js';
+import Post from '../../library/post.js';
 
 /**
  * The component's defintion
@@ -29,7 +29,46 @@ export default {
         showSuccessIcon: false,
     }),
     methods: {
-        attemptStore: function () {}
+        /**
+         * Try to store the post.
+         */
+        attemptStore: function () {
+            event.preventDefault();
+            this.showForm    = false;
+            this.showSpinner = true;
+
+            const api = new Post();
+            api.store(this.title, this.excerpt, this.body)
+                .then(response => this.successfulStore())
+                .catch(response => this.failedStore());
+        },
+
+        /**
+         * Handles a successful store attempt.
+         */
+        successfulStore: function () {
+            this.showSpinner     = false;
+            this.showSuccessIcon = true;
+
+            setTimeout(() => {
+                // TODO: Send the user somewhere.
+            }, 500);
+        },
+
+        /**
+         * Handle a failed store attempt.
+         */
+        failedStore: function () {
+            this.showSpinner   = false;
+            this.showErrorIcon = true;
+
+            // TODO: Populate error messages.
+
+            setTimeout(() => {
+                this.showErrorIcon = false;
+                this.showForm      = true;
+            }, 500);
+        },
     },
     mounted: function () {
         this.editor = new SimpleMDE({

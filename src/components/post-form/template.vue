@@ -1,53 +1,60 @@
 <template>
-  <form
-    id="post-create-container"
-    :action="action"
-    method="post">
+  <section id="post-form-container">
+    <form
+      v-if="true === showForm"
+      id="post-form"
+      :action="action"
+      method="post">
 
-    <div
-      id="post-title-row"
-      class="form-row">
-      <label for="post-title">Title</label>
-      <input
-        id="post-title"
-        v-model="postTitle"
-        type="text"
-        name="post-title">
+      <div
+        id="post-title-row"
+        class="form-row">
+        <label for="post-title">Title</label>
+        <input
+          id="post-title"
+          v-model="postTitle"
+          type="text"
+          name="post-title">
 
-      <div class="generated-url-container">
-        URL: <code class="generated-url">{{ postSlug }}</code>
+        <div class="generated-url-container">
+          URL: <code class="generated-url">{{ postSlug }}</code>
+        </div>
       </div>
-    </div>
 
-    <div
-      id="post-excerpt-row"
-      class="form-row">
-      <label for="post-excerpt">Excerpt</label>
-      <input
-        id="post-excerpt"
-        v-model="postExcerpt"
-        type="text"
-        name="post-excerpt">
-    </div>
+      <div
+        id="post-excerpt-row"
+        class="form-row">
+        <label for="post-excerpt">Excerpt</label>
+        <input
+          id="post-excerpt"
+          v-model="postExcerpt"
+          type="text"
+          name="post-excerpt">
+      </div>
 
-    <div class="form-row">
-      <label for="post-body">Body</label>
-      <textarea
-        id="post-body"
-        v-model="postBody"
-        name="post-body"
-        class="wysiwyg-editor"/>
-    </div>
+      <div class="form-row">
+        <label for="post-body">Body</label>
+        <textarea
+          id="post-body"
+          v-model="postBody"
+          name="post-body"
+          class="wysiwyg-editor"/>
+      </div>
 
-    <div class="form-row">
-      <button
-        class="submit-button"
-        @click="attemptStore">
-        <i class="fas fa-save"/>
-        Save
-      </button>
-    </div>
-  </form>
+      <div class="form-row">
+        <button
+          class="submit-button"
+          @click="attemptStore">
+          <i class="fas fa-save"/>
+          Save
+        </button>
+      </div>
+    </form>
+
+    <error-icon v-if="true === showErrorIcon" />
+    <spinner v-if="true === showSpinner" />
+    <success-icon v-if="true === showSuccessIcon" />
+  </section>
 </template>
 
 <script src="./component.js"></script>

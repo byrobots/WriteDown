@@ -1,11 +1,25 @@
 @import '../../sass/organise';
 @import '~simplemde/dist/simplemde.min.css';
 
-#post-create-container {
-    .submit-button {
-        @media screen and (min-width: 768px) {
-            width: 15%;
-            min-width: 150px;
+#post-form-container {
+    .error,
+    .spinner,
+    .success {
+        display: block;
+        margin-top: 1em;
+        text-align: center;
+        font-size: 4em;
+    }
+}
+
+#post-form {
+    .generated-url-container {
+        padding: .5em 0 0;
+
+        .generated-url {
+            margin-left: 1em;
+            padding: 0 .5em;
+            background: $colour-background-light;
         }
     }
 }
@@ -14,15 +28,5 @@
 #post-title-row {
     @media screen and (min-width: 768px) {
         width: 65%;
-    }
-}
-
-.generated-url-container {
-    padding: .5em 0 0;
-
-    .generated-url {
-        margin-left: 1em;
-        padding: 0 .5em;
-        background: $colour-background-light;
     }
 }
