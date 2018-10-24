@@ -5,7 +5,11 @@
     </header>
 
     <login-form />
-    <footer-signoff />
+
+    <footer class="sign-off">
+      <a href="https://github.com/byrobots/writedown">WriteDown</a>, a project
+      <a href="https://by-robots.com">By Robots</a>.
+    </footer>
   </div>
 </template>
 
@@ -13,12 +17,11 @@
     /**
      * Internal.
      */
-    import footerSignoff from '../../components/footer-signoff';
     import loginForm from '../../components/login-form';
     import page from '../../mixins/page.js';
 
     export default {
-        components: {footerSignoff, loginForm},
+        components: {loginForm},
         mixins: [page],
     };
 </script>
