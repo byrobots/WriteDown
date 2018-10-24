@@ -10,14 +10,18 @@
         id="post-title-row"
         class="form-row">
         <label for="post-title">Title</label>
+        <span 
+          v-if="0 < errors.title.length" 
+          class="single-error">{{ errors.title }}</span>
+
         <input
           id="post-title"
-          v-model="postTitle"
+          v-model="post.title"
           type="text"
           name="post-title">
 
         <div class="generated-url-container">
-          URL: <code class="generated-url">{{ postSlug }}</code>
+          URL: <code class="generated-url">{{ post.slug }}</code>
         </div>
       </div>
 
@@ -25,18 +29,26 @@
         id="post-excerpt-row"
         class="form-row">
         <label for="post-excerpt">Excerpt</label>
+        <span 
+          v-if="0 < errors.excerpt.length" 
+          class="single-error">{{ errors.excerpt }}</span>
+
         <input
           id="post-excerpt"
-          v-model="postExcerpt"
+          v-model="post.excerpt"
           type="text"
           name="post-excerpt">
       </div>
 
       <div class="form-row">
         <label for="post-body">Body</label>
+        <span 
+          v-if="0 < errors.body.length" 
+          class="single-error">{{ errors.body }}</span>
+
         <textarea
           id="post-body"
-          v-model="postBody"
+          v-model="post.body"
           name="post-body"
           class="wysiwyg-editor"/>
       </div>

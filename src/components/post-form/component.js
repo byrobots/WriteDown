@@ -22,12 +22,18 @@ export default {
     components: {errorIcon, spinner, successIcon},
     data: () => ({
         action: '',
+        errors: {
+            body: '',
+            excerpt: '',
+            title: '',
+        },
+        post: {
+            body: '',
+            excerpt: '',
+            slug: 'Add a title to generate the URL',
+            title: '',
+        },
         editor: null,
-        password: '',
-        postBody: '',
-        postExcerpt: '',
-        postSlug: 'Add a title to generate the URL',
-        postTitle: '',
         showErrorIcon: false,
         showForm: true,
         showSpinner: false,
@@ -45,7 +51,7 @@ export default {
             const api = new Post();
             api.store(this.title, this.excerpt, this.body)
                 .then(response => this.successfulStore())
-                .catch(response => this.failedStore());
+                .catch(response => this.failedStore(response));
         },
 
         /**
@@ -62,20 +68,31 @@ export default {
 
         /**
          * Handle a failed store attempt.
+         *
+         * @param {object} error The response from the API request.
          */
-        failedStore: function () {
+        failedStore: function (error) {
             this.showSpinner   = false;
             this.showErrorIcon = true;
+            const response     = error.response.data;
 
-            // TODO: Populate error messages.
+            // Set errors
+            this.errors.title = 'undefined' !== typeof response.data.title ?
+                `The title ${response.data.title[0]}.` : '';
 
+            this.errors.excerpt = 'undefined' !== typeof response.data.excerpt ?
+                `The excerpt ${response.data.excerpt[0]}.` : '';
+
+            this.errors.body = 'undefined' !== typeof response.data.body ?
+                `The body ${response.data.body[0]}.` : '';
+
+            // After a moment show the form with the errors.
             setTimeout(() => {
                 this.showErrorIcon = false;
                 this.showForm      = true;
 
                 // Wait until the DOM is loaded and re-initialise the editor.
-                Vue.nextTick()
-                    .then(() => this.startEditor());
+                Vue.nextTick().then(() => this.startEditor());
             }, 500);
         },
 
@@ -86,6 +103,8 @@ export default {
             this.editor = new SimpleMDE({
                 element: document.getElementById('post-body'),
             });
+
+            this.editor.value(this.post.body);
         }
     },
     mounted: function () {
