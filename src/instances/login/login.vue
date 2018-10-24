@@ -18,10 +18,10 @@
      * Internal.
      */
     import loginForm from '../../components/login-form';
-    import page from '../../mixins/page.js';
+    import template from '../../mixins/template.js';
 
     export default {
         components: {loginForm},
-        mixins: [page],
+        mixins: [template],
     };
 </script>

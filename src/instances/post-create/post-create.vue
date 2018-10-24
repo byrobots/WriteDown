@@ -14,11 +14,11 @@
     /**
      * Internal
      */
-    import page from '../../mixins/page.js';
+    import template from '../../mixins/template.js';
     import postForm from '../../components/post-form';
 
     export default {
         components: {postForm},
-        mixins: [page],
+        mixins: [template],
     };
 </script>
