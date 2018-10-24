@@ -13,7 +13,7 @@ class PostController extends BaseController
     {
         $data     = $this->request->getParsedBody();
         $result   = $this->api->post()->create($data);
-        $response = $this->apiResponse->setData($data->data);
+        $response = $this->apiResponse->setData($result['data']);
 
         if (!$result['success']) {
             $response->setSuccess(false)->setStatusCode(400);

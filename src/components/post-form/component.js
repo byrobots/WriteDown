@@ -1,4 +1,9 @@
 /**
+ * External
+ */
+import Vue from 'vue';
+
+/**
  * Components
  */
 import errorIcon from '../error-icon';
@@ -67,12 +72,23 @@ export default {
             setTimeout(() => {
                 this.showErrorIcon = false;
                 this.showForm      = true;
+
+                // Wait until the DOM is loaded and re-initialise the editor.
+                Vue.nextTick()
+                    .then(() => this.startEditor());
             }, 500);
         },
+
+        /**
+         * Turn the post's body content field into a fancy editor.
+         */
+        startEditor: function () {
+            this.editor = new SimpleMDE({
+                element: document.getElementById('post-body'),
+            });
+        }
     },
     mounted: function () {
-        this.editor = new SimpleMDE({
-            element: document.getElementById('post-body'),
-        });
+        this.startEditor();
     }
 };
