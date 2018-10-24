@@ -34,28 +34,36 @@ export default {
 
             const api = new Login();
             api.makeRequest(this.email, this.password)
-                .then(response => {
-                    // Login OK. Show the success icon briefly before sending
-                    // the user on their way.
-                    this.showSpinner     = false;
-                    this.showSuccessIcon = true;
+                .then(response => this.successfulLogin())
+                .catch(response => this.failedLogin());
+        },
 
-                    // Program in a slight delay so the user actually gets a
-                    // chance to see the result.
-                    setTimeout(() => {
-                        window.location.href = '/admin/dashboard';
-                    }, 500);
-                }).catch(response => {
-                    // Bad login details. Show the error icon before providing
-                    // the form for another attempt.
-                    this.showSpinner   = false;
-                    this.showErrorIcon = true;
+        /**
+         * Handles a successful login attempt. Shows the success spinner before
+         * sending the use ron their way.
+         */
+        successfulLogin () {
+            this.showSpinner     = false;
+            this.showSuccessIcon = true;
 
-                    setTimeout(() => {
-                        this.showErrorIcon = false;
-                        this.showForm      = true;
-                    }, 500);
-                });
-        }
+            // Program in a slight delay so the user actually gets a chance to
+            // see the result.
+            setTimeout(() => {
+                window.location.href = '/admin/dashboard';
+            }, 500);
+        },
+
+        /**
+         * Handles a failed login attempt.
+         */
+        failedLogin () {
+            this.showSpinner   = false;
+            this.showErrorIcon = true;
+
+            setTimeout(() => {
+                this.showErrorIcon = false;
+                this.showForm      = true;
+            }, 500);
+        },
     }
 };
