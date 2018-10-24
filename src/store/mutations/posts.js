@@ -1,1 +1,1 @@
-export default (state, value) => { state.posts = value };
+export default (state, value) => state.posts = value;

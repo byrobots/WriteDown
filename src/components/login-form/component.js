@@ -14,7 +14,7 @@ import Login from '../../library/login.js';
  * The component's defintion
  */
 export default {
-    components: { errorIcon, spinner, successIcon },
+    components: {errorIcon, spinner, successIcon},
     data: () => ({
         email: '',
         password: '',

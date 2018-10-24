@@ -1,1 +1,1 @@
-export default (state, value) => { state.pagetitle = value };
+export default (state, value) => state.pagetitle = value;

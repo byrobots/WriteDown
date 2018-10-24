@@ -14,7 +14,7 @@ import Login from '../../library/post.js';
  * The component's defintion
  */
 export default {
-    components: { errorIcon, spinner, successIcon },
+    components: {errorIcon, spinner, successIcon},
     data: () => ({
         action: '',
         editor: null,
@@ -29,9 +29,7 @@ export default {
         showSuccessIcon: false,
     }),
     methods: {
-        attemptStore: function () {
-            //
-        }
+        attemptStore: function () {}
     },
     mounted: function () {
         this.editor = new SimpleMDE({

@@ -1,1 +1,1 @@
-export default (state, value) => { state.csrf = value };
+export default (state, value) => state.csrf = value;
