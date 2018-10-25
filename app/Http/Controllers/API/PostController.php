@@ -11,10 +11,14 @@ class PostController extends BaseController
      */
     public function store()
     {
-        $data     = $this->request->getParsedBody();
-        $result   = $this->api->post()->create($data);
-        $response = $this->apiResponse->setData($result['data']);
+        $input  = $this->request->getParsedBody();
+        $result = $this->api->post()->create([
+            'body'    => $input['body'],
+            'excerpt' => $input['excerpt'],
+            'title'   => $input['title'],
+        ]);
 
+        $response = $this->apiResponse->setData($result['data']);
         if (!$result['success']) {
             $response->setSuccess(false)->setStatusCode(400);
         }

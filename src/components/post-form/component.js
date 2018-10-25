@@ -48,6 +48,12 @@ export default {
             this.showForm    = false;
             this.showSpinner = true;
 
+            // Get the content from MDE (bindings don't work properly with it)
+            // and clear any existing errors.
+            this.clearErrors();
+            this.post.body = this.editor.value();
+
+            // Now make the API request.
             const api = new Post();
             api.store(this.post.title, this.post.excerpt, this.post.body)
                 .then(response => this.successfulStore())
@@ -105,7 +111,16 @@ export default {
             });
 
             this.editor.value(this.post.body);
-        }
+        },
+
+        /**
+         * Clear out any existing errors.
+         */
+        clearErrors: function () {
+            this.errors.body    = '';
+            this.errors.excerpt = '';
+            this.errors.title   = '';
+        },
     },
     mounted: function () {
         this.startEditor();

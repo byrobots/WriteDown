@@ -18,7 +18,9 @@ $router->get('/admin/login', 'Admin\AuthController::loginForm');
 
 $router
     ->group('/api', function ($route) use ($apiCsrfMiddleware) {
-        $route->post('/posts/store', 'API\PostController::store');
+        $route
+            ->post('/posts/store', 'API\PostController::store')
+            ->middleware($apiCsrfMiddleware);
     })->middleware($authMiddleware);
 
 /**

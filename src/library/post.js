@@ -2,6 +2,7 @@
  * External
  */
 const axios = require('axios');
+const qs    = require('qs');
 
 /**
  * Internal
@@ -29,6 +30,6 @@ export default class Post {
             title: title,
         };
 
-        return await axios.post('/api/posts/store', data);
+        return await axios.post('/api/posts/store', qs.stringify(data));
     }
 };
