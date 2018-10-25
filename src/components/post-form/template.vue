@@ -10,9 +10,12 @@
         id="post-title-row"
         class="form-row">
         <label for="post-title">Title</label>
-        <span 
-          v-if="0 < errors.title.length" 
-          class="single-error">{{ errors.title }}</span>
+        <span
+          v-if="0 < errors.title.length"
+          class="single-error">
+            <i class="fas fa-exclamation"></i>
+            {{ errors.title }}
+        </span>
 
         <input
           id="post-title"
@@ -29,9 +32,12 @@
         id="post-excerpt-row"
         class="form-row">
         <label for="post-excerpt">Excerpt</label>
-        <span 
-          v-if="0 < errors.excerpt.length" 
-          class="single-error">{{ errors.excerpt }}</span>
+        <span
+          v-if="0 < errors.excerpt.length"
+          class="single-error">
+            <i class="fas fa-exclamation"></i>
+            {{ errors.excerpt }}
+        </span>
 
         <input
           id="post-excerpt"
@@ -42,9 +48,12 @@
 
       <div class="form-row">
         <label for="post-body">Body</label>
-        <span 
-          v-if="0 < errors.body.length" 
-          class="single-error">{{ errors.body }}</span>
+        <span
+          v-if="0 < errors.body.length"
+          class="single-error">
+            <i class="fas fa-exclamation"></i>
+            {{ errors.body }}
+        </span>
 
         <textarea
           id="post-body"

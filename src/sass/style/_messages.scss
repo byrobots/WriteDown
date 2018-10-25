@@ -1,0 +1,13 @@
+.single-error {
+    display: inline-block;
+    margin-bottom: 1em;
+    padding: .5em 1em .5em 0;
+    border: 1px solid $colour-state-default;
+    border-left: 3px solid $colour-state-default-dark;
+    background: $colour-background-light;
+
+    .fas {
+        padding: 0 1em;
+        color: $colour-state-default;
+    }
+}
