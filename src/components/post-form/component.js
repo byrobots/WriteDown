@@ -63,8 +63,15 @@ export default {
             this.post.body = this.editor.value();
 
             // Now make the API request.
-            const api = new Post();
-            api.store(this.post.title, this.post.excerpt, this.post.body, this.post.publishAt)
+            const api  = new Post();
+            const data = {
+                body: this.post.body,
+                excerpt: this.post.excerpt,
+                publish_at: this.post.publishAt,
+                title: this.post.title,
+            };
+
+            api.store(data)
                 .then(response => this.successfulStore())
                 .catch(response => this.failedStore(response));
         },
