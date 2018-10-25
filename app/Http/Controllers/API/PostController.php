@@ -13,9 +13,10 @@ class PostController extends BaseController
     {
         $input  = $this->request->getParsedBody();
         $result = $this->api->post()->create([
-            'body'    => $input['body'],
-            'excerpt' => $input['excerpt'],
-            'title'   => $input['title'],
+            'body'       => $input['body'],
+            'excerpt'    => !empty($input['excerpt'])    ? $input['excerpt']                   : null,
+            'publish_at' => !empty($input['publish_at']) ? new \DateTime($input['publish_at']) : null,
+            'title'      => $input['title'],
         ]);
 
         $response = $this->apiResponse->setData($result['data']);

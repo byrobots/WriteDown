@@ -19,14 +19,16 @@ export default class Post {
      * @param {string} title
      * @param {string} excerpt
      * @param {string} body
+     * @param {string} publishAt
      *
      * @returns {Promise}
      */
-    async store (title, excerpt, body) {
+    async store (title, excerpt, body, publishAt) {
         const data = {
             body: body,
             csrf: store.state.csrf,
             excerpt: excerpt,
+            publish_at: publishAt,
             title: title,
         };
 

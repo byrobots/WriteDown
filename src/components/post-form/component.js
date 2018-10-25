@@ -2,6 +2,7 @@
  * External
  */
 import Vue from 'vue';
+import flatPickr from 'vue-flatpickr-component';
 
 /**
  * Components
@@ -19,17 +20,25 @@ import Post from '../../library/post.js';
  * The component's defintion
  */
 export default {
-    components: {errorIcon, spinner, successIcon},
+    components: {errorIcon, flatPickr, spinner, successIcon},
     data: () => ({
         action: '',
+        dateTimeConfig: {
+            altInput: true,
+            dateFormat: 'Y-m-d H:i:S',
+            enableTime: true,
+            time_24hr: true,
+        },
         errors: {
-            body: '',
-            excerpt: '',
-            title: '',
+            body: null,
+            excerpt: null,
+            publishAt: null,
+            title: null,
         },
         post: {
             body: '',
             excerpt: '',
+            publishAt: '',
             slug: 'Add a title to generate the URL',
             title: '',
         },
@@ -55,7 +64,7 @@ export default {
 
             // Now make the API request.
             const api = new Post();
-            api.store(this.post.title, this.post.excerpt, this.post.body)
+            api.store(this.post.title, this.post.excerpt, this.post.body, this.post.publishAt)
                 .then(response => this.successfulStore())
                 .catch(response => this.failedStore(response));
         },
@@ -84,13 +93,16 @@ export default {
 
             // Set errors
             this.errors.title = 'undefined' !== typeof response.data.title ?
-                `The post\'s title ${response.data.title[0]}.` : '';
+                `The post\'s title ${response.data.title[0]}.` : null;
 
             this.errors.excerpt = 'undefined' !== typeof response.data.excerpt ?
-                `The excerpt ${response.data.excerpt[0]}.` : '';
+                `The excerpt ${response.data.excerpt[0]}.` : null;
+
+            this.errors.publishAt = 'undefined' !== typeof response.data.publish_at ?
+                `The "Publish at" field ${response.data.publish_at[0]}.` : null;
 
             this.errors.body = 'undefined' !== typeof response.data.body ?
-                `The body ${response.data.body[0]}.` : '';
+                `The body ${response.data.body[0]}.` : null;
 
             // After a moment show the form with the errors.
             setTimeout(() => {
@@ -117,9 +129,10 @@ export default {
          * Clear out any existing errors.
          */
         clearErrors: function () {
-            this.errors.body    = '';
-            this.errors.excerpt = '';
-            this.errors.title   = '';
+            this.errors.body      = null;
+            this.errors.excerpt   = null;
+            this.errors.publishAt = null;
+            this.errors.title     = null;
         },
     },
     mounted: function () {

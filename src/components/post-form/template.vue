@@ -11,7 +11,7 @@
         class="form-row">
         <label for="post-title">Title</label>
         <span
-          v-if="0 < errors.title.length"
+          v-if="null !== errors.title"
           class="single-error">
           <i class="fas fa-exclamation"/>
           {{ errors.title }}
@@ -29,11 +29,27 @@
       </div>
 
       <div
+        id="post-publish-at-row"
+        class="form-row">
+        <label for="post-publish-at">Publish at</label>
+        <span
+          v-if="null !== errors.publishAt"
+          class="single-error">
+          <i class="fas fa-exclamation"/>
+          {{ errors.publishAt }}
+        </span>
+
+        <flat-pickr 
+          v-model="post.publishAt" 
+          :config="dateTimeConfig"/>
+      </div>
+
+      <div
         id="post-excerpt-row"
         class="form-row">
         <label for="post-excerpt">Excerpt</label>
         <span
-          v-if="0 < errors.excerpt.length"
+          v-if="null !== errors.excerpt"
           class="single-error">
           <i class="fas fa-exclamation"/>
           {{ errors.excerpt }}
@@ -49,7 +65,7 @@
       <div class="form-row">
         <label for="post-body">Body</label>
         <span
-          v-if="0 < errors.body.length"
+          v-if="null !== errors.body"
           class="single-error">
           <i class="fas fa-exclamation"/>
           {{ errors.body }}
