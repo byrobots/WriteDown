@@ -13,8 +13,8 @@
         <span
           v-if="0 < errors.title.length"
           class="single-error">
-            <i class="fas fa-exclamation"></i>
-            {{ errors.title }}
+          <i class="fas fa-exclamation"/>
+          {{ errors.title }}
         </span>
 
         <input
@@ -35,8 +35,8 @@
         <span
           v-if="0 < errors.excerpt.length"
           class="single-error">
-            <i class="fas fa-exclamation"></i>
-            {{ errors.excerpt }}
+          <i class="fas fa-exclamation"/>
+          {{ errors.excerpt }}
         </span>
 
         <input
@@ -51,8 +51,8 @@
         <span
           v-if="0 < errors.body.length"
           class="single-error">
-            <i class="fas fa-exclamation"></i>
-            {{ errors.body }}
+          <i class="fas fa-exclamation"/>
+          {{ errors.body }}
         </span>
 
         <textarea

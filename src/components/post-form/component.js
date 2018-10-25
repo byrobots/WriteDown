@@ -49,7 +49,7 @@ export default {
             this.showSpinner = true;
 
             const api = new Post();
-            api.store(this.title, this.excerpt, this.body)
+            api.store(this.post.title, this.post.excerpt, this.post.body)
                 .then(response => this.successfulStore())
                 .catch(response => this.failedStore(response));
         },
@@ -78,7 +78,7 @@ export default {
 
             // Set errors
             this.errors.title = 'undefined' !== typeof response.data.title ?
-                `The title ${response.data.title[0]}.` : '';
+                `The post\'s title ${response.data.title[0]}.` : '';
 
             this.errors.excerpt = 'undefined' !== typeof response.data.excerpt ?
                 `The excerpt ${response.data.excerpt[0]}.` : '';
