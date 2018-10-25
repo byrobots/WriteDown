@@ -1,0 +1,13 @@
+.tabulated-data {
+    width: 100%;
+
+    th {
+        text-align: left;
+        font-weight: bold;
+        border-bottom: 1px solid $colour-words-default;
+    }
+
+    td {
+        padding: .5em 0;
+    }
+}

@@ -4,14 +4,61 @@
 
 {% block content %}
     <section id="post-index-container">
-        <h1 class="pagetitle">{{ pagetitle }}</h1>
-
         {% if posts|length < 1 %}
+            <header>
+                <h1 class="pagetitle">{{ pagetitle }}</h1>
+            </header>
+
             <p>Nothing here. You should write something!</p>
 
-            <div class="call-to-action">
+            <div class="call-to-action no-posts">
                 <a href="/admin/posts/new" class="button">Let&rsquo;s write!</a>
             </div>
+        {% else %}
+            <header class="header-with-buttons">
+                <h1 class="pagetitle">{{ pagetitle }}</h1>
+                <div class="call-to-action">
+                    <a href="/admin/posts/new" class="button">New Post</a>
+            </header>
+
+            <table class="tabulated-data">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Excerpt</th>
+                        <th>Published?</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                        <tr>
+                            <td>{{ post.id }}</td>
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.excerpt }}</td>
+                            <td>
+                                {% if not post.publish_at %}
+                                    No
+                                {% elseif post.publish_at < date() %}
+                                    Yes
+                                {% else %}
+                                    Will be published on
+                                        {{ post.publish_at|date('l jS F Y') }} at
+                                        {{ post.publish_at|date('H:i:s') }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a class="action warning-action" href="#">Edit</a>
+                            </td>
+                            <td>
+                                <a class="action danger-action" href="#">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         {% endif %}
     </section>
 {% endblock %}

@@ -1,0 +1,18 @@
+.header-with-buttons {
+    margin-bottom: 2em;
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    h1 {
+        float: left;
+        margin-right: 2em;
+    }
+
+    .call-to-action {
+        float: left;
+    }
+}

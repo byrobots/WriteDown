@@ -1,5 +1,6 @@
 #post-index-container {
-    .call-to-action {
+    .call-to-action.no-posts {
+        display: inline;
         text-align: center;
 
         @media screen and (min-width: 768px) {
