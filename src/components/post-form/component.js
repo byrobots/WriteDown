@@ -84,7 +84,7 @@ export default {
             this.showSuccessIcon = true;
 
             setTimeout(() => {
-                // TODO: Send the user somewhere.
+                window.location.href = '/admin/posts';
             }, 500);
         },
 
