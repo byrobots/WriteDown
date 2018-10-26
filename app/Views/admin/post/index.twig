@@ -53,7 +53,8 @@
                                 <a class="action warning-action" href="#">Edit</a>
                             </td>
                             <td>
-                                <a class="action danger-action" href="#">Delete</a>
+                                <a class="action danger-action confirm"
+                                    href="/admin/posts/delete/{{ post.id }}?csrf={{ csrf }}">Delete</a>
                             </td>
                         </tr>
                     {% endfor %}

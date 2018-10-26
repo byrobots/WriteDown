@@ -32,4 +32,8 @@ $router
 
         $route->get('/posts', 'Admin\PostController::index');
         $route->get('/posts/new', 'Admin\PostController::create');
+
+        $route
+            ->get('/posts/delete/{postID}', 'Admin\PostController::delete')
+            ->middleware($csrfMiddleware);
     })->middleware($authMiddleware);
