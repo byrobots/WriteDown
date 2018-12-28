@@ -12,7 +12,7 @@ class PostController extends BaseController
     public function store()
     {
         $input  = $this->request->getParsedBody();
-        $result = $this->api->post()->create([
+        $result = $this->writedown->getService('api')->post()->create([
             'body'       => $input['body'],
             'excerpt'    => !empty($input['excerpt'])    ? $input['excerpt']                   : null,
             'publish_at' => !empty($input['publish_at']) ? new \DateTime($input['publish_at']) : null,

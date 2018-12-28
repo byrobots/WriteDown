@@ -16,15 +16,14 @@ class AuthController extends BaseController
 
         // Attempt to verify the submitted details. If anything is missing
         // substitute with an empty string, which will always fail.
-        $user = $this->auth->verifyCredentials(
+        $user = $this->writedown->getService('auth')->verifyCredentials(
             isset($input['email'])    ? $input['email']    : '',
             isset($input['password']) ? $input['password'] : ''
         );
 
         // Sad trombone
         if (!$user) {
-            return $this
-                ->apiResponse
+            return $this->apiResponse
                 ->setData('Bad login details.')
                 ->setSuccess(false)
                 ->setStatusCode(400)
@@ -32,9 +31,13 @@ class AuthController extends BaseController
         }
 
         // Generate and set the user's authentication token
-        $token = $this->auth->generate();
-        $this->api->user()->update($user->id, ['token' => $token]);
-        $this->session->set('auth_token', $token);
+        $token = $this->writedown->getService('auth')->generate();
+        $this->writedown
+            ->getService('api')
+            ->user()
+            ->update($user->id, ['token' => $token]);
+
+        $this->writedown->getService('session')->set('auth_token', $token);
 
         // Onwards to the admin area
         return $this->apiResponse->setData('Login OK.')->respond();

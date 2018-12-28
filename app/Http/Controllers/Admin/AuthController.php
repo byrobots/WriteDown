@@ -14,7 +14,7 @@ class AuthController extends BaseController
     public function loginForm()
     {
         return $this->respond('admin/auth/login.twig', [
-            'csrf'  => $this->csrf->get(),
+            'csrf'  => $this->writedown->getService('csrf')->get(),
         ]);
     }
 }

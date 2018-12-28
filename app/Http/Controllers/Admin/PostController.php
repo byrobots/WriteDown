@@ -20,7 +20,7 @@ class PostController extends BaseController
      */
     public function index(ServerRequestInterface $request, ResponseInterface $response, array $args = [])
     {
-        $posts = $this->api->post()->index([
+        $posts = $this->writedown->getService('api')->post()->index([
             'where'      => [],
             'pagination' => [
                 'current_page' => array_key_exists('page', $args) ? $args['page'] : 1,
@@ -29,7 +29,7 @@ class PostController extends BaseController
         ]);
 
         return $this->respond('admin/post/index.twig', [
-            'csrf'  => $this->csrf->get(),
+            'csrf'  => $this->writedown->getService('csrf')->get(),
             'meta'  => $posts['meta'],
             'posts' => $posts['data'],
         ]);
@@ -42,10 +42,16 @@ class PostController extends BaseController
      */
     public function create()
     {
+        $csrf   = $this->writedown->getService('csrf')->get();
+        $old    = $this->writedown->getService('session')->getFlash('old') ?: [];
+        $errors = $this->writedown
+            ->getService('session')
+            ->getFlash('errors') ?: [];
+
         return $this->respond('admin/post/create.twig', [
-            'csrf'   => $this->csrf->get(),
-            'errors' => $this->session->getFlash('errors') ?: [],
-            'old'    => $this->session->getFlash('old')    ?: [],
+            'csrf'   => $csrf,
+            'errors' => $errors,
+            'old'    => $old,
         ]);
     }
 
@@ -60,17 +66,21 @@ class PostController extends BaseController
      */
     public function delete(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-        $result = $this->api->post()->delete($args['postID']);
+        $result = $this->writedown
+            ->getService('api')
+            ->post()
+            ->delete($args['postID']);
+
         if ($result['success']) {
-            $this
-                ->session
+            $this->writedown
+                ->getService('session')
                 ->setFlash('success', 'The post has been deleted.');
-        } else {
-            $this
-                ->session
-                ->setFlash('error', 'The post doesn&rsquo;t exist.');
+            return new RedirectResponse('/admin/posts');
         }
 
+        $this->writedown
+            ->getService('session')
+            ->setFlash('error', 'The post doesn&rsquo;t exist.');
         return new RedirectResponse('/admin/posts');
     }
 }

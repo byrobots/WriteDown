@@ -23,6 +23,7 @@ class BaseController extends Controller
     public function __construct(Twig_Environment $view)
     {
         $this->view = $view;
+        $this->setWriteDown(writedown());
     }
 
     /**
