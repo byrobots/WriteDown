@@ -43,7 +43,6 @@ The `component` is then split into three or four files:
 
 1. `component.js`: Optionally exports the component.
 2. `index.js`: Privides the entry point to the component.
-3. `style.scss`: Styles for the component.
 4. `template.vue`: The component template.
 
 ### `component.js`
@@ -58,9 +57,9 @@ it in the `.vue` with:
 ### `index.js`
 Provides the entry point for the `component` to be used. Adds it to `Vue.js`.
 
-### `style.scss`
-SASS styles specifically for the component. Add the following to the top of the
-file to use variables:
+### Styles
+Styles should be placed in a `.scss` file in the `src/components` folder. The
+file's name should match the components.
 
 ``` css
 @import '../../sass/organise';
