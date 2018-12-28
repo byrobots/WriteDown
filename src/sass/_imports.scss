@@ -8,3 +8,11 @@
 @import "style/tables";
 @import "style/headers";
 @import "style/posts";
+
+// Component styles
+@import "components/spinner";
+@import "components/login-form";
+@import "components/post-form";
+
+// Instance styles
+@import "instances/login";

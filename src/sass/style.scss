@@ -5,11 +5,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
 @import url('https://use.fontawesome.com/releases/v5.3.1/css/solid.css');
 @import url('https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css');
+@import '~simplemde/dist/simplemde.min.css';
+@import '~flatpickr/dist/flatpickr.css';
 
 /**
  * Import variables and mixins
  */
-@import 'sass/organise';
+@import 'organise';
 
 /**
  * Apply a natural box layout model to all elements, but allowing components to
@@ -61,4 +63,4 @@ h2 {
 /**
  * Separated general use styles
  */
-@import 'sass/style';
+@import 'imports';

@@ -7,7 +7,6 @@ import Vue from 'vue';
  * Internal
  */
 import postForm from './template.vue';
-import './style.scss';
 
 /**
  * Declare the component and export it

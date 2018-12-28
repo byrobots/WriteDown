@@ -6,7 +6,7 @@ window.SimpleMDE = require('simplemde');
 /**
  * Internal
  */
-import './style.scss'; // These are our base styles that apply everywhere
+import './sass/style.scss'; // These are our base styles that apply everywhere
 
 /**
  * Loads all instances.
