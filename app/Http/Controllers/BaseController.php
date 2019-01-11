@@ -24,6 +24,9 @@ class BaseController extends Controller
     {
         $this->view = $view;
         $this->setWriteDown(writedown());
+
+        // Make sure a CSRF token is always available
+        $this->writedown->getService('csrf')->generate();
     }
 
     /**

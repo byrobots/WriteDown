@@ -8,6 +8,9 @@ import store from '../store';
  */
 export default {
     computed: {
+        csrf () {
+            return this.$store.state.csrf;
+        },
         pagetitle () {
             return this.$store.state.pagetitle;
         }

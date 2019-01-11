@@ -24,4 +24,8 @@ following in your terminal:
 
 `cd ~/path/to/writedown/public && php -S localhost:8000`
 
+### Debug
+WriteDown uses [Kint](https://github.com/kint-php/kint) to make dumping
+variables a bit nicer. Use `d($var)` to use it.
+
 WriteDown will be available in your browser at `http://localhost:8000`.
