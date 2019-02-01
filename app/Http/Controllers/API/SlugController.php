@@ -12,6 +12,11 @@ class SlugController extends BaseController
      */
     public function predicted()
     {
-        // TODO
+        $input = $this->request->getParsedBody();
+        $slug  = $this->writedown
+            ->getService('slugger')
+            ->generateSlug($input['title']);
+
+        return $this->apiResponse->setData($slug)->respond();
     }
 }
