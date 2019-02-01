@@ -18,14 +18,6 @@ module.exports = {
     mode: 'development',
     module: {
         rules: [{
-            enforce: 'pre',
-            exclude: /node_modules/,
-            loader: 'eslint-loader',
-            options: {
-                emitWarning: true,
-            },
-            test: /\.(js|vue)$/,
-        }, {
             test: /\.vue$/,
             use: 'vue-loader'
         }, {
