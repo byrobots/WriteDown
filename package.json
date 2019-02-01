@@ -1,3 +1,4 @@
+
 {
     "name": "writedown",
     "version": "1.0.0",
@@ -30,7 +31,7 @@
         "@babel/preset-env": "^7.3.1",
         "babel-loader": "^8.0.5",
         "css-loader": "^1.0.1",
-        "eslint": "^5.13.0",
+        "eslint": "^5.12.1",
         "eslint-loader": "^2.1.1",
         "eslint-plugin-vue": "^4.7.1",
         "node-sass": "^4.11.0",
