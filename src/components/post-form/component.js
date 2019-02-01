@@ -15,6 +15,7 @@ import successIcon from '../success-icon';
  * Classes
  */
 import Post from '../../library/post.js';
+import Slug from '../../library/slug.js';
 
 /**
  * The component's defintion
@@ -37,9 +38,10 @@ export default {
         },
         post: {
             body: '',
+            defaultSlug: 'Add a title to generate the URL',
             excerpt: '',
             publishAt: '',
-            slug: 'Add a title to generate the URL',
+            slug: '',
             title: '',
         },
         editor: null,
@@ -49,6 +51,23 @@ export default {
         showSuccessIcon: false,
     }),
     methods: {
+        /**
+         * Get the predicted slug base don the post's title.
+         */
+        predictedSlug: function () {
+            const api  = new Slug();
+            const data = {title: this.post.title};
+
+            if (0 === data.title.length) {
+                this.post.slug = this.post.defaultSlug;
+                return;
+            }
+
+            api.predicted(data)
+                .then(response => this.post.slug = response.data.data)
+                .catch(response => this.post.slug = 'Failed to get slug.');
+        },
+
         /**
          * Try to store the post.
          */
@@ -143,6 +162,7 @@ export default {
         },
     },
     mounted: function () {
+        this.post.slug = this.post.defaultSlug;
         this.startEditor();
     }
 };

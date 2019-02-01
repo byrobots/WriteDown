@@ -13,7 +13,7 @@
                     {{ errors.title }}
                 </span>
 
-                <input id="post-title" v-model="post.title" type="text" name="post-title">
+                <input id="post-title" v-model="post.title" type="text" name="post-title" @change="predictedSlug">
 
                 <div class="generated-url-container">
                     URL: <code class="generated-url">{{ post.slug }}</code>

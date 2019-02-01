@@ -1,14 +1,13 @@
 'use strict';
 
-const { VueLoaderPlugin } = require('vue-loader');
+const {VueLoaderPlugin} = require('vue-loader');
 const webpack = require('webpack');
-var path = require('path');
+const path = require('path');
 
 module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'public'),
-        disableHostCheck: true,
-        headers: { 'Access-Control-Allow-Origin': '*' },
+        headers: {'Access-Control-Allow-Origin': '*'},
         host: 'localhost',
         hot: true,
         inline: true,
@@ -25,8 +24,8 @@ module.exports = {
             use: 'babel-loader'
         }, {
             test: /\.s[c|a]ss$/,
-            use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-        }]
+            use: ['style-loader', 'css-loader', 'sass-loader'],
+        }],
     },
     output: {
         filename: 'WriteDown.js',
@@ -36,5 +35,5 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-    ]
+    ],
 };
