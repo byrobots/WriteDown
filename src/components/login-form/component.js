@@ -33,8 +33,8 @@ export default {
             this.showSpinner = true;
 
             API.auth().login(this.email, this.password)
-                .then(response => this.successfulLogin())
-                .catch(response => this.failedLogin());
+                .then(this.successfulLogin)
+                .catch(this.failedLogin);
         },
 
         /**

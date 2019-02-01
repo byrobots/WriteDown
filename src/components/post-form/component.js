@@ -63,7 +63,7 @@ export default {
 
             API.slug().predicted(data)
                 .then(response => this.post.slug = response.data.data)
-                .catch(response => this.post.slug = 'Failed to get slug.');
+                .catch(this.post.slug = 'Failed to get slug.');
         },
 
         /**
@@ -88,7 +88,7 @@ export default {
             };
 
             API.post().store(data)
-                .then(response => this.successfulStore())
+                .then(this.successfulStore)
                 .catch(response => this.failedStore(response));
         },
 
