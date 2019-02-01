@@ -7,12 +7,12 @@ const qs    = require('qs');
 /**
  * Internal
  */
-import store from '../store';
+import store from '../../../store';
 
 /**
  * Makes asyncronous login requests with a supplied username and password.
  */
-export default class Login {
+export default class Auth {
     /**
      * Entry point for usage. Takes an email and password and requests a login.
      *
@@ -21,7 +21,7 @@ export default class Login {
      *
      * @returns {Promise} Will throw an error if login fails.
      */
-    async makeRequest (email, password) {
+    async login (email, password) {
         const data = {
             csrf: store.state.csrf,
             email: email,

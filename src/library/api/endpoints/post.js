@@ -7,7 +7,7 @@ const qs    = require('qs');
 /**
  * Internal
  */
-import store from '../store';
+import store from '../../../store';
 
 /**
  * Make requests to the posts endpoint.

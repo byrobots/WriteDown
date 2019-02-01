@@ -8,7 +8,7 @@ import successIcon from '../success-icon';
 /**
  * Classes
  */
-import Login from '../../library/login.js';
+import API from '../../library/api';
 
 /**
  * The component's defintion
@@ -32,8 +32,7 @@ export default {
             this.showForm    = false;
             this.showSpinner = true;
 
-            const api = new Login();
-            api.makeRequest(this.email, this.password)
+            API.auth().login(this.email, this.password)
                 .then(response => this.successfulLogin())
                 .catch(response => this.failedLogin());
         },

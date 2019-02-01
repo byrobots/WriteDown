@@ -14,8 +14,7 @@ import successIcon from '../success-icon';
 /**
  * Classes
  */
-import Post from '../../library/post.js';
-import Slug from '../../library/slug.js';
+import API from '../../library/api';
 
 /**
  * The component's defintion
@@ -55,7 +54,6 @@ export default {
          * Get the predicted slug base don the post's title.
          */
         predictedSlug: function () {
-            const api  = new Slug();
             const data = {title: this.post.title};
 
             if (0 === data.title.length) {
@@ -63,7 +61,7 @@ export default {
                 return;
             }
 
-            api.predicted(data)
+            API.slug().predicted(data)
                 .then(response => this.post.slug = response.data.data)
                 .catch(response => this.post.slug = 'Failed to get slug.');
         },
@@ -82,7 +80,6 @@ export default {
             this.post.body = this.editor.value();
 
             // Now make the API request.
-            const api  = new Post();
             const data = {
                 body: this.post.body,
                 excerpt: this.post.excerpt,
@@ -90,7 +87,7 @@ export default {
                 title: this.post.title,
             };
 
-            api.store(data)
+            API.post().store(data)
                 .then(response => this.successfulStore())
                 .catch(response => this.failedStore(response));
         },
