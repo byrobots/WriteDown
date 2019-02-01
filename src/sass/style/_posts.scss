@@ -1,9 +1,19 @@
 #post-index-container {
-    .call-to-action.no-posts {
-        text-align: center;
+    header {
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 
-        @media screen and (min-width: 768px) {
-            padding-top: 4em;
+        h1 {
+            display: inline-block;
+        }
+
+        .call-to-action {
+            float: right;
+            margin-top: .5em;
+            text-align: center;
         }
     }
 }
