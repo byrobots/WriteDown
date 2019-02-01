@@ -1,7 +1,7 @@
 <template>
-  <i class="fas fa-times error"/>
+    <i class="fas fa-times error" />
 </template>
 
 <script>
-    export default {};
+export default {};
 </script>

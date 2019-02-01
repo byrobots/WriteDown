@@ -1,7 +1,7 @@
 <template>
-  <i class="fas fa-check success"/>
+    <i class="fas fa-check success" />
 </template>
 
 <script>
-    export default {};
+export default {};
 </script>
