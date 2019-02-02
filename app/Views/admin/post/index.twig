@@ -9,5 +9,11 @@
             <div class="call-to-action">
                 <a href="/admin/posts/new" class="button">New Post</a>
         </header>
+
+        <div
+            id="post-index"
+            data-pagetitle="{{ pagetitle|striptags|title }}"
+            data-csrf="{{ csrf }}"
+        ></div>
     </main>
 {% endblock %}

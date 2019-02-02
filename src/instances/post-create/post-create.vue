@@ -1,5 +1,5 @@
 <template>
-    <section id="post-create">
+    <section>
         <header>
             <h1 class="pagetitle" v-text="pagetitle"/>
         </header>

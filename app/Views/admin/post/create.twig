@@ -3,7 +3,9 @@
 {% extends 'admin/layouts/admin.twig' %}
 
 {% block content %}
-    <div id="post-create"
+    <div
+        id="post-create"
         data-pagetitle="{{ pagetitle|striptags|title }}"
-        data-csrf="{{ csrf }}"></div>
+        data-csrf="{{ csrf }}"
+    ></div>
 {% endblock %}
