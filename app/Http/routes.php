@@ -18,7 +18,11 @@ $router->get('/admin/login', 'Admin\AuthController::loginForm');
 $router->group('/api', function ($route) use ($apiCsrfMiddleware) {
     // Posts.
     $route->get('/posts', 'API\PostController::index');
+
     $route->post('/posts/store', 'API\PostController::store')
+        ->middleware($apiCsrfMiddleware);
+
+    $route->post('/posts/{postID}/delete', 'API\PostController::delete')
         ->middleware($apiCsrfMiddleware);
 
     // Slugs.

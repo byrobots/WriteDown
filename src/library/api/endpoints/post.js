@@ -20,19 +20,31 @@ export default class Post {
      *
      * @return {Promise}
      */
-    index () {
-        return axios.get('/api/posts');
+    async index () {
+        return await axios.get('/api/posts');
     }
 
     /**
      * Attempt to store a new post.
      *
-     * @param {object} data
+     * @param {Object} data
      *
-     * @returns {Promise}
+     * @return {Promise}
      */
     async store (data) {
         data.csrf = store.state.csrf;
         return await axios.post('/api/posts/store', qs.stringify(data));
+    }
+
+    /**
+     * Delete a post.
+     *
+     * @param {Integer} postID
+     *
+     * @return {Promise}
+     */
+    async delete(postID) {
+        const data = {csrf: store.state.csrf};
+        return await axios.post(`/api/posts/${postID}/delete`, qs.stringify(data));
     }
 };

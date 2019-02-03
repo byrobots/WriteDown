@@ -11,9 +11,9 @@ class PostController extends BaseController
     /**
      * Get an index of posts.
      *
-     * @param \Psr\Http\Message\ServerRequestInterface $request
-     * @param \Psr\Http\Message\ResponseInterface      $response
-     * @param array                                    $args Modifiers for requesting posts. Think pagination.
+     * @param \Psr\Http\Message\ServerRequestInterface $request  Not used here. Just placeholder so we can get to $args.
+     * @param \Psr\Http\Message\ResponseInterface      $response As above.
+     * @param array                                    $args     Modifiers for requesting posts. Think pagination.
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
@@ -51,5 +51,29 @@ class PostController extends BaseController
         }
 
         return $response->respond();
+    }
+
+    /**
+     * Delete a post.
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request  Not used here. Just placeholder so we can get to $args.
+     * @param \Psr\Http\Message\ResponseInterface      $response As above.
+     * @param array                                    $args     Will contain the Post ID.
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function delete(ServerRequestInterface $request, ResponseInterface $response, array $args = [])
+    {
+        $result = $this->writedown
+            ->getService('api')
+            ->post()
+            ->delete($args['postID']);
+
+            $response = $this->apiResponse->setData([]);
+            if (!$result['success']) {
+                $response->setSuccess(false)->setStatusCode(400);
+            }
+
+            return $response->respond();
     }
 }
