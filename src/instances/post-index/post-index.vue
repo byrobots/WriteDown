@@ -24,8 +24,8 @@
                             {{ post.publish_at.getFullHours() }}:{{ post.publish_at.getFullMinutes() }}:{{ post.publish_at.getFullSeconds() }}
                         </span>
                     </td>
-                    <td>Edit</td>
-                    <td>Delete</td>
+                    <td><a v-bind:href="`/admins/posts/${post.id}/edit`">Edit</a></td>
+                    <td><a v-bind:href="`/admin/posts/${post.id}/delete`">Delete</a></td>
                 </tr>
             </tbody>
         </table>
@@ -49,25 +49,29 @@ Date.prototype.getFullSeconds = getFullSeconds;
 export default {
     beforeMount () {
         API.post().index()
-            .then(response => {
-                let data = response.data.data;
-                data.forEach((post, index) => {
-                    // If we have a publish_at value convert it to a DateTime
-                    // object. We'll then use that to establish if a post is
-                    // unpublished, published or scheduled to be published.
-                    if (null !== post.publish_at) {
-                        data[index].publish_at = new Date(
-                            Date.parse(post.publish_at.date)
-                        );
-                    }
-                });
-
-                this.posts = data;
-            }).catch();
+            .then(this.populateTable)
+            .catch();
     },
     data: () => ({
         posts: [],
     }),
+    methods: {
+        populateTable (response) {
+            let data = response.data.data;
+            data.forEach((post, index) => {
+                // If we have a publish_at value convert it to a DateTime
+                // object. We'll then use that to establish if a post is
+                // unpublished, published or scheduled to be published.
+                if (null !== post.publish_at) {
+                    data[index].publish_at = new Date(
+                        Date.parse(post.publish_at.date)
+                    );
+                }
+            });
+
+            this.posts = data;
+        }
+    },
     mixins: [template],
 };
 </script>
