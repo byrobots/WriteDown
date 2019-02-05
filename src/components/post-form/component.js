@@ -69,7 +69,7 @@ export default {
         /**
          * Try to store the post.
          */
-        attemptStore: function () {
+        attemptStore: function (event) {
             event.preventDefault();
             this.showForm    = false;
             this.showSpinner = true;
