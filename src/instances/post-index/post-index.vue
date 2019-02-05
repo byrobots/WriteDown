@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="post in posts">
+                <tr v-for="(post, index) in posts">
                     <td v-text="post.id" />
                     <td v-text="post.title" />
                     <td>
@@ -36,6 +36,7 @@
                         <a
                             v-bind:href="`/admin/posts/${post.id}/delete`"
                             v-bind:data-post="post.id"
+                            v-bind:data-index="index"
                             @click="confirmDelete"
                         >
                             Delete
@@ -110,31 +111,18 @@ export default {
 
             if (window.confirm('Are you sure? This can not be undone.')) {
                 const postID = event.currentTarget.getAttribute('data-post');
+
+                // Delete from database.
                 API.post().delete(postID)
-                    .then(this.deleteByID(postID))
-                    .catch(/* TODO */);
+                    .then(() => {
+                        // Delete from the page.
+                        this.posts = this.posts.splice(event.currentTarget.getAttribute('data-index'), 1);
+
+                        // TODO: Success message
+                    })
+                    .catch(/* TODO: Error message */);
             }
         },
-
-        /**
-         * Remove a post from this.posts by it's ID.
-         *
-         * @param {Integer} postID The ID of the post to remove.
-         */
-        deleteByID: function (postID) {
-            // Find the index of the post with the ID in postID.
-            let postIndex = null;
-            this.posts.forEach((post, index) => {
-                if (postID === post.id)  {
-                    postIndex = index;
-                }
-            });
-
-            // If we have a match delete it.
-            if (null !== postIndex) {
-                this.posts = this.posts.splice(postIndex, 1);
-            }
-        }
     },
     mixins: [template],
 };
