@@ -72,7 +72,7 @@ export default {
     beforeMount () {
         API.post().index()
             .then(this.populateTable)
-            .catch(/* TODO */);
+            .catch(/* TODO: Error message */);
     },
     data: () => ({
         posts: [],
@@ -83,16 +83,15 @@ export default {
          *
          * @param  {Object} response The response from the API.
          */
-        populateTable: function (response) {
+        populateTable (response) {
             const data = response.data.data;
             data.forEach((post, index) => {
                 // If we have a publish_at value convert it to a DateTime
                 // object. We'll then use that to establish if a post is
                 // unpublished, published or scheduled to be published.
                 if (null !== post.publish_at) {
-                    data[index].publish_at = new Date(
-                        Date.parse(post.publish_at.date)
-                    );
+                    const timestamp        = Date.parse(post.publish_at.date);
+                    data[index].publish_at = new Date(timestamp);
                 }
             });
 
@@ -106,7 +105,7 @@ export default {
          * @param {Object} event The click event, which will contain the element
          *                       that was clicked.
          */
-        confirmDelete: function (event) {
+        confirmDelete (event) {
             event.preventDefault();
 
             if (window.confirm('Are you sure? This can not be undone.')) {
@@ -116,11 +115,12 @@ export default {
                 API.post().delete(postID)
                     .then(() => {
                         // Delete from the page.
-                        this.posts = this.posts.splice(event.currentTarget.getAttribute('data-index'), 1);
+                        const index = event.srcElement.getAttribute('data-index');
+                        this.posts.splice(index, 1);
 
                         // TODO: Success message
                     })
-                    .catch(/* TODO: Error message */);
+                    .catch(() => {/* TODO: Error message */});
             }
         },
     },

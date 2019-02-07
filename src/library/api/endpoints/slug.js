@@ -20,8 +20,8 @@ export default class Slug {
      *
      * @returns {Promise}
      */
-    async predicted (data) {
+    predicted (data) {
         data.csrf = store.state.csrf;
-        return await axios.post('/api/slugs/predicted', qs.stringify(data));
+        return axios.post('/api/slugs/predicted', qs.stringify(data));
     }
 };

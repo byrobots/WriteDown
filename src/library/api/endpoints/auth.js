@@ -21,13 +21,13 @@ export default class Auth {
      *
      * @returns {Promise} Will throw an error if login fails.
      */
-    async login (email, password) {
+    login (email, password) {
         const data = {
             csrf: store.state.csrf,
             email: email,
             password: password,
         };
 
-        return await axios.post('/api/login', qs.stringify(data));
+        return axios.post('/api/login', qs.stringify(data));
     }
 };
