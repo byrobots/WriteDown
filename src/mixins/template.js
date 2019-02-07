@@ -1,7 +1,6 @@
 /**
  * Internal
  */
-import store from '../store';
 
 /**
  * Default mixin for all pages.

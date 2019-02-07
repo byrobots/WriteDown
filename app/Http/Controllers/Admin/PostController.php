@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\BaseController;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class PostController extends BaseController
 {
@@ -14,7 +16,7 @@ class PostController extends BaseController
     public function index()
     {
         return $this->respond('admin/post/index.twig', [
-            'csrf'  => $this->writedown->getService('csrf')->get(),
+            'csrf' => $this->writedown->getService('csrf')->get(),
         ]);
     }
 
@@ -25,45 +27,27 @@ class PostController extends BaseController
      */
     public function create()
     {
-        $csrf   = $this->writedown->getService('csrf')->get();
-        $old    = $this->writedown->getService('session')->getFlash('old') ?: [];
-        $errors = $this->writedown
-            ->getService('session')
-            ->getFlash('errors') ?: [];
-
+        $csrf = $this->writedown->getService('csrf')->get();
         return $this->respond('admin/post/create.twig', [
-            'csrf'   => $csrf,
-            'errors' => $errors,
-            'old'    => $old,
+            'csrf' => $csrf,
         ]);
     }
 
     /**
-     * Delete a post.
+     * Show the new post page.
      *
-     * @param \Psr\Http\Message\ServerRequestInterface $request
-     * @param \Psr\Http\Message\ResponseInterface      $response
-     * @param array                                    $args
+     * @param \Psr\Http\Message\ServerRequestInterface $request  Not used here. Just placeholder so we can get to $args.
+     * @param \Psr\Http\Message\ResponseInterface      $response As above.
+     * @param array                                    $args     Will contain the Post ID.
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function delete(ServerRequestInterface $request, ResponseInterface $response, array $args)
+    public function edit(ServerRequestInterface $request, ResponseInterface $response, array $args = [])
     {
-        $result = $this->writedown
-            ->getService('api')
-            ->post()
-            ->delete($args['postID']);
-
-        if ($result['success']) {
-            $this->writedown
-                ->getService('session')
-                ->setFlash('success', 'The post has been deleted.');
-            return new RedirectResponse('/admin/posts');
-        }
-
-        $this->writedown
-            ->getService('session')
-            ->setFlash('error', 'The post doesn&rsquo;t exist.');
-        return new RedirectResponse('/admin/posts');
+        $csrf = $this->writedown->getService('csrf')->get();
+        return $this->respond('admin/post/edit.twig', [
+            'csrf'   => $csrf,
+            'postID' => $args['postID'],
+        ]);
     }
 }

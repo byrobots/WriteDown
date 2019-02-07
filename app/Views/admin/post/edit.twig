@@ -1,0 +1,12 @@
+{% set pagetitle = 'Edit Post' %}
+
+{% extends 'admin/layouts/admin.twig' %}
+
+{% block content %}
+    <div
+        id="post-edit"
+        data-csrf="{{ csrf }}"
+        data-pagetitle="{{ pagetitle|striptags|title }}"
+        data-post-id="{{ postID }}"
+    ></div>
+{% endblock %}

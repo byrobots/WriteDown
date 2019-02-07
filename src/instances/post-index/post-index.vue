@@ -26,7 +26,7 @@
                     </td>
                     <td>
                         <a
-                            v-bind:href="`/admins/posts/${post.id}/edit`"
+                            v-bind:href="`/admin/posts/${post.id}/edit`"
                             v-bind:data-post="post.id"
                         >
                             Edit
