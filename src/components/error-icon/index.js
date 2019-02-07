@@ -9,5 +9,4 @@ import Vue from 'vue';
 import errorIcon from './template.vue';
 
 Vue.component('error-icon', errorIcon);
-
 export default errorIcon;

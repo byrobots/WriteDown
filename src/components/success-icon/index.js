@@ -9,5 +9,4 @@ import Vue from 'vue';
 import successIcon from './template.vue';
 
 Vue.component('success-icon', successIcon);
-
 export default successIcon;

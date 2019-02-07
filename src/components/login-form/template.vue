@@ -1,10 +1,10 @@
 <template>
     <section id="login-form-container">
         <form
-            v-if="true === showForm"
+            action=""
             id="login-form"
             method="post"
-            action=""
+            v-if="true === showForm"
         >
             <div class="form-row">
                 <label for="email">Email</label>

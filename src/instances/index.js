@@ -1,7 +1,7 @@
 /**
  * Import ALL THE VIEWS!
  */
-import login from './login';
-import postCreate from './post-create';
-import postEdit from './post-edit';
-import postIndex from './post-index';
+import './login';
+import './posts/create';
+import './posts/edit';
+import './posts/index';

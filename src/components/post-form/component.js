@@ -141,6 +141,10 @@ export default {
          * Turn the post's body content field into a fancy editor.
          */
         startEditor: function () {
+            if (typeof window.SimpleMDE === 'undefined') {
+                window.SimpleMDE = require('simplemde');
+            }
+
             this.editor = new SimpleMDE({
                 element: document.getElementById('post-body'),
             });
