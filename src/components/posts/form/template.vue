@@ -13,7 +13,7 @@
                     {{ errors.title }}
                 </span>
 
-                <input id="post-title" v-model="post.title" type="text" name="post-title" @change="predictedSlug">
+                <input id="post-title" type="text" name="post-title" v-model="post.title" @change="predictedSlug"/>
 
                 <div class="generated-url-container">
                     URL: <code class="generated-url">{{ post.slug }}</code>
@@ -27,7 +27,7 @@
                     {{ errors.publishAt }}
                 </span>
 
-                <flat-pickr  v-model="post.publishAt" :config="dateTimeConfig"/>
+                <flat-pickr v-model="post.publishAt" :config="dateTimeConfig"/>
             </div>
 
             <div id="post-excerpt-row" class="form-row">

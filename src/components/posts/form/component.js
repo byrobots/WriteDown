@@ -7,14 +7,14 @@ import flatPickr from 'vue-flatpickr-component';
 /**
  * Components
  */
-import errorIcon from '../error-icon';
-import spinner from '../spinner';
-import successIcon from '../success-icon';
+import errorIcon from '../../error-icon';
+import spinner from '../../spinner';
+import successIcon from '../../success-icon';
 
 /**
  * Classes
  */
-import API from '../../library/api';
+import API from '../../../library/api';
 
 /**
  * The component's defintion
@@ -68,6 +68,8 @@ export default {
 
         /**
          * Try to store the post.
+         *
+         * @param {Object} event
          */
         attemptStore: function (event) {
             event.preventDefault();

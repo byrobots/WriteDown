@@ -13,7 +13,7 @@
      * Internal
      */
     import template from '../../../mixins/template.js';
-    import postForm from '../../../components/post-form';
+    import postForm from '../../../components/posts/form';
 
     export default {
         components: {postForm},
