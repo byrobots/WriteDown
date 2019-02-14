@@ -17,7 +17,7 @@ import successIcon from '../../success-icon';
 import API from '../../../library/api';
 
 /**
- * The component's defintion
+ * The component.
  */
 export default {
     components: {errorIcon, flatPickr, spinner, successIcon},
@@ -56,7 +56,7 @@ export default {
         predictedSlug: function () {
             const data = {title: this.post.title};
 
-            if (0 === data.title.length) {
+            if (data.title.length === 0) {
                 this.post.slug = this.post.defaultSlug;
                 return;
             }
@@ -109,7 +109,7 @@ export default {
         /**
          * Handle a failed store attempt.
          *
-         * @param {object} error The response from the API request.
+         * @param {Object} error The response from the API request.
          */
         failedStore: function (error) {
             this.showSpinner   = false;
@@ -164,6 +164,11 @@ export default {
             this.errors.title     = null;
         },
     },
+
+    /**
+     * When the component is mounted set the default slug and start the fancy
+     * content editor.
+     */
     mounted: function () {
         this.post.slug = this.post.defaultSlug;
         this.startEditor();
