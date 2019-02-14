@@ -1,13 +1,13 @@
 paths:
-    migrations: '%%PHINX_CONFIG_DIR%%/vendor/byrobots/writedown-core/db/migrations'
-    seeds: '%%PHINX_CONFIG_DIR%%/db/seeds'
+  migrations: '%%PHINX_CONFIG_DIR%%/vendor/byrobots/writedown-core/db/migrations'
+  seeds: '%%PHINX_CONFIG_DIR%%/db/seeds'
 
 environments:
-    default_migration_table: migrations
-    default_database: development
+  default_migration_table: migrations
+  default_database: development
 
-    development:
-        adapter: sqlite
-        name: '%%PHINX_CONFIG_DIR%%/db/writedown'
+  development:
+    adapter: sqlite
+    name: '%%PHINX_CONFIG_DIR%%/db/writedown'
 
 version_order: creation
