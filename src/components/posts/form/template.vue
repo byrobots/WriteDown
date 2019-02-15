@@ -27,7 +27,12 @@
                     {{ errors.publishAt }}
                 </span>
 
-                <flat-pickr v-model="post.publishAt" :config="dateTimeConfig"/>
+                <flat-pickr v-model="post.publishAt" :config="{
+                    altInput: true,
+                    dateFormat: 'Y-m-d H:i:S',
+                    enableTime: true,
+                    time_24hr: true,
+                }"/>
             </div>
 
             <div id="post-excerpt-row" class="form-row">

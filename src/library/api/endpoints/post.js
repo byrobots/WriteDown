@@ -37,6 +37,17 @@ export default class Post {
     }
 
     /**
+     * Get a single post.
+     *
+     * @param {Integer} postId
+     *
+     * @return {Promise}
+     */
+    get (postId) {
+        return axios.get(`/api/posts/${postId}`);
+    }
+
+    /**
      * Delete a post.
      *
      * @param {Integer} postID

@@ -54,6 +54,30 @@ class PostController extends BaseController
     }
 
     /**
+     * Get a single post.
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request  Not used here. Just placeholder so we can get to $args.
+     * @param \Psr\Http\Message\ResponseInterface      $response As above.
+     * @param array                                    $args     Request arguments. Will contain the post ID.
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function read(ServerRequestInterface $request, ResponseInterface $response, array $args = [])
+    {
+        $result = $this->writedown
+            ->getService('api')
+            ->post()
+            ->read($args['postID']);
+
+        $response = $this->apiResponse->setData($result['data']);
+        if (!$result['success']) {
+            $response->setSuccess(false)->setStatusCode(400);
+        }
+
+        return $response->respond();
+    }
+
+    /**
      * Delete a post.
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request  Not used here. Just placeholder so we can get to $args.
@@ -69,11 +93,11 @@ class PostController extends BaseController
             ->post()
             ->delete($args['postID']);
 
-            $response = $this->apiResponse->setData([]);
-            if (!$result['success']) {
-                $response->setSuccess(false)->setStatusCode(400);
-            }
+        $response = $this->apiResponse->setData([]);
+        if (!$result['success']) {
+            $response->setSuccess(false)->setStatusCode(400);
+        }
 
-            return $response->respond();
+        return $response->respond();
     }
 }

@@ -23,12 +23,6 @@ export default {
     components: {errorIcon, flatPickr, spinner, successIcon},
     data: () => ({
         action: '',
-        dateTimeConfig: {
-            altInput: true,
-            dateFormat: 'Y-m-d H:i:S',
-            enableTime: true,
-            time_24hr: true,
-        },
         errors: {
             body: null,
             excerpt: null,

@@ -12,23 +12,28 @@ $router->get('/admin/login', 'Admin\AuthController::loginForm');
  * frontend. Not to be confused with the API provided by the writedown-core
  * package.
  */
- $router->post('/api/login', 'API\AuthController::validateLogin')
+$router->post('/api/login', 'API\AuthController::validateLogin')
     ->middleware($apiCsrfMiddleware);
 
-$router->group('/api', function ($route) use ($apiCsrfMiddleware) {
-    // Posts.
-    $route->get('/posts', 'API\PostController::index');
+$router->group(
+    '/api',
+    function ($route) use ($apiCsrfMiddleware) {
+        // Posts.
+        $route->get('/posts', 'API\PostController::index');
 
-    $route->post('/posts/store', 'API\PostController::store')
-        ->middleware($apiCsrfMiddleware);
+        $route->post('/posts/store', 'API\PostController::store')
+            ->middleware($apiCsrfMiddleware);
 
-    $route->post('/posts/{postID}/delete', 'API\PostController::delete')
-        ->middleware($apiCsrfMiddleware);
+        $route->get('/posts/{postID}', 'API\PostController::read');
 
-    // Slugs.
-    $route->post('slugs/predicted', 'API\SlugController::predicted')
-        ->middleware($apiCsrfMiddleware);
-})->middleware($authMiddleware);
+        $route->post('/posts/{postID}/delete', 'API\PostController::delete')
+            ->middleware($apiCsrfMiddleware);
+
+        // Slugs.
+        $route->post('slugs/predicted', 'API\SlugController::predicted')
+            ->middleware($apiCsrfMiddleware);
+    }
+)->middleware($authMiddleware);
 
 /**
  * Logged in administration routes.
