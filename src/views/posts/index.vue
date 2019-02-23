@@ -6,8 +6,8 @@
     /**
      * Internal
      */
-    import postForm from '../../../components/posts/index';
-    import template from '../../../mixins/template.js';
+    import postForm from '../../components/posts/index';
+    import template from '../../mixins/template.js';
 
     export default {
         components: {postForm},
