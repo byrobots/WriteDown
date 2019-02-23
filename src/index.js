@@ -13,7 +13,8 @@ import store from './store';
  * Views
  */
 import LoginView from './views/login.vue';
-import PostIndex from './views/posts/index.vue';
+import PostCreate from './views/posts/create.vue';
+import PostList from './views/posts/list.vue';
 
 /**
  * Define routes. Links a path to a view by way of `key: value` pairs.
@@ -22,7 +23,8 @@ import PostIndex from './views/posts/index.vue';
  */
 const routes = {
     '/admin/login': LoginView,
-    '/admin/posts': PostIndex,
+    '/admin/posts/new': PostCreate,
+    '/admin/posts': PostList,
 };
 
 new Vue({

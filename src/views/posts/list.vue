@@ -10,7 +10,7 @@
     import template from '../../mixins/template.js';
 
     export default {
-        components: {postForm},
-        mixins: [template],
+        components: { postForm },
+        mixins: [ template ],
     };
 </script>

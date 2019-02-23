@@ -20,7 +20,7 @@ import API from '../../../library/api';
  * The component.
  */
 export default {
-    components: {errorIcon, flatPickr, spinner, successIcon},
+    components: { errorIcon, flatPickr, spinner, successIcon },
     data: () => ({
         action: '',
         errors: {
@@ -48,7 +48,9 @@ export default {
          * Get the predicted slug base don the post's title.
          */
         predictedSlug: function () {
-            const data = {title: this.post.title};
+            const data = {
+                title: this.post.title
+            };
 
             if (data.title.length === 0) {
                 this.post.slug = this.post.defaultSlug;
@@ -65,7 +67,7 @@ export default {
          *
          * @param {Object} event
          */
-        attemptStore: function (event) {
+        attemptStore (event) {
             event.preventDefault();
             this.showForm    = false;
             this.showSpinner = true;
@@ -91,7 +93,7 @@ export default {
         /**
          * Handles a successful store attempt.
          */
-        successfulStore: function () {
+        successfulStore () {
             this.showSpinner     = false;
             this.showSuccessIcon = true;
 
@@ -105,7 +107,7 @@ export default {
          *
          * @param {Object} error The response from the API request.
          */
-        failedStore: function (error) {
+        failedStore (error) {
             this.showSpinner   = false;
             this.showErrorIcon = true;
             const response     = error.response.data;
@@ -136,7 +138,7 @@ export default {
         /**
          * Turn the post's body content field into a fancy editor.
          */
-        startEditor: function () {
+        startEditor () {
             if (typeof window.SimpleMDE === 'undefined') {
                 window.SimpleMDE = require('simplemde');
             }
@@ -151,7 +153,7 @@ export default {
         /**
          * Clear out any existing errors.
          */
-        clearErrors: function () {
+        clearErrors () {
             this.errors.body      = null;
             this.errors.excerpt   = null;
             this.errors.publishAt = null;
@@ -163,7 +165,7 @@ export default {
      * When the component is mounted set the default slug and start the fancy
      * content editor.
      */
-    mounted: function () {
+    mounted () {
         this.post.slug = this.post.defaultSlug;
         this.startEditor();
     }
