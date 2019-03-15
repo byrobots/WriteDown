@@ -1,22 +1,19 @@
 /**
  * External
  */
+import Navigo from 'navigo';
 import Vue from 'vue';
-import Page from 'page';
 
 /**
  * Internal
  */
-import store from './store';
 import routes from './routes';
+import store from './store';
 
 import './sass/style.scss';
 
 /**
  * Initialise the Vue app.
- *
- * Routing based on:
- * https://github.com/chrisvfritz/vue-2.0-simple-routing-example/tree/pagejs
  */
 const app = new Vue({
     /**
@@ -39,7 +36,7 @@ const app = new Vue({
      * @var {Object}
      */
     data: {
-        ViewComponent: {},
+        ViewComponent: { render: h => h('div', 'Loading WriteDown.') },
     },
 
     /**
@@ -58,12 +55,15 @@ const app = new Vue({
     },
 });
 
-/**
+/*
  * Set-up routes.
  */
-Object.keys(routes).forEach((component, path) => {
-    Page(path, () => app.ViewComponent = component);
+const router = new Navigo();
+
+Object.keys(routes).forEach((path, component) => {
+    router
+        .on(path, () => app.ViewComponent = component)
+        .resolve();
 });
 
-Page('*', () => app.ViewComponent = require('./views/404.vue'));
-Page();
+router.notFound(() => app.ViewComponent = require('./views/404.vue').default);

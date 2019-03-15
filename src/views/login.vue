@@ -1,5 +1,5 @@
 <template>
-    <div id="login-container">
+    <section id="login-container">
         <header>
             <h1 v-text="pagetitle" />
         </header>
@@ -10,7 +10,7 @@
             <a href="https://github.com/by-robots/writedown">WriteDown</a>,
             a project <a href="https://by-robots.dev">By Robots</a>.
         </footer>
-    </div>
+    </section>
 </template>
 
 <script>

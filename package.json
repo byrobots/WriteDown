@@ -13,31 +13,24 @@
     "author": "By Robots",
     "license": "MIT",
     "dependencies": {
-        "@babel/runtime": "^7.3.1",
         "axios": "^0.18.0",
-        "es6-promise": "^4.2.6",
+        "navigo": "^7.1.2",
         "normalize.css": "^8.0.1",
-        "page": "^1.11.4",
         "qs": "^6.6.0",
         "simplemde": "^1.11.2",
-        "vue": "^2.6.7",
+        "vue": "^2.6.9",
         "vue-flatpickr-component": "^8.1.1",
         "vuex": "^3.1.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.3.3",
-        "@babel/plugin-transform-runtime": "^7.2.0",
-        "@babel/preset-env": "^7.3.1",
-        "babel-loader": "^8.0.5",
         "css-loader": "^1.0.1",
         "node-sass": "^4.11.0",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.1",
-        "vue-loader": "^15.6.4",
-        "vue-style-loader": "^4.1.2",
-        "vue-template-compiler": "^2.6.7",
-        "webpack": "^4.29.5",
-        "webpack-cli": "^3.2.3",
-        "webpack-dev-server": "^3.2.0"
+        "vue-loader": "^15.7.0",
+        "vue-template-compiler": "^2.6.9",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.3.0",
+        "webpack-dev-server": "^3.2.1"
     }
 }

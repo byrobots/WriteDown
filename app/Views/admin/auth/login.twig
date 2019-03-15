@@ -1,10 +1,13 @@
 {% set bodyId    = 'login-body' %}
-{% set pagetitle = 'Hello there! 👋' %}
+{% set pagetitle = '👋' %}
 
 {% extends 'admin/layouts/guest.twig' %}
 
 {% block content %}
-    <div id="app"
+    <div
+        id="app"
         data-pagetitle="{{ pagetitle|striptags|title }}"
-        data-csrf="{{ csrf }}"></div>
+        data-csrf="{{ csrf }}"
+    >
+    </div>
 {% endblock %}

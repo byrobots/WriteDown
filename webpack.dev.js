@@ -1,6 +1,6 @@
 'use strict';
 
-const {VueLoaderPlugin} = require('vue-loader');
+const { VueLoaderPlugin } = require('vue-loader');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -20,9 +20,6 @@ module.exports = {
             test: /\.vue$/,
             use: 'vue-loader'
         }, {
-            test: /\.js$/,
-            use: 'babel-loader'
-        }, {
             test: /\.s[c|a]ss$/,
             use: ['style-loader', 'css-loader', 'sass-loader'],
         }],
@@ -35,5 +32,5 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-    ],
+    ]
 };
