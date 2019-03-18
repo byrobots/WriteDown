@@ -8,10 +8,11 @@
             <h1 class="pagetitle">{{ pagetitle }}</h1>
             <div class="call-to-action">
                 <a href="/admin/posts/new" class="button">New Post</a>
+            </div>
         </header>
 
         <div
-            id="post-index"
+            id="app"
             data-pagetitle="{{ pagetitle|striptags|title }}"
             data-csrf="{{ csrf }}"
         ></div>

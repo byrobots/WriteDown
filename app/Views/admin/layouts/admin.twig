@@ -1,33 +1,35 @@
 {% include 'admin/partials/html_header.twig' %}
-    <div id="positioning-container">
-        <header id="topbar">
-            <h2>WriteDown</h2>
-        </header>
 
-        <section id="container">
-            <nav id="sidebar">
-                <ul id="admin-functions">
-                    <li><a class="admin-function" href="/admin/dashboard">
-                        <i class="fas fa-desktop"></i> Dashboard
-                    </a></li>
-                    <li><a class="admin-function" href="/admin/posts">
-                        <i class="fas fa-edit"></i> Posts</a>
-                    </li>
-                    <li><a class="admin-function" href="#">
-                        <i class="fas fa-tags"></i> Tags
-                    </a></li>
-                    <li><a class="admin-function" href="#">
-                        <i class="fas fa-users"></i> Users
-                    </a></li>
-                    <li><a class="admin-function" href="#">
-                        <i class="fas fa-door-open"></i> Logout
-                    </a></li>
-                </ul>
-            </nav>
+<div id="positioning-container">
+    <header id="topbar">
+        <h2>WriteDown</h2>
+    </header>
 
-            <article id="content">
-                {% block content %}{% endblock %}
-            </article>
+    <div id="container">
+        <nav id="sidebar">
+            <ul id="admin-functions">
+                <li><a class="admin-function" href="/admin/dashboard">
+                    <i class="fas fa-desktop"></i> Dashboard
+                </a></li>
+                <li><a class="admin-function" href="/admin/posts">
+                    <i class="fas fa-edit"></i> Posts</a>
+                </li>
+                <li><a class="admin-function" href="#">
+                    <i class="fas fa-tags"></i> Tags
+                </a></li>
+                <li><a class="admin-function" href="#">
+                    <i class="fas fa-users"></i> Users
+                </a></li>
+                <li><a class="admin-function" href="#">
+                    <i class="fas fa-door-open"></i> Logout
+                </a></li>
+            </ul>
+        </nav>
+
+        <section id="content">
+            {% block content %}{% endblock %}
         </section>
     </div>
+</div>
+
 {% include 'admin/partials/html_footer.twig' %}
