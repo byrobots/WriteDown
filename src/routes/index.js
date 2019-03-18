@@ -3,6 +3,7 @@
  */
 import LoginView from '../views/Login.vue';
 import PostCreate from '../views/Posts/Create.vue';
+import PostEdit from '../views/Posts/Edit.vue';
 import PostList from '../views/Posts/List.vue';
 
 /**
@@ -18,4 +19,5 @@ export default {
      */
     'admin/posts': PostList,
     'admin/posts/new': PostCreate,
+    'admin/posts/:id/edit': PostEdit,
 };
