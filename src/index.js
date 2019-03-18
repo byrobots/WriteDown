@@ -36,7 +36,7 @@ const app = new Vue({
      * @var {Object}
      */
     data: {
-        ViewComponent: { render: h => h('div', 'Loading WriteDown.') },
+        ViewComponent: { render: h => h() },
     },
 
     /**
@@ -50,9 +50,7 @@ const app = new Vue({
     /**
      * Render the page.
      */
-    render (h) {
-        return h(this.ViewComponent);
-    },
+    render(h) { return h(this.ViewComponent) },
 });
 
 /*
@@ -60,9 +58,8 @@ const app = new Vue({
  */
 const router = new Navigo();
 
-Object.keys(routes).forEach((path, component) => {
-    router
-        .on(path, () => app.ViewComponent = component)
+Object.keys(routes).forEach((path) => {
+    router.on(path, () => app.ViewComponent = routes[path])
         .resolve();
 });
 
