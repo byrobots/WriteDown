@@ -1,7 +1,7 @@
 <template>
     <section>
         <header>
-            <h1 class="pagetitle" v-text="pagetitle"/>
+            <h1 class="pagetitle" v-text="pagetitle" />
         </header>
 
         <post-form action="/admin/posts" />

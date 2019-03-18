@@ -56,11 +56,8 @@ const app = new Vue({
 /*
  * Set-up routes.
  */
-const router = new Navigo();
+const router = new Navigo(window.location.hostname);
 
 Object.keys(routes).forEach((path) => {
-    router.on(path, () => app.ViewComponent = routes[path])
-        .resolve();
+    router.on(path, () => app.ViewComponent = routes[path]).resolve();
 });
-
-router.notFound(() => app.ViewComponent = require('./views/404.vue').default);

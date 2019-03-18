@@ -11,11 +11,11 @@ import PostList from '../views/Posts/List.vue';
  * @var {Object}
  */
 export default {
-    '/admin/login': LoginView,
+    'admin/login': LoginView,
 
     /**
      * Routes for posts.
      */
-    '/admin/posts/new': PostCreate,
-    '/admin/posts': PostList,
+    'admin/posts': PostList,
+    'admin/posts/new': PostCreate,
 };
