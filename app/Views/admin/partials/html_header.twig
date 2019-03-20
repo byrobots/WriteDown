@@ -7,5 +7,7 @@
     <title>{{ pagetitle|striptags|title }} - WriteDown</title>
 
     <link rel="icon" href="/favicon.png">
+
+    {% include 'admin/partials/standard-vars.twig' %}
 </head>
 <body {% if bodyId is defined %} id="{{ bodyId }}"{% endif %}>

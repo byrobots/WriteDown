@@ -43,8 +43,8 @@ const app = new Vue({
      * Standard data that will always be present.
      */
     beforeMount () {
-        store.commit('csrf', this.$el.attributes['data-csrf'].value);
-        store.commit('pagetitle', this.$el.attributes['data-pagetitle'].value);
+        store.commit('csrf', writedown.csrf || null);
+        store.commit('pagetitle', writedown.pagetitle || null);
     },
 
     /**

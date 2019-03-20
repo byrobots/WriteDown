@@ -3,11 +3,7 @@
 {% extends 'admin/layouts/admin.twig' %}
 
 {% block content %}
-    <div
-        id="app"
-        data-csrf="{{ csrf }}"
-        data-pagetitle="{{ pagetitle|striptags|title }}"
-        data-post-id="{{ postID }}"
-    >
-    </div>
+    <div id="app"></div>
+
+    <script>writedown.postId = {{ postID }};</script>
 {% endblock %}
