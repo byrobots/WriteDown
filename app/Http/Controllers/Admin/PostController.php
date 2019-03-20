@@ -15,6 +15,9 @@ class PostController extends BaseController
      */
     public function index()
     {
+        // TODO: Now I've tweaked how data is passed to Vue I can get the post
+        //       index here which will ultimately be faster than an HTTP
+        //       request after the page has loaded.
         return $this->respond('admin/post/index.twig', [
             'csrf' => $this->writedown->getService('csrf')->get(),
         ]);
@@ -45,9 +48,10 @@ class PostController extends BaseController
     public function edit(ServerRequestInterface $request, ResponseInterface $response, array $args = [])
     {
         $csrf = $this->writedown->getService('csrf')->get();
+        $post = $this->writedown->getService('api')->post()->read($args['postID']);
         return $this->respond('admin/post/edit.twig', [
-            'csrf'   => $csrf,
-            'postID' => $args['postID'],
+            'csrf' => $csrf,
+            'post' => $post,
         ]);
     }
 }

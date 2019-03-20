@@ -48,6 +48,19 @@ export default class Post {
     }
 
     /**
+     * Update a single post.
+     *
+     * @param {Integer} postID
+     * @param {Object}  data
+     *
+     * @return {Promise}
+     */
+    update (postId, data) {
+        data.csrf = store.state.csrf;
+        return axios.post(`/api/posts/${postId}/update`, qs.stringify(data));
+    }
+
+    /**
      * Delete a post.
      *
      * @param {Integer} postID

@@ -26,6 +26,9 @@ $router->group(
 
         $route->get('/posts/{postID}', 'API\PostController::read');
 
+        $route->post('/posts/{postID}/update', 'API\PostController::update')
+            ->middleware($apiCsrfMiddleware);
+
         $route->post('/posts/{postID}/delete', 'API\PostController::delete')
             ->middleware($apiCsrfMiddleware);
 

@@ -1,8 +1,13 @@
 /**
  * External
  */
-import Vue from 'vue';
 import flatPickr from 'vue-flatpickr-component';
+import Vue from 'vue';
+
+/**
+ * Internal
+ */
+import store from '../../../store';
 
 /**
  * Components
@@ -24,18 +29,19 @@ export default {
     data: () => ({
         action: '',
         errors: {
-            body: null,
-            excerpt: null,
-            publishAt: null,
             title: null,
+            publishAt: null,
+            excerpt: null,
+            body: null,
         },
         post: {
-            body: '',
-            defaultSlug: 'Add a title to generate the URL',
-            excerpt: '',
-            publishAt: '',
-            slug: '',
+            id: '',
             title: '',
+            defaultSlug: 'Add a title to generate the URL',
+            slug: '',
+            publishAt: '',
+            excerpt: '',
+            body: '',
         },
         editor: null,
         showErrorIcon: false,
@@ -48,10 +54,13 @@ export default {
          * Get the predicted slug base don the post's title.
          */
         predictedSlug: function () {
-            const data = {
-                title: this.post.title
-            };
+            // If the post object is set don't re-generate the slug.
+            // TODO: Allow slugs to set manually, or changed.
+            if (null !== store.state.post) {
+                return;
+            }
 
+            const data = { title: this.post.title };
             if (data.title.length === 0) {
                 this.post.slug = this.post.defaultSlug;
                 return;
@@ -85,9 +94,17 @@ export default {
                 title: this.post.title,
             };
 
-            API.post().store(data)
-                .then(this.successfulStore)
-                .catch(response => this.failedStore(response));
+            if (null !== store.state.post) {
+                // Post is set in the store, update the existing record.
+                API.post().update(store.state.post.id, data)
+                    .then(this.successfulStore)
+                    .catch(response => this.failedStore(response));
+            } else {
+                // Create
+                API.post().store(data)
+                    .then(this.successfulStore)
+                    .catch(response => this.failedStore(response));
+            }
         },
 
         /**
@@ -165,8 +182,19 @@ export default {
      * When the component is mounted set the default slug and start the fancy
      * content editor.
      */
-    mounted () {
+    mounted() {
         this.post.slug = this.post.defaultSlug;
+
+        // If the post is available in the global store use the data provided.
+        if (null !== store.state.post) {
+            this.post.id = store.state.post.id;
+            this.post.title = store.state.post.title;
+            this.post.slug = store.state.post.slug;
+            this.post.publishAt = new Date(store.state.post.publish_at.date);
+            this.post.excerpt = store.state.post.excerpt;
+            this.post.body = store.state.post.body;
+        }
+
         this.startEditor();
     }
 };

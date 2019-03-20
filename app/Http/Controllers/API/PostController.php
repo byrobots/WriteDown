@@ -39,10 +39,10 @@ class PostController extends BaseController
     {
         $input  = $this->request->getParsedBody();
         $result = $this->writedown->getService('api')->post()->create([
-            'body'       => $input['body'],
-            'excerpt'    => !empty($input['excerpt'])    ? $input['excerpt']                   : null,
-            'publish_at' => !empty($input['publish_at']) ? new \DateTime($input['publish_at']) : null,
             'title'      => $input['title'],
+            'publish_at' => !empty($input['publish_at']) ? new \DateTime($input['publish_at']) : null,
+            'excerpt'    => !empty($input['excerpt'])    ? $input['excerpt']                   : null,
+            'body'       => $input['body'],
         ]);
 
         $response = $this->apiResponse->setData($result['data']);
@@ -68,6 +68,35 @@ class PostController extends BaseController
             ->getService('api')
             ->post()
             ->read($args['postID']);
+
+        $response = $this->apiResponse->setData($result['data']);
+        if (!$result['success']) {
+            $response->setSuccess(false)->setStatusCode(400);
+        }
+
+        return $response->respond();
+    }
+
+    /**
+     * Update a single post.
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request  Not used here. Just placeholder so we can get to $args.
+     * @param \Psr\Http\Message\ResponseInterface      $response As above.
+     * @param array                                    $args     Request arguments. Will contain the post ID.
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function update(ServerRequestInterface $request, ResponseInterface $response, array $args = [])
+    {
+        $input  = $this->request->getParsedBody();
+        $result = $this->writedown->getService('api')
+            ->post()
+            ->update($args['postID'], [
+                'title'      => $input['title'],
+                'publish_at' => !empty($input['publish_at']) ? new \DateTime($input['publish_at']) : null,
+                'excerpt'    => !empty($input['excerpt'])    ? $input['excerpt']                   : null,
+                'body'       => $input['body'],
+            ]);
 
         $response = $this->apiResponse->setData($result['data']);
         if (!$result['success']) {

@@ -6,6 +6,8 @@
             :action="action"
             method="post"
         >
+            <input type="hidden" name="postId" v-model="post.id"/>
+
             <div id="post-title-row" class="form-row">
                 <label for="post-title">Title</label>
                 <span v-if="null !== errors.title" class="single-error">

@@ -45,6 +45,7 @@ const app = new Vue({
     beforeMount () {
         store.commit('csrf', writedown.csrf || null);
         store.commit('pagetitle', writedown.pagetitle || null);
+        store.commit('post', writedown.post || null);
     },
 
     /**
