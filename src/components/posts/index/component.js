@@ -6,6 +6,7 @@ import getFullHours from '../../../prototypes/get-full-hours.js';
 import getFullMinutes from '../../../prototypes/get-full-minutes.js';
 import getFullSeconds from '../../../prototypes/get-full-seconds.js';
 import spinner from '../../spinner';
+import store from '../../../store';
 
 // Add prototypes for working with time values.
 Date.prototype.getFullHours   = getFullHours;
@@ -16,29 +17,21 @@ Date.prototype.getFullSeconds = getFullSeconds;
  * The component
  */
 export default {
-    components: {spinner},
-    data: () => ({
-        posts: null,
-    }),
+    components: { spinner },
+    data: () => ({ posts: null }),
     methods: {
         /**
          * Use the response from the API call to populate the posts table.
-         *
-         * @param  {Object} response The response from the API.
          */
-        populateTable (response) {
-            const data = response.data.data;
-            data.forEach((post, index) => {
+        populateTable() {
+            this.posts.forEach((post, index) => {
                 // If we have a publish_at value convert it to a DateTime
                 // object. We'll then use that to establish if a post is
                 // unpublished, published or scheduled to be published.
                 if (null !== post.publish_at) {
-                    const timestamp        = Date.parse(post.publish_at.date);
-                    data[index].publish_at = new Date(timestamp);
+                    this.posts[index].publish_at = new Date(post.publish_at.date);
                 }
             });
-
-            this.posts = data;
         },
 
         /**
@@ -63,7 +56,7 @@ export default {
 
                         // TODO: Success message
                     })
-                    .catch(() => {/* TODO: Error message */});
+                    .catch(() => { /* TODO: Error message */ });
             }
         },
     },
@@ -72,8 +65,7 @@ export default {
      * Once the component is mounted grab the posts from the API.
      */
     mounted: function () {
-        API.post().index()
-            .then(this.populateTable)
-            .catch(/* TODO: Error message */);
+        this.posts = store.state.posts;
+        this.populateTable();
     },
 };

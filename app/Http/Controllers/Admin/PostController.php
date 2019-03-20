@@ -11,15 +11,25 @@ class PostController extends BaseController
     /**
      * Display the post index.
      *
+     * @param \Psr\Http\Message\ServerRequestInterface $request  Not used here. Just placeholder so we can get to $args.
+     * @param \Psr\Http\Message\ResponseInterface      $response As above.
+     * @param array                                    $args     Will contain pagination details.
+     *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function index()
+    public function index(ServerRequestInterface $request, ResponseInterface $response, array $args = [])
     {
-        // TODO: Now I've tweaked how data is passed to Vue I can get the post
-        //       index here which will ultimately be faster than an HTTP
-        //       request after the page has loaded.
+        $posts = $this->writedown->getService('api')->post()->index([
+            'where'      => [],
+            'pagination' => [
+                'current_page' => array_key_exists('page', $args) ? $args['page'] : 1,
+                'per_page'     => env('MAX_ITEMS', 10),
+            ],
+        ]);
+
         return $this->respond('admin/post/index.twig', [
-            'csrf' => $this->writedown->getService('csrf')->get(),
+            'csrf'  => $this->writedown->getService('csrf')->get(),
+            'posts' => $posts,
         ]);
     }
 

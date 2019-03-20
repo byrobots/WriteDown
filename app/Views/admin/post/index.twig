@@ -12,5 +12,6 @@
         </header>
 
         <div id="app"></div>
+        <script>writedown.posts = {{ posts.data|json_encode|raw }};</script>
     </main>
 {% endblock %}
