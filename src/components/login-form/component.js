@@ -69,7 +69,8 @@ export default {
             this.showSpinner = true;
 
             // Attempt the login.
-            API.auth().login(this.email, this.password)
+            API.auth()
+                .login(this.email, this.password)
                 .then(this.successfulLogin)
                 .catch(this.failedLogin);
         },
