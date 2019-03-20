@@ -37,17 +37,6 @@ export default class Post {
     }
 
     /**
-     * Get a single post.
-     *
-     * @param {Integer} postId
-     *
-     * @return {Promise}
-     */
-    get (postId) {
-        return axios.get(`/api/posts/${postId}`);
-    }
-
-    /**
      * Update a single post.
      *
      * @param {Integer} postID
@@ -68,7 +57,7 @@ export default class Post {
      * @return {Promise}
      */
     delete (postID) {
-        const data = {csrf: store.state.csrf};
+        const data = { csrf: store.state.csrf };
         return axios.post(`/api/posts/${postID}/delete`, qs.stringify(data));
     }
 };
