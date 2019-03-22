@@ -53,8 +53,6 @@ export default {
                         // Delete from the page.
                         const index = event.srcElement.getAttribute('data-index');
                         this.posts.splice(index, 1);
-
-                        // TODO: Success message
                     })
                     .catch(() => { /* TODO: Error message */ });
             }
