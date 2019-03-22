@@ -99,12 +99,13 @@ export default {
                 API.post().update(store.state.post.id, data)
                     .then(this.successfulStore)
                     .catch(response => this.failedStore(response));
-            } else {
-                // Create
-                API.post().store(data)
-                    .then(this.successfulStore)
-                    .catch(response => this.failedStore(response));
+                return;
             }
+
+            // Create
+            API.post().store(data)
+                .then(this.successfulStore)
+                .catch(response => this.failedStore(response));
         },
 
         /**
