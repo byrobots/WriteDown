@@ -1,45 +1,44 @@
 {
-    "name": "byrobots/writedown",
-    "description": "Purposeful blogging.",
-    "type": "project",
-    "license": "MIT",
-    "require": {
-        "byrobots/writedown-core": "dev-master",
-        "monolog/monolog": "^1.23",
-        "twig/twig": "^2.0",
-        "vlucas/phpdotenv": "^2.4"
+  "name": "byrobots/writedown",
+  "description": "Purposeful blogging.",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "byrobots/writedown-core": "dev-master",
+    "monolog/monolog": "^1.23",
+    "twig/twig": "^2.0",
+    "vlucas/phpdotenv": "^2.4"
+  },
+  "require-dev": {
+    "filp/whoops": "~2.0",
+    "kint-php/kint": "^3.1"
+  },
+  "autoload": {
+    "files": [
+      "app/Helpers/helpers.php"
+    ],
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "autoload-dev": {},
+  "config": {
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.1"
     },
-    "require-dev": {
-        "filp/whoops": "~2.0",
-        "kint-php/kint": "^3.1"
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [{
+      "type": "vcs",
+      "url": "https://github.com/byrobots/writedown-core"
     },
-    "autoload": {
-        "files": [
-            "app/Helpers/helpers.php"
-        ],
-        "psr-4": {
-            "App\\": "app/"
-        }
-    },
-    "autoload-dev": {},
-    "config": {
-        "optimize-autoloader": true,
-        "platform": {
-            "php": "7.1"
-        },
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/byrobots/writedown-core"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/byrobots/validation"
-        }
-    ]
+    {
+      "type": "vcs",
+      "url": "https://github.com/byrobots/validation"
+    }
+  ]
 }

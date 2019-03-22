@@ -1,7 +1,7 @@
 <template>
-    <i class="fas fa-spinner spinner" />
+  <i class="fas fa-spinner spinner" />
 </template>
 
 <script>
-    export default {};
+export default {};
 </script>
