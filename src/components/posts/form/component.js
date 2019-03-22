@@ -185,10 +185,15 @@ export default {
 
     // If the post is available in the global store use the data provided.
     if (store.state.post !== null) {
+      let publishAt = ''
+      if (store.state.post.publish_at !== null) {
+        publishAt = new Date(store.state.post.publish_at.date)
+      }
+
       this.post.id = store.state.post.id
       this.post.title = store.state.post.title
       this.post.slug = store.state.post.slug
-      this.post.publishAt = new Date(store.state.post.publish_at.date)
+      this.post.publishAt = publishAt
       this.post.excerpt = store.state.post.excerpt
       this.post.body = store.state.post.body
     }
