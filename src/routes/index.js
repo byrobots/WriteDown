@@ -15,8 +15,8 @@ export default {
   'admin/login': LoginView,
 
   /**
-     * Routes for posts.
-     */
+   * Routes for posts.
+   */
   'admin/posts': PostList,
   'admin/posts/new': PostCreate,
   'admin/posts/:id/edit': PostEdit

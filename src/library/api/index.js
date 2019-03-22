@@ -1,8 +1,4 @@
 /**
- * External
- */
-
-/**
  * Internal
  */
 import Auth from './endpoints/auth.js'

@@ -8,19 +8,11 @@ import Vue from 'vue'
 /**
  * Internal
  */
-import store from '../../../store'
-
-/**
- * Components
- */
+import API from '../../../library/api'
 import errorIcon from '../../error-icon'
 import spinner from '../../spinner'
+import store from '../../../store'
 import successIcon from '../../success-icon'
-
-/**
- * Classes
- */
-import API from '../../../library/api'
 
 /**
  * The component.
@@ -177,9 +169,9 @@ export default {
   },
 
   /**
-     * When the component is mounted set the default slug and start the fancy
-     * content editor.
-     */
+   * When the component is mounted set the default slug and start the fancy
+   * content editor.
+   */
   mounted () {
     this.post.slug = this.post.defaultSlug
 

@@ -14,13 +14,13 @@ const qs = require('qs')
  */
 export default class Auth {
   /**
-     * Entry point for usage. Takes an email and password and requests a login.
-     *
-     * @param {string} email
-     * @param {string} password
-     *
-     * @returns {Promise} Will throw an error if login fails.
-     */
+   * Entry point for usage. Takes an email and password and requests a login.
+   *
+   * @param {string} email
+   * @param {string} password
+   *
+   * @returns {Promise} Will throw an error if login fails.
+   */
   login (email, password) {
     const data = {
       csrf: store.state.csrf,

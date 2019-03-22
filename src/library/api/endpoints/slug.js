@@ -1,7 +1,4 @@
 /**
- * External
- */
-/**
  * Internal
  */
 import store from '../../../store'
@@ -14,12 +11,12 @@ const qs = require('qs')
  */
 export default class Slug {
   /**
-     * Attempt to get the predicted slug of a post based on it's title.
-     *
-     * @param {object} data
-     *
-     * @returns {Promise}
-     */
+   * Attempt to get the predicted slug of a post based on it's title.
+   *
+   * @param {object} data
+   *
+   * @returns {Promise}
+   */
   predicted (data) {
     data.csrf = store.state.csrf
     return axios.post('/api/slugs/predicted', qs.stringify(data))

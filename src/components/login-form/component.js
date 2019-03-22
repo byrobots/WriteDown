@@ -14,52 +14,52 @@ export default {
   },
   data: () => ({
     /**
-         * The email entered in the form that identifies who the user is trying
-         * to login as.
-         *
-         * @type {String}
-         */
+     * The email entered in the form that identifies who the user is trying
+     * to login as.
+     *
+     * @type {String}
+     */
     email: '',
 
     /**
-         * The password the user is trying to use to authenticate themselves.
-         *
-         * @type {String}
-         */
+     * The password the user is trying to use to authenticate themselves.
+     *
+     * @type {String}
+     */
     password: '',
 
     /**
-         * Should the error icon be shown?
-         *
-         * @type {Boolean}
-         */
+     * Should the error icon be shown?
+     *
+     * @type {Boolean}
+     */
     showErrorIcon: false,
 
     /**
-         * Should the form be shown?
-         *
-         * @type {Boolean}
-         */
+     * Should the form be shown?
+     *
+     * @type {Boolean}
+     */
     showForm: true,
 
     /**
-         * Should the spinner be shown?
-         *
-         * @type {Boolean}
-         */
+     * Should the spinner be shown?
+     *
+     * @type {Boolean}
+     */
     showSpinner: false,
 
     /**
-         * Should the success icon be shown?
-         *
-         * @type {Boolean}
-         */
+     * Should the success icon be shown?
+     *
+     * @type {Boolean}
+     */
     showSuccessIcon: false
   }),
   methods: {
     /**
-         * Submits the data provided by the user to see if it's valid.
-         */
+     * Submits the data provided by the user to see if it's valid.
+     */
     attemptLogin (event) {
       event.preventDefault()
 
@@ -76,8 +76,8 @@ export default {
     },
 
     /**
-         * Handles a successful login attempt.
-         */
+     * Handles a successful login attempt.
+     */
     successfulLogin () {
       // Hiden the spinner and show the success icon.
       this.showSpinner = false
@@ -91,8 +91,8 @@ export default {
     },
 
     /**
-         * Handles a failed login attempt.
-         */
+     * Handles a failed login attempt.
+     */
     failedLogin () {
       // Hide the spinner and show the error icon.
       this.showSpinner = false

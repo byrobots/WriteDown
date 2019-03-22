@@ -13,8 +13,8 @@ export default {
   data: () => ({ posts: null }),
   methods: {
     /**
-         * Use the response from the API call to populate the posts table.
-         */
+     * Use the response from the API call to populate the posts table.
+     */
     populateTable () {
       this.posts.forEach((post, index) => {
         // If we have a publish_at value convert it to a DateTime
@@ -27,12 +27,12 @@ export default {
     },
 
     /**
-         * Confirm the user wants to delete the post. When confirmed the post
-         * will be deleted.
-         *
-         * @param {Object} event The click event, which will contain the element
-         *                       that was clicked.
-         */
+     * Confirm the user wants to delete the post. When confirmed the post
+     * will be deleted.
+     *
+     * @param {Object} event The click event, which will contain the element
+     *                       that was clicked.
+     */
     confirmDelete (event) {
       event.preventDefault()
 
@@ -52,8 +52,8 @@ export default {
   },
 
   /**
-     * Once the component is mounted grab the posts from the API.
-     */
+   * Once the component is mounted grab the posts from the API.
+   */
   mounted: function () {
     this.posts = store.state.posts
     this.populateTable()
