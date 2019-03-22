@@ -1,1 +1,1 @@
-export default (state) => state.pagetitle;
+export default (state) => state.pagetitle

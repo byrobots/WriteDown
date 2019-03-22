@@ -1,12 +1,12 @@
 /**
  * External
  */
-import Vue from 'vue';
+import Vue from 'vue'
 
 /**
  * Internal
  */
-import spinner from './template.vue';
+import spinner from './template.vue'
 
-Vue.component('spinner', spinner);
-export default spinner;
+Vue.component('spinner', spinner)
+export default spinner

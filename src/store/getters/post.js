@@ -1,1 +1,1 @@
-export default (state) => state.post;
+export default (state) => state.post

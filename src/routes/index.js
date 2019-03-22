@@ -1,10 +1,10 @@
 /**
  * Views
  */
-import LoginView from '../views/Login.vue';
-import PostCreate from '../views/Posts/Create.vue';
-import PostEdit from '../views/Posts/Edit.vue';
-import PostList from '../views/Posts/List.vue';
+import LoginView from '../views/Login.vue'
+import PostCreate from '../views/Posts/Create.vue'
+import PostEdit from '../views/Posts/Edit.vue'
+import PostList from '../views/Posts/List.vue'
 
 /**
  * Define routes.
@@ -12,12 +12,12 @@ import PostList from '../views/Posts/List.vue';
  * @var {Object}
  */
 export default {
-    'admin/login': LoginView,
+  'admin/login': LoginView,
 
-    /**
+  /**
      * Routes for posts.
      */
-    'admin/posts': PostList,
-    'admin/posts/new': PostCreate,
-    'admin/posts/:id/edit': PostEdit,
-};
+  'admin/posts': PostList,
+  'admin/posts/new': PostCreate,
+  'admin/posts/:id/edit': PostEdit
+}

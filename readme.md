@@ -29,3 +29,7 @@ WriteDown uses [Kint](https://github.com/kint-php/kint) to make dumping
 variables a bit nicer. Use `d($var)` to use it.
 
 WriteDown will be available in your browser at `http://localhost:8000`.
+
+### Linting
+#### JavaScript
+TODO: Linting with `standard`.

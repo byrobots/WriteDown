@@ -1,12 +1,12 @@
 /**
  * External
  */
-import Vue from 'vue';
+import Vue from 'vue'
 
 /**
  * Internal
  */
-import errorIcon from './template.vue';
+import errorIcon from './template.vue'
 
-Vue.component('error-icon', errorIcon);
-export default errorIcon;
+Vue.component('error-icon', errorIcon)
+export default errorIcon

@@ -1,1 +1,1 @@
-export default (state) => state.csrf;
+export default (state) => state.csrf

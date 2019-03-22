@@ -1,12 +1,12 @@
 /**
  * External
  */
-import Vue from 'vue';
+import Vue from 'vue'
 
 /**
  * Internal
  */
-import successIcon from './template.vue';
+import successIcon from './template.vue'
 
-Vue.component('success-icon', successIcon);
-export default successIcon;
+Vue.component('success-icon', successIcon)
+export default successIcon
