@@ -1,15 +1,16 @@
 <template>
-  <div />
+  <tag-index />
 </template>
 
 <script>
 /**
  * Internal
  */
+import tagIndex from '../components/tags/index'
 import template from '../mixins/template.js'
 
 export default {
-  components: { },
+  components: { tagIndex },
   mixins: [template]
 }
 </script>

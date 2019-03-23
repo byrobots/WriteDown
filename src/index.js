@@ -49,6 +49,7 @@ const app = new Vue({
     store.commit('pagetitle', writedown.pagetitle || null)
     store.commit('post', writedown.post || null)
     store.commit('posts', writedown.posts || null)
+    store.commit('tags', writedown.tags || null)
   },
 
   /**
