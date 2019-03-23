@@ -1,0 +1,14 @@
+{% set pagetitle = 'Tags' %}
+
+{% extends 'admin/layouts/admin.twig' %}
+
+{% block content %}
+    <main id="post-index-container">
+        <header class="header">
+            <h1 class="pagetitle">{{ pagetitle }}</h1>
+        </header>
+
+        <div id="app"></div>
+        <script>writedown.tags = {{ tags.data|json_encode|raw }};</script>
+    </main>
+{% endblock %}
