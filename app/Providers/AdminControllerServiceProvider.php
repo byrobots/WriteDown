@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\TagController;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
 class AdminControllerServiceProvider extends AbstractServiceProvider
@@ -18,6 +19,7 @@ class AdminControllerServiceProvider extends AbstractServiceProvider
         'Admin\AuthController',
         'Admin\DashboardController',
         'Admin\PostController',
+        'Admin\TagController',
     ];
 
     /**
@@ -35,6 +37,10 @@ class AdminControllerServiceProvider extends AbstractServiceProvider
 
         $this->getContainer()
             ->add('Admin\PostController', PostController::class)
+            ->withArgument('view');
+
+        $this->getContainer()
+            ->add('Admin\TagController', TagController::class)
             ->withArgument('view');
     }
 }

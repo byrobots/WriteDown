@@ -47,7 +47,7 @@ class PostController extends BaseController
     }
 
     /**
-     * Show the new post page.
+     * Show the edit post page.
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request  Not used here. Just placeholder so we can get to $args.
      * @param \Psr\Http\Message\ResponseInterface      $response As above.

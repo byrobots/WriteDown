@@ -48,4 +48,7 @@ $router->group('/admin', function ($route) use ($csrfMiddleware) {
     $route->get('/posts', 'Admin\PostController::index');
     $route->get('/posts/new', 'Admin\PostController::create');
     $route->get('/posts/{postID}/edit', 'Admin\PostController::edit');
+
+    // Tags.
+    $route->get('/tags', 'Admin\TagController::index');
 })->middleware($authMiddleware);

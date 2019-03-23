@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\SlugController;
+use App\Http\Controllers\API\TagController;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
 class APIControllerServiceProvider extends AbstractServiceProvider
@@ -18,6 +19,7 @@ class APIControllerServiceProvider extends AbstractServiceProvider
         'API\AuthController',
         'API\PostController',
         'API\SlugController',
+        'API\TagController',
     ];
 
     /**
@@ -33,5 +35,8 @@ class APIControllerServiceProvider extends AbstractServiceProvider
 
         $this->getContainer()
             ->add('API\SlugController', SlugController::class);
+
+        $this->getContainer()
+            ->add('API\TagController', TagController::class);
     }
 }
