@@ -6,10 +6,11 @@
 /**
  * Internal
  */
-import template from "../../mixins/template.js";
+import postIndex from '../../components/posts/index'
+import template from '../../mixins/template.js'
 
 export default {
-  components: { },
+  components: { postIndex },
   mixins: [template]
-};
+}
 </script>

@@ -63,9 +63,9 @@
 </template>
 
 <script>
-import getFullHours from "../../../helpers/get-full-hours.js";
-import getFullMinutes from "../../../helpers/get-full-minutes.js";
-import getFullSeconds from "../../../helpers/get-full-seconds.js";
+  import getFullHours from "../../../helpers/get-full-hours.js"
+  import getFullMinutes from "../../../helpers/get-full-minutes.js"
+  import getFullSeconds from "../../../helpers/get-full-seconds.js"
 </script>
 
 <script src="./component.js"></script>

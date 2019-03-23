@@ -17,11 +17,11 @@
 /**
  * Internal.
  */
-import loginForm from "../components/login-form";
-import template from "../mixins/template.js";
+import loginForm from '../components/login-form'
+import template from '../mixins/template.js'
 
 export default {
   components: { loginForm },
   mixins: [template]
-};
+}
 </script>
