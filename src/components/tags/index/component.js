@@ -1,7 +1,6 @@
 /**
  * Internal
  */
-import API from '../../../library/api'
 import spinner from '../../spinner'
 import store from '../../../store'
 

@@ -8,7 +8,10 @@
       v-if="null !== tags && tags.length > 0"
       id="tags-list"
     >
-      <li v-for="tag in tags" :key="tag.id">
+      <li
+        v-for="tag in tags"
+        :key="tag.id"
+      >
         {{ tag.tag }}
       </li>
     </ul>
