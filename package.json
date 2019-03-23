@@ -4,10 +4,10 @@
   "description": "WriteDown - A really simple blogging platform.",
   "scripts": {
     "build": "webpack --config webpack.dev.js",
-    "fix": "standard --fix; eslint --fix --ext .vue src; exit 0",
-    "lint": "standard; eslint --ext .vue src; exit 0",
+    "fix": "standard --fix; eslint --fix --ext .vue src",
+    "lint": "standard; eslint --ext .vue src",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.dev.js",
-    "precommit-msg": "echo 'Running pre-commit checks.' && exit 0"
+    "precommit-msg": "echo 'Running pre-commit checks.'"
   },
   "pre-commit": ["precommit-msg", "fix"],
   "repository": {
