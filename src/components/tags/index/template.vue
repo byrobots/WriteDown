@@ -4,15 +4,16 @@
       No tags yet. Why not add some?
     </p>
 
-    <ul
-      v-if="null !== tags && tags.length > 0"
-      id="tags-list"
-    >
+    <ul id="tags-list" class="tags-list">
       <li
         v-for="tag in tags"
         :key="tag.id"
       >
         {{ tag.tag }}
+      </li>
+      <li class="tag-form-item">
+        <a href="#" @click="toggleForm"><i class="fas fa-plus"></i> Add Tag</a>
+        <tag-form v-if="formVisible" />
       </li>
     </ul>
   </section>
