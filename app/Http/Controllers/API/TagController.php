@@ -26,4 +26,28 @@ class TagController extends BaseController
 
         return $response->respond();
     }
+
+    /**
+     * Delete a tag.
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request  Not used here. Just placeholder so we can get to $args.
+     * @param \Psr\Http\Message\ResponseInterface      $response As above.
+     * @param array                                    $args     Will contain the Tag ID.
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function delete(ServerRequestInterface $request, ResponseInterface $response, array $args = [])
+    {
+        $result = $this->writedown
+            ->getService('api')
+            ->tag()
+            ->delete($args['tagID']);
+
+        $response = $this->apiResponse->setData([]);
+        if (!$result['success']) {
+            $response->setSuccess(false)->setStatusCode(400);
+        }
+
+        return $response->respond();
+    }
 }

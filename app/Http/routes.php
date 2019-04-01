@@ -39,6 +39,9 @@ $router->group(
         // Tags.
         $route->post('/tags/store', 'API\TagController::store')
             ->middleware($apiCsrfMiddleware);
+
+        $route->post('/tags/{tagID}/delete', 'API\TagController::delete')
+            ->middleware($apiCsrfMiddleware);
     }
 )->middleware($authMiddleware);
 

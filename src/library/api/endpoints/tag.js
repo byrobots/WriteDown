@@ -21,4 +21,16 @@ export default class Tag {
     data.csrf = store.state.csrf
     return axios.post('/api/tags/store', qs.stringify(data))
   }
+
+  /**
+   * Delete a tag.
+   *
+   * @param {Integer} tagID
+   *
+   * @return {Promise}
+   */
+  delete (tagID) {
+    const data = { csrf: store.state.csrf }
+    return axios.post(`/api/tags/${tagID}/delete`, qs.stringify(data))
+  }
 };
