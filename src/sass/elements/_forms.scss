@@ -10,8 +10,17 @@ button,
 input,
 select,
 textarea {
-    padding: $space-tiny $space-base;
+    padding: $space-base;
     border-radius: $border-radius;
+}
+
+.form-row {
+    margin-bottom: $space-base;
+}
+
+label {
+    display: block;
+    margin-bottom: $space-tiny;
 }
 
 button {

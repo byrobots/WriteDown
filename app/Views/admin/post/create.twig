@@ -3,5 +3,11 @@
 {% extends 'admin/layouts/admin.twig' %}
 
 {% block content %}
-    <div id="app"></div>
+    <main class="content-container">
+        <header>
+            <h2>{{ pagetitle }}</h2>
+        </header>
+
+        <div id="app"></div>
+    </main>
 {% endblock %}

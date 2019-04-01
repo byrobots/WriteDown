@@ -1,17 +1,11 @@
 <template>
-  <section id="post-form-container">
+  <section class="post-form-container">
     <form
       v-if="true === showForm"
       id="post-form"
       :action="action"
       method="post"
     >
-      <input
-        v-model="post.id"
-        type="hidden"
-        name="postId"
-      >
-
       <div
         id="post-title-row"
         class="form-row"
@@ -102,12 +96,17 @@
         />
       </div>
 
+      <input
+        v-model="post.id"
+        type="hidden"
+        name="postId"
+      >
+
       <div class="form-row">
         <button
           class="submit-button"
           @click="attemptStore"
         >
-          <i class="fas fa-save" />
           Save
         </button>
       </div>

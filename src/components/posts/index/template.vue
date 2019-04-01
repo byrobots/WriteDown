@@ -4,7 +4,7 @@
       v-if="null !== posts && posts.length < 1"
       class="no-content-placeholder"
     >
-      No posts yet. Why not write one?
+      No posts yet. Why not <a href="/admin/posts/new">write one</a>?
     </p>
 
     <ol
@@ -20,11 +20,7 @@
         <p class="publish-information">
           <span v-if="null === post.publish_at">Not Published</span>
           <span v-else-if="new Date() > post.publish_at">Published</span>
-          <span v-else>
-            Scheduled for
-            {{ post.publish_at.toLocaleDateString() }} at
-            {{ getFullHours(post.publish_at) }}:{{ getFullMinutes(post.publish_at) }}:{{ getFullSeconds(post.publish_at) }}
-          </span>
+          <span v-else>Scheduled for {{ post.date_string }}</span>
         </p>
 
         <p
@@ -51,11 +47,5 @@
     </ol>
   </section>
 </template>
-
-<script>
-  import getFullHours from "../../../helpers/get-full-hours.js"
-  import getFullMinutes from "../../../helpers/get-full-minutes.js"
-  import getFullSeconds from "../../../helpers/get-full-seconds.js"
-</script>
 
 <script src="./component.js"></script>

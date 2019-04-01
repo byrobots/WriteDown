@@ -49,10 +49,6 @@ body {
     background: $colour-faded;
 }
 
-* + * {
-    margin-top: $space-base;
-}
-
 h1,
 h2 {
     font-family: 'Roboto', serif;
@@ -88,6 +84,7 @@ h2 {
 }
 
 .sign-off {
+    margin: $space-base 0;
     text-align: center;
 }
 
