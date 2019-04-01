@@ -1,32 +1,23 @@
 {% include 'admin/partials/html_header.twig' %}
 
-<div id="positioning-container">
-    <header id="topbar">
-        <h2>WriteDown</h2>
+    <header class="masthead">
+        <h2 class="fancy">WriteDown</h2>
     </header>
 
-    <div id="container">
-        <nav id="sidebar">
-            <ul id="admin-functions">
-                <li><a class="admin-function" href="/admin/posts">
-                    <i class="fas fa-edit"></i> Posts</a>
-                </li>
-                <li><a class="admin-function" href="/admin/tags">
-                    <i class="fas fa-tags"></i> Tags
-                </a></li>
-                <li><a class="admin-function" href="#">
-                    <i class="fas fa-users"></i> Users
-                </a></li>
-                <li><a class="admin-function" href="#">
-                    <i class="fas fa-door-open"></i> Logout
-                </a></li>
-            </ul>
-        </nav>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="/admin/posts">Posts</a></li>
+            <li><a href="/admin/tags">Tags</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
 
-        <section id="content">
-            {% block content %}{% endblock %}
-        </section>
-    </div>
-</div>
+    {% block content %}{% endblock %}
+
+    <footer class="sign-off">
+        <a href="https://github.com/by-robots/writedown">WriteDown</a>,
+        a project <a href="https://by-robots.dev">By Robots</a>.
+    </footer>
 
 {% include 'admin/partials/html_footer.twig' %}

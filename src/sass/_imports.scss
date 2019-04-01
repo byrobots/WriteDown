@@ -1,18 +1,12 @@
-@import "style/messages";
-@import "style/buttons";
-@import "style/container";
-@import "style/topbar";
-@import "style/sidebar";
-@import "style/content";
-@import "style/form";
-@import "style/tables";
-@import "style/posts";
+// Element styling
+@import './elements/forms';
+@import './elements/icons';
+@import './elements/nav';
 
-// Component styles
-@import "components/spinner";
-@import "components/login-form";
-@import "components/post-form";
-@import "components/tag-index";
+// Views
+@import './views/login';
 
-// Instance styles
-@import "instances/login";
+// Components
+@import './components/login-form';
+@import './components/post-index';
+@import './components/spinner';

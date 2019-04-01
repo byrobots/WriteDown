@@ -1,20 +1,4 @@
-#login-form-container {
-    width: 100%;
-    margin: 0 1em 1em;
-    padding: 2em;
-    border: 1px solid $colour-border-default;
-    border-radius: .5vh;
-    background: $colour-background-light;
-
-    .error,
-    .spinner,
-    .success {
-        display: block;
-        text-align: center;
-        font-size: 4em;
-    }
-
-    .submit-button {
-        width: 100%;
-    }
+.login-form-container {
+    padding: 0 0 $space-base;
+    border-bottom: 1px solid $colour-secondary;
 }

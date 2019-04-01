@@ -1,11 +1,11 @@
 /**
  * Views
  */
-import LoginView from '../views/Login.vue'
-import PostCreate from '../views/Posts/Create.vue'
-import PostEdit from '../views/Posts/Edit.vue'
-import PostList from '../views/Posts/List.vue'
-import Tags from '../views/Tags.vue'
+import LoginView from '../views/login.vue'
+import PostCreate from '../views/Posts/create.vue'
+import PostEdit from '../views/Posts/edit.vue'
+import PostList from '../views/Posts/list.vue'
+import Tags from '../views/tags.vue'
 
 /**
  * Define routes.

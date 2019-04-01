@@ -1,0 +1,28 @@
+button,
+input,
+label,
+select,
+textarea {
+    width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    padding: $space-tiny $space-base;
+    border-radius: $border-radius;
+}
+
+button {
+    border: none;
+    border-bottom: 2px solid $colour-secondary;
+    background: $colour-primary;
+    color: $colour-tertiary;
+
+    &:hover {
+        border-bottom-color: $colour-faded-secondary;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}

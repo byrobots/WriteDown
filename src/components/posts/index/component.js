@@ -2,20 +2,18 @@
  * Internal
  */
 import API from '../../../library/api'
-import spinner from '../../spinner'
 import store from '../../../store'
 
 /**
  * The component
  */
 export default {
-  components: { spinner },
   data: () => ({ posts: null }),
   methods: {
     /**
-     * Use the response from the API call to populate the posts table.
+     * Use the response from the API call to populate the posts list.
      */
-    populateTable () {
+    populateList () {
       this.posts.forEach((post, index) => {
         // If we have a publish_at value convert it to a DateTime
         // object. We'll then use that to establish if a post is
@@ -43,7 +41,7 @@ export default {
         API.post().delete(postID)
           .then(() => {
             // Delete from the page.
-            const index = event.srcElement.getAttribute('data-index')
+            const index = event.target.getAttribute('data-index')
             this.posts.splice(index, 1)
           })
           .catch(() => { /* TODO: Error message */ })
@@ -56,6 +54,6 @@ export default {
    */
   mounted: function () {
     this.posts = store.state.posts
-    this.populateTable()
+    this.populateList()
   }
 }

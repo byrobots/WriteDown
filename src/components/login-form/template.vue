@@ -1,5 +1,5 @@
 <template>
-  <section id="login-form-container">
+  <section class="login-form-container">
     <form
       v-if="true === showForm"
       id="login-form"
@@ -31,7 +31,6 @@
           class="submit-button"
           @click="attemptLogin"
         >
-          <i class="fas fa-unlock-alt" />
           Login
         </button>
       </div>

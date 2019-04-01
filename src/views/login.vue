@@ -1,7 +1,10 @@
 <template>
-  <section id="login-container">
+  <main class="login-container">
     <header>
-      <h1 v-text="pagetitle" />
+      <h1
+        class="fancy"
+        v-text="pagetitle"
+      />
     </header>
 
     <login-form />
@@ -10,7 +13,7 @@
       <a href="https://github.com/by-robots/writedown">WriteDown</a>,
       a project <a href="https://by-robots.dev">By Robots</a>.
     </footer>
-  </section>
+  </main>
 </template>
 
 <script>
