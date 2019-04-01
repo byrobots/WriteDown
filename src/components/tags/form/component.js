@@ -4,6 +4,7 @@
 import API from '../../../library/api'
 import errorIcon from '../../error-icon'
 import spinner from '../../spinner'
+import store from '../../../store'
 import successIcon from '../../success-icon'
 
 /**
@@ -12,8 +13,8 @@ import successIcon from '../../success-icon'
 export default {
   components: { errorIcon, spinner, successIcon },
   data: () => ({
-    errors: { tag: null },
-    tag: { tag: '' },
+    errors: { name: null },
+    tag: { name: '' },
     showErrorIcon: false,
     showForm: true,
     showSpinner: false,
@@ -34,7 +35,7 @@ export default {
       this.clearErrors()
 
       // Now make the API request.
-      const data = { tag: this.tag.tag }
+      const data = { name: this.tag.name }
       API.tag().store(data)
         .then(this.successfulStore)
         .catch(response => this.failedStore(response))
@@ -42,12 +43,17 @@ export default {
 
     /**
      * Handles a successful store attempt.
+     *
+     * @param {Object} response The API's response.
      */
-    successfulStore () {
+    successfulStore (response) {
       this.showSpinner = false
       this.showSuccessIcon = true
 
-      setTimeout(() => { }, 500)
+      setTimeout(() => {
+        this.showForm = false
+        store.commit('addTag', response.data)
+      }, 500)
     },
 
     /**
@@ -61,8 +67,8 @@ export default {
       const response = error.response.data
 
       // Set errors
-      this.errors.tag = typeof response.data.tag !== 'undefined'
-        ? `The tag ${response.data.title[0]}.` : null
+      this.errors.name = typeof response.data.name !== 'undefined'
+        ? `The tag name ${response.data.name[0]}.` : null
 
       // After a moment show the form with the errors.
       setTimeout(() => {

@@ -6,21 +6,21 @@
       method="post"
     >
       <div
-        id="tag-row"
+        id="name-row"
         class="form-row"
       >
-        <label for="tag">Tag</label>
+        <label for="name">Name</label>
         <span
-          v-if="null !== errors.tag"
+          v-if="null !== errors.name"
           class="single-error"
         >
           <i class="fas fa-exclamation" />
-          {{ errors.tag }}
+          {{ errors.name }}
         </span>
 
         <input
           id="tag"
-          v-model="tag.tag"
+          v-model="tag.name"
           type="text"
           name="tag"
         >

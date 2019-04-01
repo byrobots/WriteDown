@@ -18,7 +18,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   getters: getters,
   mutations: mutations,
-  state: {}
+  state: { tags: [] }
 })
 
 export default store

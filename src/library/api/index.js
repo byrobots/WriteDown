@@ -4,6 +4,7 @@
 import Auth from './endpoints/auth.js'
 import Post from './endpoints/post.js'
 import Slug from './endpoints/slug.js'
+import Tag from './endpoints/tag.js'
 
 /**
  * Contains the code for work with our API endpoints.
@@ -19,5 +20,9 @@ export default {
 
   slug () {
     return new Slug()
+  },
+
+  tag () {
+    return new Tag()
   }
 }

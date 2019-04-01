@@ -12,7 +12,7 @@
         v-for="tag in tags"
         :key="tag.id"
       >
-        {{ tag.tag }}
+        {{ tag.name }}
       </li>
       <li class="tag-form-item">
         <a

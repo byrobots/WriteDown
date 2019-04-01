@@ -35,6 +35,10 @@ $router->group(
         // Slugs.
         $route->post('slugs/predicted', 'API\SlugController::predicted')
             ->middleware($apiCsrfMiddleware);
+
+        // Tags.
+        $route->post('/tags/store', 'API\TagController::store')
+            ->middleware($apiCsrfMiddleware);
     }
 )->middleware($authMiddleware);
 
