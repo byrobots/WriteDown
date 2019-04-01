@@ -4,7 +4,6 @@
 import API from '../../../library/api'
 import errorIcon from '../../error-icon'
 import spinner from '../../spinner'
-import store from '../../../store'
 import successIcon from '../../success-icon'
 
 /**
@@ -52,7 +51,7 @@ export default {
 
       setTimeout(() => {
         this.showForm = false
-        store.commit('addTag', response.data)
+        this.$parent.tags.push(response.data.data)
       }, 500)
     },
 
