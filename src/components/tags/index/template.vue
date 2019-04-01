@@ -9,6 +9,7 @@
       class="tags-list"
     >
       <li
+        class="tag-item"
         v-for="tag in tags"
         :key="tag.id"
       >
