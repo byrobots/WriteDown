@@ -41,7 +41,7 @@ export default {
         API.tag().delete(tagID)
           .then(() => {
             // Delete from the page.
-            const index = event.srcElement.getAttribute('data-index')
+            const index = event.srcElement.parentNode.getAttribute('data-index')
             this.tags.splice(index, 1)
           })
           .catch(() => { /* TODO: Error message */ })
