@@ -9,7 +9,8 @@
         }
     }
 
-    input {
+    input,
+    textarea {
         @media screen and (min-width: $medium) {
             width: 66%;
         }

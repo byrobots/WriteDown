@@ -3,6 +3,13 @@
 {% extends 'admin/layouts/admin.twig' %}
 
 {% block content %}
-    <div id="app"></div>
-    <script>writedown.post = {{ post.data|json_encode|raw }};</script>
+    <main class="content-container">
+        <header>
+            <h2>{{ pagetitle }}</h2>
+        </header>
+
+        <div id="app"></div>
+    </main>
+
+    <script>writedown.post = {{ post.data|json_encode|raw }}</script>
 {% endblock %}

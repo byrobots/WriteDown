@@ -1,7 +1,5 @@
 <template>
-  <section>
-    <post-form action="/admin/posts" />
-  </section>
+  <post-form />
 </template>
 
 <script>

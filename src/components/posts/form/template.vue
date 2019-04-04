@@ -3,7 +3,6 @@
     <form
       v-if="true === showForm"
       id="post-form"
-      :action="action"
       method="post"
     >
       <div
@@ -70,12 +69,12 @@
           {{ errors.excerpt }}
         </span>
 
-        <input
+        <textarea
           id="post-excerpt"
           v-model="post.excerpt"
           type="text"
           name="post-excerpt"
-        >
+        />
       </div>
 
       <div class="form-row">
