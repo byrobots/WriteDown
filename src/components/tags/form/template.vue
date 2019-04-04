@@ -1,5 +1,5 @@
 <template>
-  <section id="tag-form-container">
+  <section class="tag-form" id="tag-form-container">
     <form
       v-if="true === showForm"
       id="tag-form"
@@ -31,8 +31,7 @@
           class="submit-button"
           @click="attemptStore"
         >
-          <i class="fas fa-save" />
-          Save
+          Add New Tag
         </button>
       </div>
     </form>

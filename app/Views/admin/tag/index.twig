@@ -3,12 +3,13 @@
 {% extends 'admin/layouts/admin.twig' %}
 
 {% block content %}
-    <main id="post-index-container">
-        <header class="header">
-            <h1 class="pagetitle">{{ pagetitle }}</h1>
+    <main class="content-container">
+        <header>
+            <h2>{{ pagetitle }}</h2>
         </header>
 
         <div id="app"></div>
-        <script>writedown.tags = {{ tags.data|json_encode|raw }};</script>
     </main>
+
+    <script>writedown.tags = {{ tags.data|json_encode|raw }}</script>
 {% endblock %}

@@ -1,9 +1,5 @@
 <template>
   <section>
-    <p v-if="null !== tags && tags.length < 1">
-      No tags yet. Why not add some?
-    </p>
-
     <ul
       id="tags-list"
       class="tags-list"
@@ -24,14 +20,9 @@
           <i class="fas fa-trash" />
         </a>
       </li>
-      <li class="tag-form-item">
-        <a
-          href="#"
-          @click="toggleForm"
-        ><i class="fas fa-plus" /> Add Tag</a>
-        <tag-form v-if="formVisible" />
-      </li>
     </ul>
+
+    <tag-form />
   </section>
 </template>
 
