@@ -1,5 +1,8 @@
 <template>
-  <section class="tag-form" id="tag-form-container">
+  <section
+    id="tag-form-container"
+    class="tag-form"
+  >
     <form
       v-if="true === showForm"
       id="tag-form"
