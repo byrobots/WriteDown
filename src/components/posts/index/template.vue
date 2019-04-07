@@ -16,7 +16,10 @@
         :key="post.id"
         class="item-list--item"
       >
-        <h3 v-text="post.title" class="post-list--title" />
+        <h3
+          class="post-list--title"
+          v-text="post.title"
+        />
 
         <p class="post-list--publish-information">
           <span v-if="null === post.publish_at">Not Published</span>

@@ -6,7 +6,10 @@
       method="post"
     >
       <div class="form--row">
-        <label class="form--label" for="name">Name</label>
+        <label
+          class="form--label"
+          for="name"
+        >Name</label>
         <span
           v-if="null !== errors.name"
           class="alert alert--error"
@@ -16,20 +19,20 @@
         </span>
 
         <input
-          class="form--control form--input"
           id="tag"
           v-model="tag.name"
+          class="form--control form--input"
           type="text"
           name="tag"
-        />
+        >
       </div>
 
-        <button
-          class="button"
-          @click="attemptStore"
-        >
-          Add New Tag
-        </button>
+      <button
+        class="button"
+        @click="attemptStore"
+      >
+        Add New Tag
+      </button>
     </form>
 
     <error-icon v-if="true === showErrorIcon" />

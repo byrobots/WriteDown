@@ -2,31 +2,37 @@
   <section>
     <form
       v-if="true === showForm"
-      class="form"
       id="login-form"
+      class="form"
       action
       method="post"
     >
       <div class="form--row">
-        <label class="form--label" for="email">Email</label>
+        <label
+          class="form--label"
+          for="email"
+        >Email</label>
         <input
-          class="form--control form--input"
           id="email"
           v-model="email"
+          class="form--control form--input"
           type="email"
           name="email"
-        />
+        >
       </div>
 
       <div class="form--row">
-        <label class="form--label" for="password">Password</label>
+        <label
+          class="form--label"
+          for="password"
+        >Password</label>
         <input
-          class="form--control form--input"
           id="password"
           v-model="password"
+          class="form--control form--input"
           type="password"
           name="password"
-        />
+        >
       </div>
 
       <div class="form--row">

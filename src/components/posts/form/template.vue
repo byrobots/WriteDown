@@ -2,12 +2,15 @@
   <section class="post-form-container">
     <form
       v-if="true === showForm"
-      class="form"
       id="post-form"
+      class="form"
       method="post"
     >
       <div class="form--row">
-        <label class="form--label" for="post-title">Title</label>
+        <label
+          class="form--label"
+          for="post-title"
+        >Title</label>
         <span
           v-if="null !== errors.title"
           class="alert alert--error"
@@ -17,9 +20,9 @@
         </span>
 
         <input
-          class="form--control form--input"
           id="post-title"
           v-model="post.title"
+          class="form--control form--input"
           type="text"
           name="post-title"
           @change="predictedSlug"
@@ -32,7 +35,10 @@
       </div>
 
       <div class="form--row">
-        <label class="form--label" for="post-publish-at">Publish at</label>
+        <label
+          class="form--label"
+          for="post-publish-at"
+        >Publish at</label>
         <span
           v-if="null !== errors.publishAt"
           class="alert alert--error"
@@ -54,7 +60,10 @@
       </div>
 
       <div class="form--row">
-        <label class="form--label" for="post-excerpt">Excerpt</label>
+        <label
+          class="form--label"
+          for="post-excerpt"
+        >Excerpt</label>
         <span
           v-if="null !== errors.excerpt"
           class="alert alert--error"
@@ -64,16 +73,19 @@
         </span>
 
         <textarea
-          class="form--control form--textarea"
           id="post-excerpt"
           v-model="post.excerpt"
+          class="form--control form--textarea"
           type="text"
           name="post-excerpt"
         />
       </div>
 
       <div class="form--row form--row--compacted">
-        <label class="form--label" for="post-body">Body</label>
+        <label
+          class="form--label"
+          for="post-body"
+        >Body</label>
         <span
           v-if="null !== errors.body"
           class="alert alert--error"
@@ -83,9 +95,9 @@
         </span>
 
         <textarea
-          class="wysiwyg-editor form--control form--textarea"
           id="post-body"
           v-model="post.body"
+          class="wysiwyg-editor form--control form--textarea"
           name="post-body"
         />
       </div>
@@ -94,7 +106,7 @@
         v-model="post.id"
         type="hidden"
         name="postId"
-      />
+      >
 
       <button
         class="button"
