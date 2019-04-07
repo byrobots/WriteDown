@@ -1,0 +1,10 @@
+.generated-url {
+    margin-top: $space-nano;
+    padding-top: $space-tiny;
+
+    &--slug {
+        margin-left: 1em;
+        padding: $space-nano;
+        background: $colour-faded;
+    }
+}

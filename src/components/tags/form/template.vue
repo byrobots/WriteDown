@@ -1,42 +1,35 @@
 <template>
-  <section
-    id="tag-form-container"
-    class="tag-form"
-  >
+  <section>
     <form
       v-if="true === showForm"
-      id="tag-form"
+      class="form"
       method="post"
     >
-      <div
-        id="name-row"
-        class="form-row"
-      >
-        <label for="name">Name</label>
+      <div class="form--row">
+        <label class="form--label" for="name">Name</label>
         <span
           v-if="null !== errors.name"
-          class="single-error"
+          class="alert alert--error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.name }}
         </span>
 
         <input
+          class="form--control form--input"
           id="tag"
           v-model="tag.name"
           type="text"
           name="tag"
-        >
+        />
       </div>
 
-      <div class="form-row">
         <button
-          class="submit-button"
+          class="button"
           @click="attemptStore"
         >
           Add New Tag
         </button>
-      </div>
     </form>
 
     <error-icon v-if="true === showErrorIcon" />

@@ -1,29 +1,8 @@
 .post-form-container {
-    form {
-        padding: $space-big;
-        border-radius: $border-radius;
-        background: $colour-tertiary;
-
-        .form-row:first-child {
-            margin-top: 0;
-        }
-    }
-
-    input,
-    textarea {
+    .form--input,
+    .form--textarea {
         @media screen and (min-width: $medium) {
             width: 66%;
         }
-    }
-}
-
-.generated-url-container {
-    margin-top: $space-nano;
-    padding: .5em 0 0;
-
-    .generated-url {
-        margin-left: 1em;
-        padding: 0 .5em;
-        background: $colour-faded;
     }
 }

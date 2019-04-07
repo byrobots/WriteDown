@@ -2,23 +2,22 @@
   <section class="post-form-container">
     <form
       v-if="true === showForm"
+      class="form"
       id="post-form"
       method="post"
     >
-      <div
-        id="post-title-row"
-        class="form-row"
-      >
-        <label for="post-title">Title</label>
+      <div class="form--row">
+        <label class="form--label" for="post-title">Title</label>
         <span
           v-if="null !== errors.title"
-          class="single-error"
+          class="alert alert--error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.title }}
         </span>
 
         <input
+          class="form--control form--input"
           id="post-title"
           v-model="post.title"
           type="text"
@@ -26,20 +25,17 @@
           @change="predictedSlug"
         >
 
-        <div class="generated-url-container">
+        <div class="generated-url">
           URL:
-          <code class="generated-url">{{ post.slug }}</code>
+          <code class="generated-url--slug">{{ post.slug }}</code>
         </div>
       </div>
 
-      <div
-        id="post-publish-at-row"
-        class="form-row"
-      >
-        <label for="post-publish-at">Publish at</label>
+      <div class="form--row">
+        <label class="form--label" for="post-publish-at">Publish at</label>
         <span
           v-if="null !== errors.publishAt"
-          class="single-error"
+          class="alert alert--error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.publishAt }}
@@ -49,6 +45,7 @@
           v-model="post.publishAt"
           :config="{
             altInput: true,
+            altInputClass: 'form--control form--input',
             dateFormat: 'Y-m-d H:i:S',
             enableTime: true,
             time_24hr: true,
@@ -56,20 +53,18 @@
         />
       </div>
 
-      <div
-        id="post-excerpt-row"
-        class="form-row"
-      >
-        <label for="post-excerpt">Excerpt</label>
+      <div class="form--row">
+        <label class="form--label" for="post-excerpt">Excerpt</label>
         <span
           v-if="null !== errors.excerpt"
-          class="single-error"
+          class="alert alert--error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.excerpt }}
         </span>
 
         <textarea
+          class="form--control form--textarea"
           id="post-excerpt"
           v-model="post.excerpt"
           type="text"
@@ -77,21 +72,21 @@
         />
       </div>
 
-      <div class="form-row">
-        <label for="post-body">Body</label>
+      <div class="form--row form--row--compacted">
+        <label class="form--label" for="post-body">Body</label>
         <span
           v-if="null !== errors.body"
-          class="single-error"
+          class="alert alert--error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.body }}
         </span>
 
         <textarea
+          class="wysiwyg-editor form--control form--textarea"
           id="post-body"
           v-model="post.body"
           name="post-body"
-          class="wysiwyg-editor"
         />
       </div>
 
@@ -99,16 +94,14 @@
         v-model="post.id"
         type="hidden"
         name="postId"
-      >
+      />
 
-      <div class="form-row">
-        <button
-          class="submit-button"
-          @click="attemptStore"
-        >
-          Save
-        </button>
-      </div>
+      <button
+        class="button"
+        @click="attemptStore"
+      >
+        Save
+      </button>
     </form>
 
     <error-icon v-if="true === showErrorIcon" />

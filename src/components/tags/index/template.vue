@@ -21,8 +21,6 @@
         </a>
       </li>
     </ul>
-
-    <tag-form />
   </section>
 </template>
 

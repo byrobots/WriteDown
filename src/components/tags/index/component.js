@@ -3,13 +3,11 @@
  */
 import API from '../../../library/api'
 import store from '../../../store'
-import tagForm from '../form'
 
 /**
  * The component
  */
 export default {
-  components: { tagForm },
   data: () => ({ tags: [] }),
   methods: {
     /**

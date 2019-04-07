@@ -44,28 +44,9 @@ html {
 body {
     font-family: 'Roboto', Helvetica, sans-serif;
     line-height: 2em;
-    font-size: 1.5em;
+    font-size: 1.6em;
     color: $colour-secondary;
     background: $colour-faded;
-}
-
-h1,
-h2 {
-    font-family: 'Roboto', serif;
-
-    &.fancy {
-        font-family: 'Satisfy', 'Roboto', Helvetica, sans-serif;
-        color: $colour-primary;
-        text-align: center;
-    }
-}
-
-h1 {
-    font-size: 3em;
-}
-
-h2 {
-    font-size: 2em;
 }
 
 /**

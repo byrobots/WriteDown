@@ -5,10 +5,14 @@
 {% block content %}
     <main class="content-container">
         <header>
-            <h2>{{ pagetitle }}</h2>
+            <h1 class="header2 page-title">{{ pagetitle }}</h1>
 
             <nav class="section-nav">
-                <a href="/admin/posts/new">New Post</a>
+                <ul class="section-nav--list-container">
+                    <li class="section-nav--item">
+                        <a class="button" href="/admin/posts/new">New Post</a>
+                    </li>
+                </ul>
             </nav>
         </header>
 

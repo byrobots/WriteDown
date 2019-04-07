@@ -1,16 +1,21 @@
 // Element styling
-@import './elements/alerts';
-@import './elements/forms';
-@import './elements/icons';
-@import './elements/nav';
-
-// Views
-@import './views/login';
+@import './blocks/alerts';
+@import './blocks/buttons';
+@import './blocks/container';
+@import './blocks/forms';
+@import './blocks/generated-url';
+@import './blocks/headers';
+@import './blocks/icons';
+@import './blocks/item-list';
+@import './blocks/login-container';
+@import './blocks/nav';
+@import './blocks/page-header';
+@import './blocks/page-title';
+@import './blocks/post-list';
+@import './blocks/section-nav';
+@import './blocks/simplemde';
+@import './blocks/spinner';
+@import './blocks/tag-form';
 
 // Components
-@import './components/login-form';
 @import './components/post-form';
-@import './components/post-index';
-@import './components/spinner';
-@import './components/tag-form';
-@import './components/tag-index';

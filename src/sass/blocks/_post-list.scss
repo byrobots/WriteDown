@@ -1,0 +1,15 @@
+.post-list {
+    &--title {
+        margin: 0;
+    }
+
+    &--publish-information {
+        margin-top: 0;
+        font-size: 0.9em;
+        color: $colour-faded-secondary;
+    }
+
+    &--tools {
+        margin-bottom: 0;
+    }
+}

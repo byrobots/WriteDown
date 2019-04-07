@@ -2,7 +2,7 @@
   <main class="login-container">
     <header>
       <h1
-        class="fancy"
+        class="header1 header1--fancy"
         v-text="pagetitle"
       />
     </header>

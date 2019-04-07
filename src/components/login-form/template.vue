@@ -1,34 +1,37 @@
 <template>
-  <section class="login-form-container">
+  <section>
     <form
       v-if="true === showForm"
+      class="form"
       id="login-form"
       action
       method="post"
     >
-      <div class="form-row">
-        <label for="email">Email</label>
+      <div class="form--row">
+        <label class="form--label" for="email">Email</label>
         <input
+          class="form--control form--input"
           id="email"
           v-model="email"
           type="email"
           name="email"
-        >
+        />
       </div>
 
-      <div class="form-row">
-        <label for="password">Password</label>
+      <div class="form--row">
+        <label class="form--label" for="password">Password</label>
         <input
+          class="form--control form--input"
           id="password"
           v-model="password"
           type="password"
           name="password"
-        >
+        />
       </div>
 
-      <div class="form-row">
+      <div class="form--row">
         <button
-          class="submit-button"
+          class="form--control button"
           @click="attemptLogin"
         >
           Login

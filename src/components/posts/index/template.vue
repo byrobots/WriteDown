@@ -9,15 +9,16 @@
 
     <ol
       v-if="null !== posts && posts.length > 0"
-      class="post-list"
+      class="item-list post-list"
     >
       <li
         v-for="(post, index) in posts"
         :key="post.id"
+        class="item-list--item"
       >
-        <h3 v-text="post.title" />
+        <h3 v-text="post.title" class="post-list--title" />
 
-        <p class="publish-information">
+        <p class="post-list--publish-information">
           <span v-if="null === post.publish_at">Not Published</span>
           <span v-else-if="new Date() > post.publish_at">Published</span>
           <span v-else>Scheduled for {{ post.date_string }}</span>
@@ -28,7 +29,7 @@
           v-text="post.excerpt"
         />
 
-        <p class="post-tools">
+        <p class="post-list--tools">
           <a
             :href="`/admin/posts/${post.id}/edit`"
             :data-post="post.id"

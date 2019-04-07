@@ -1,37 +1,10 @@
-button,
-input,
-label,
-select,
-textarea {
-    width: 100%;
-}
-
-button,
-input,
-select,
-textarea {
-    padding: $space-base;
+.button {
+    padding: $space-base $space-big;
     border-radius: $border-radius;
-}
-
-textarea {
-    height: 12em;
-    line-height: 2em;
-}
-
-.form-row {
-    margin-bottom: $space-base;
-}
-
-label {
-    display: block;
-    margin-bottom: $space-tiny;
-}
-
-button {
     border: none;
     border-bottom: 2px solid $colour-secondary;
     background: $colour-primary;
+    background: $background-gradient;
     color: $colour-tertiary;
 
     &:hover {
