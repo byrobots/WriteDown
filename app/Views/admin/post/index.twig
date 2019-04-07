@@ -3,15 +3,23 @@
 {% extends 'admin/layouts/admin.twig' %}
 
 {% block content %}
-    <main id="post-index-container">
-        <header class="header-with-buttons">
-            <h1 class="pagetitle">{{ pagetitle }}</h1>
-            <div class="call-to-action">
-                <a href="/admin/posts/new" class="button">New Post</a>
-            </div>
+    <main class="content-container">
+        <header>
+            <h1 class="header2 page-title">{{ pagetitle }}</h1>
+
+            <nav class="section-nav">
+                <ul class="section-nav--list-container">
+                    <li class="section-nav--item">
+                        <a class="button" href="/admin/posts/new">New Post</a>
+                    </li>
+                </ul>
+            </nav>
         </header>
 
         <div id="app"></div>
-        <script>writedown.posts = {{ posts.data|json_encode|raw }};</script>
     </main>
+
+    <script>
+        writedown.posts = {{ posts.data|json_encode|raw }}
+    </script>
 {% endblock %}

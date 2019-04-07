@@ -1,0 +1,15 @@
+.section-nav {
+    padding: $space-tiny 0;
+
+    &--list-container {
+        width: 100%;
+        padding: 0 0 $space-base;
+        list-style: none;
+    }
+
+    &--item {
+        display: inline-block;
+        margin: 0;
+        padding: 0 $space-base 0 0;
+    }
+}

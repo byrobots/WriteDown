@@ -1,18 +1,18 @@
 <template>
-  <section id="tag-form-container">
+  <section>
     <form
       v-if="true === showForm"
-      id="tag-form"
+      class="form"
       method="post"
     >
-      <div
-        id="name-row"
-        class="form-row"
-      >
-        <label for="name">Name</label>
+      <div class="form--row">
+        <label
+          class="form--label"
+          for="name"
+        >Name</label>
         <span
           v-if="null !== errors.name"
-          class="single-error"
+          class="alert alert--error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.name }}
@@ -21,20 +21,18 @@
         <input
           id="tag"
           v-model="tag.name"
+          class="form--control form--input"
           type="text"
           name="tag"
         >
       </div>
 
-      <div class="form-row">
-        <button
-          class="submit-button"
-          @click="attemptStore"
-        >
-          <i class="fas fa-save" />
-          Save
-        </button>
-      </div>
+      <button
+        class="button"
+        @click="attemptStore"
+      >
+        Add New Tag
+      </button>
     </form>
 
     <error-icon v-if="true === showErrorIcon" />

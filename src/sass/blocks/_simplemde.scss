@@ -1,0 +1,11 @@
+// SimpleMDE style modifications
+.form {
+    .CodeMirror,
+    .editor-toolbar {
+        border: none;
+    }
+
+    .CodeMirror {
+        box-shadow: inset $shadow;
+    }
+}

@@ -1,0 +1,50 @@
+.form {
+    &--row {
+        margin-bottom: $space-big;
+
+        &--compacted {
+            margin-bottom: 0;
+        }
+    }
+
+    &--label {
+        display: block;
+        color: $colour-faded-secondary;
+    }
+
+    &--control {
+        width: 100%;
+    }
+
+    &--input,
+    &--select,
+    &--textarea {
+        padding: $space-base;
+        border-radius: $border-radius;
+    }
+
+    &--input,
+    &--textarea {
+        display: block;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        box-shadow: inset $shadow;
+        background: none;
+        color: $colour-secondary;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus ~ .bar:before {
+            width: 100%;
+        }
+    }
+
+    &--textarea {
+        height: 12em;
+        margin-top: $space-tiny;
+        line-height: 2em;
+    }
+}

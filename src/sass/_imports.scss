@@ -1,18 +1,21 @@
-@import "style/messages";
-@import "style/buttons";
-@import "style/container";
-@import "style/topbar";
-@import "style/sidebar";
-@import "style/content";
-@import "style/form";
-@import "style/tables";
-@import "style/posts";
+// Element styling
+@import './blocks/alerts';
+@import './blocks/buttons';
+@import './blocks/container';
+@import './blocks/forms';
+@import './blocks/generated-url';
+@import './blocks/headers';
+@import './blocks/icons';
+@import './blocks/item-list';
+@import './blocks/login-container';
+@import './blocks/nav';
+@import './blocks/page-header';
+@import './blocks/page-title';
+@import './blocks/post-list';
+@import './blocks/section-nav';
+@import './blocks/simplemde';
+@import './blocks/spinner';
+@import './blocks/tag-form';
 
-// Component styles
-@import "components/spinner";
-@import "components/login-form";
-@import "components/post-form";
-@import "components/tag-index";
-
-// Instance styles
-@import "instances/login";
+// Components
+@import './components/post-form';

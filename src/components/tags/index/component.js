@@ -3,28 +3,13 @@
  */
 import API from '../../../library/api'
 import store from '../../../store'
-import tagForm from '../form'
 
 /**
  * The component
  */
 export default {
-  components: { tagForm },
-  data: () => ({
-    formVisible: false,
-    tags: []
-  }),
+  data: () => ({ tags: [] }),
   methods: {
-    /**
-     * Toggle the tag form's visiblity.
-     *
-     * @param {Object} event The click event.
-     */
-    toggleForm (event) {
-      event.preventDefault()
-      this.formVisible = !this.formVisible
-    },
-
     /**
      * Confirm the user wants to delete the tag before deleting it.
      *

@@ -1,25 +1,19 @@
 <template>
-  <section id="post-form-container">
+  <section class="post-form-container">
     <form
       v-if="true === showForm"
       id="post-form"
-      :action="action"
+      class="form"
       method="post"
     >
-      <input
-        v-model="post.id"
-        type="hidden"
-        name="postId"
-      >
-
-      <div
-        id="post-title-row"
-        class="form-row"
-      >
-        <label for="post-title">Title</label>
+      <div class="form--row">
+        <label
+          class="form--label"
+          for="post-title"
+        >Title</label>
         <span
           v-if="null !== errors.title"
-          class="single-error"
+          class="alert alert--error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.title }}
@@ -28,25 +22,26 @@
         <input
           id="post-title"
           v-model="post.title"
+          class="form--control form--input"
           type="text"
           name="post-title"
           @change="predictedSlug"
         >
 
-        <div class="generated-url-container">
+        <div class="generated-url">
           URL:
-          <code class="generated-url">{{ post.slug }}</code>
+          <code class="generated-url--slug">{{ post.slug }}</code>
         </div>
       </div>
 
-      <div
-        id="post-publish-at-row"
-        class="form-row"
-      >
-        <label for="post-publish-at">Publish at</label>
+      <div class="form--row">
+        <label
+          class="form--label"
+          for="post-publish-at"
+        >Publish at</label>
         <span
           v-if="null !== errors.publishAt"
-          class="single-error"
+          class="alert alert--error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.publishAt }}
@@ -56,6 +51,7 @@
           v-model="post.publishAt"
           :config="{
             altInput: true,
+            altInputClass: 'form--control form--input',
             dateFormat: 'Y-m-d H:i:S',
             enableTime: true,
             time_24hr: true,
@@ -63,32 +59,36 @@
         />
       </div>
 
-      <div
-        id="post-excerpt-row"
-        class="form-row"
-      >
-        <label for="post-excerpt">Excerpt</label>
+      <div class="form--row">
+        <label
+          class="form--label"
+          for="post-excerpt"
+        >Excerpt</label>
         <span
           v-if="null !== errors.excerpt"
-          class="single-error"
+          class="alert alert--error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.excerpt }}
         </span>
 
-        <input
+        <textarea
           id="post-excerpt"
           v-model="post.excerpt"
+          class="form--control form--textarea"
           type="text"
           name="post-excerpt"
-        >
+        />
       </div>
 
-      <div class="form-row">
-        <label for="post-body">Body</label>
+      <div class="form--row form--row--compacted">
+        <label
+          class="form--label"
+          for="post-body"
+        >Body</label>
         <span
           v-if="null !== errors.body"
-          class="single-error"
+          class="alert alert--error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.body }}
@@ -97,20 +97,23 @@
         <textarea
           id="post-body"
           v-model="post.body"
+          class="wysiwyg-editor form--control form--textarea"
           name="post-body"
-          class="wysiwyg-editor"
         />
       </div>
 
-      <div class="form-row">
-        <button
-          class="submit-button"
-          @click="attemptStore"
-        >
-          <i class="fas fa-save" />
-          Save
-        </button>
-      </div>
+      <input
+        v-model="post.id"
+        type="hidden"
+        name="postId"
+      >
+
+      <button
+        class="button"
+        @click="attemptStore"
+      >
+        Save
+      </button>
     </form>
 
     <error-icon v-if="true === showErrorIcon" />

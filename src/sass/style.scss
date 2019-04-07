@@ -2,7 +2,7 @@
  * Import dependencies.
  */
 @import '~normalize.css/normalize';
-@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700|Satisfy');
 @import url('https://use.fontawesome.com/releases/v5.3.1/css/solid.css');
 @import url('https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css');
 @import '~simplemde/dist/simplemde.min.css';
@@ -11,7 +11,7 @@
 /**
  * Import variables and mixins
  */
-@import 'organise';
+@import 'variables';
 
 /**
  * Apply a natural box layout model to all elements, but allowing components to
@@ -21,7 +21,9 @@ html {
     box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
@@ -40,27 +42,34 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', Helvetica, sans-serif;
     line-height: 2em;
-    font-size: 1.5em;
-    color: $colour-words-default;
-    background: $colour-background-default;
-}
-
-h1,
-h2 {
-    font-family: 'Roboto Slab', serif;
-}
-
-h1 {
-    font-size: 2em;
-}
-
-h2 {
-    font-size: 1.5em;
+    font-size: 1.6em;
+    color: $colour-secondary;
+    background: $colour-faded;
 }
 
 /**
- * Separated general use styles
+ * Styles that don't really have their own place.
+ */
+.content-container {
+    width: 90%;
+    max-width: $large;
+    margin: 0 auto;
+}
+
+.no-content-placeholder {
+    padding: $space-base;
+    border-radius: $border-radius;
+    background: $colour-tertiary;
+}
+
+.sign-off {
+    margin: $space-base 0;
+    text-align: center;
+}
+
+/**
+ * Split styles for easier organisation.
  */
 @import 'imports';

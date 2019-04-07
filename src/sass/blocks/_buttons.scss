@@ -1,0 +1,15 @@
+.button {
+    padding: $space-base $space-big;
+    border-radius: $border-radius;
+    border: none;
+    border-bottom: 2px solid $colour-secondary;
+    background: $colour-primary;
+    background: $background-gradient;
+    color: $colour-tertiary;
+
+    &:hover {
+        border-bottom-color: $colour-faded-secondary;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
