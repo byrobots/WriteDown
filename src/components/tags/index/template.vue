@@ -1,18 +1,17 @@
 <template>
   <section>
     <ul
-      id="tags-list"
-      class="tags-list"
+      class="tag-list"
     >
       <li
         v-for="(tag, index) in tags"
         :key="tag.id"
-        class="tag-item"
+        class="tag-list__item"
       >
         {{ tag.name }}
         <a
           href="#"
-          class="tag-delete-link"
+          class="tag-list__delete-button"
           :data-index="index"
           :data-tag="tag.id"
           @click="confirmDelete"
