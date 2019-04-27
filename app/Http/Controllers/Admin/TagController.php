@@ -15,7 +15,10 @@ class TagController extends BaseController
      */
     public function index()
     {
-        $tags = $this->writedown->getService('api')->tag()->index();
+        $tags = $this->writedown->getService('api')->tag()->index([
+            'pagination' => [],
+        ]);
+
         return $this->respond('admin/tag/index.twig', [
             'csrf' => $this->writedown->getService('csrf')->get(),
             'tags' => $tags,
