@@ -1,12 +1,12 @@
 .main-nav {
-    &--list-container {
+    &__list-container {
         width: 100%;
         padding: 0 0 $space-base;
         list-style: none;
         text-align: center;
     }
 
-    &--item {
+    &__item {
         display: inline-block;
         margin: 0;
         padding: 0 $space-base;

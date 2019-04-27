@@ -5,14 +5,14 @@
       class="form"
       method="post"
     >
-      <div class="form--row">
+      <div class="form__row">
         <label
           class="form--label"
           for="name"
         >Name</label>
         <span
           v-if="null !== errors.name"
-          class="alert alert--error"
+          class="alert alert__error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.name }}

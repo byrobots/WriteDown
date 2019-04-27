@@ -7,7 +7,7 @@
       action
       method="post"
     >
-      <div class="form--row">
+      <div class="form__row">
         <label
           class="form--label"
           for="email"
@@ -21,7 +21,7 @@
         >
       </div>
 
-      <div class="form--row">
+      <div class="form__row">
         <label
           class="form--label"
           for="password"
@@ -35,7 +35,7 @@
         >
       </div>
 
-      <div class="form--row">
+      <div class="form__row">
         <button
           class="form--control button"
           @click="attemptLogin"

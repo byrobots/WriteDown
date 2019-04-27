@@ -1,15 +1,15 @@
 .post-list {
-    &--title {
+    &__title {
         margin: 0;
     }
 
-    &--publish-information {
+    &__publish-information {
         margin-top: 0;
         font-size: 0.9em;
         color: $colour-faded-secondary;
     }
 
-    &--tools {
+    &__tools {
         margin-bottom: 0;
     }
 }

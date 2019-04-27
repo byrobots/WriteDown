@@ -6,14 +6,14 @@
       class="form"
       method="post"
     >
-      <div class="form--row">
+      <div class="form__row">
         <label
           class="form--label"
           for="post-title"
         >Title</label>
         <span
           v-if="null !== errors.title"
-          class="alert alert--error"
+          class="alert alert__error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.title }}
@@ -30,18 +30,18 @@
 
         <div class="generated-url">
           URL:
-          <code class="generated-url--slug">{{ post.slug }}</code>
+          <code class="generated-url__slug">{{ post.slug }}</code>
         </div>
       </div>
 
-      <div class="form--row">
+      <div class="form__row">
         <label
           class="form--label"
           for="post-publish-at"
         >Publish at</label>
         <span
           v-if="null !== errors.publishAt"
-          class="alert alert--error"
+          class="alert alert__error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.publishAt }}
@@ -59,14 +59,14 @@
         />
       </div>
 
-      <div class="form--row">
+      <div class="form__row">
         <label
           class="form--label"
           for="post-excerpt"
         >Excerpt</label>
         <span
           v-if="null !== errors.excerpt"
-          class="alert alert--error"
+          class="alert alert__error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.excerpt }}
@@ -81,14 +81,14 @@
         />
       </div>
 
-      <div class="form--row form--row--compacted">
+      <div class="form__row form__row--compacted">
         <label
           class="form--label"
           for="post-body"
         >Body</label>
         <span
           v-if="null !== errors.body"
-          class="alert alert--error"
+          class="alert alert__error"
         >
           <i class="fas fa-exclamation" />
           {{ errors.body }}
