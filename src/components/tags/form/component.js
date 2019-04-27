@@ -50,7 +50,8 @@ export default {
       this.showSuccessIcon = true
 
       setTimeout(() => {
-        this.showForm = false
+        this.showSuccessIcon = false
+        this.showForm = true
         this.$parent.tags.push(response.data.data)
       }, 500)
     },

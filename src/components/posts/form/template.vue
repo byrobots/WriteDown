@@ -8,7 +8,7 @@
     >
       <div class="form__row">
         <label
-          class="form--label"
+          class="form__label"
           for="post-title"
         >Title</label>
         <span
@@ -22,7 +22,7 @@
         <input
           id="post-title"
           v-model="post.title"
-          class="form--control form--input"
+          class="form__control form__input"
           type="text"
           name="post-title"
           @change="predictedSlug"
@@ -36,7 +36,7 @@
 
       <div class="form__row">
         <label
-          class="form--label"
+          class="form__label"
           for="post-publish-at"
         >Publish at</label>
         <span
@@ -51,7 +51,7 @@
           v-model="post.publishAt"
           :config="{
             altInput: true,
-            altInputClass: 'form--control form--input',
+            altInputClass: 'form__control form__input',
             dateFormat: 'Y-m-d H:i:S',
             enableTime: true,
             time_24hr: true,
@@ -61,7 +61,7 @@
 
       <div class="form__row">
         <label
-          class="form--label"
+          class="form__label"
           for="post-excerpt"
         >Excerpt</label>
         <span
@@ -75,7 +75,7 @@
         <textarea
           id="post-excerpt"
           v-model="post.excerpt"
-          class="form--control form--textarea"
+          class="form__control form--textarea"
           type="text"
           name="post-excerpt"
         />
@@ -83,7 +83,7 @@
 
       <div class="form__row form__row--compacted">
         <label
-          class="form--label"
+          class="form__label"
           for="post-body"
         >Body</label>
         <span
@@ -97,7 +97,7 @@
         <textarea
           id="post-body"
           v-model="post.body"
-          class="wysiwyg-editor form--control form--textarea"
+          class="wysiwyg-editor form__control form--textarea"
           name="post-body"
         />
       </div>

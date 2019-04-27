@@ -1,3 +1,18 @@
-.tag-form {
-    //
+.form-tag {
+    display: flex;
+    flex-wrap: wrap;
+
+    .alert {
+        flex: 0 0 auto;
+    }
+
+    &__input {
+        flex: 0 0 80%;
+        padding-right: $space-big;
+    }
+
+    &__button {
+        flex: 0 0 20%;
+        padding-top: 2em;
+    }
 }

@@ -9,13 +9,13 @@
     >
       <div class="form__row">
         <label
-          class="form--label"
+          class="form__label"
           for="email"
         >Email</label>
         <input
           id="email"
           v-model="email"
-          class="form--control form--input"
+          class="form__control form__input"
           type="email"
           name="email"
         >
@@ -23,13 +23,13 @@
 
       <div class="form__row">
         <label
-          class="form--label"
+          class="form__label"
           for="password"
         >Password</label>
         <input
           id="password"
           v-model="password"
-          class="form--control form--input"
+          class="form__control form__input"
           type="password"
           name="password"
         >
@@ -37,7 +37,7 @@
 
       <div class="form__row">
         <button
-          class="form--control button"
+          class="form__control button"
           @click="attemptLogin"
         >
           Login
