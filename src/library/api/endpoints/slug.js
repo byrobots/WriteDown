@@ -18,7 +18,7 @@ export default class Slug {
    * @returns {Promise}
    */
   predicted (data) {
-    data.csrf = store.state.csrf
+    data.csrf = store.getters.csrf
     return axios.post('/api/slugs/predicted', qs.stringify(data))
   }
 };

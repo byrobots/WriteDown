@@ -9,7 +9,7 @@ export default {
      * @return {String}
      */
     csrf () {
-      return this.$store.state.csrf
+      return this.$store.getters.csrf
     },
 
     /**
@@ -18,7 +18,7 @@ export default {
      * @return {String}
      */
     pagetitle () {
-      return this.$store.state.pagetitle
+      return this.$store.getters.pagetitle
     }
   }
 }

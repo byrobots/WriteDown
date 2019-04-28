@@ -17,16 +17,17 @@
     }
 
     &__input,
-    &--select,
-    &--textarea {
+    &__select,
+    &__textarea {
         padding: $space-base;
         border-radius: $border-radius;
     }
 
     &__input,
-    &--textarea {
+    &__textarea {
         display: block;
         width: 100%;
+        margin-top: $space-tiny;
         border: none;
         border-radius: 0;
         box-shadow: inset $shadow;
@@ -42,9 +43,8 @@
         }
     }
 
-    &--textarea {
+    &__textarea {
         height: 12em;
-        margin-top: $space-tiny;
         line-height: 2em;
     }
 }

@@ -59,7 +59,7 @@ export default {
    * Once the component is mounted grab the posts from the API.
    */
   mounted: function () {
-    this.posts = store.state.posts
+    this.posts = store.getters.posts
     this.populateList()
   }
 }

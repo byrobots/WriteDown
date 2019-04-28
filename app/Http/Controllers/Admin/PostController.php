@@ -41,8 +41,13 @@ class PostController extends BaseController
     public function create()
     {
         $csrf = $this->writedown->getService('csrf')->get();
+        $tags = $this->writedown->getService('api')->tag()->index([
+            'pagination' => [],
+        ]);
+
         return $this->respond('admin/post/create.twig', [
             'csrf' => $csrf,
+            'tags' => $tags,
         ]);
     }
 

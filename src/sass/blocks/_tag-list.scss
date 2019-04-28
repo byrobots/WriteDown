@@ -7,17 +7,17 @@
 
     &__item {
         flex: 0 0 auto;
-        margin-right: $space-big;
+        margin-right: $space-base;
         padding-bottom: $space-base;
     }
 
     &__delete-button {
-        padding-left: $space-tiny;
+        padding-left: $space-nano;
         color: $colour-primary;
 
         .fas {
             display: inline;
-            font-size: 1.6em;
+            font-size: 1em;
         }
     }
 }

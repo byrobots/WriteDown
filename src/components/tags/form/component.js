@@ -53,7 +53,7 @@ export default {
       setTimeout(() => {
         this.showSuccessIcon = false
         this.showForm = true
-        store.state.tags.push(response.data.data)
+        store.getters.tags.push(response.data.data)
       }, 500)
     },
 

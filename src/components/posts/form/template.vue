@@ -75,7 +75,7 @@
         <textarea
           id="post-excerpt"
           v-model="post.excerpt"
-          class="form__control form--textarea"
+          class="form__control form__textarea"
           type="text"
           name="post-excerpt"
         />
@@ -97,7 +97,7 @@
         <textarea
           id="post-body"
           v-model="post.body"
-          class="wysiwyg-editor form__control form--textarea"
+          class="wysiwyg-editor form__control form__textarea"
           name="post-body"
         />
       </div>

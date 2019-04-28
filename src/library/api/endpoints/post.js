@@ -18,7 +18,7 @@ export default class Post {
    * @return {Promise}
    */
   store (data) {
-    data.csrf = store.state.csrf
+    data.csrf = store.getters.csrf
     return axios.post('/api/posts/store', qs.stringify(data))
   }
 
@@ -31,7 +31,7 @@ export default class Post {
    * @return {Promise}
    */
   update (postId, data) {
-    data.csrf = store.state.csrf
+    data.csrf = store.getters.csrf
     return axios.post(`/api/posts/${postId}/update`, qs.stringify(data))
   }
 
@@ -43,7 +43,7 @@ export default class Post {
    * @return {Promise}
    */
   delete (postID) {
-    const data = { csrf: store.state.csrf }
+    const data = { csrf: store.getters.csrf }
     return axios.post(`/api/posts/${postID}/delete`, qs.stringify(data))
   }
 };

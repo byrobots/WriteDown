@@ -38,6 +38,6 @@ export default {
    * Once the component is mounted grab the tags from the store.
    */
   mounted: function () {
-    this.tags = store.state.tags
+    this.tags = store.getters.tags
   }
 }

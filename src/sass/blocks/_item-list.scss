@@ -3,9 +3,14 @@
     list-style: none;
 
     &__item {
+        margin-bottom: $space-big;
         padding: $space-base;
         border-radius: $border-radius;
         box-shadow: $shadow;
         background: $colour-tertiary;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }

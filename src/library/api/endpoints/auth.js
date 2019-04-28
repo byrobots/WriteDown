@@ -23,7 +23,7 @@ export default class Auth {
    */
   login (email, password) {
     const data = {
-      csrf: store.state.csrf,
+      csrf: store.getters.csrf,
       email: email,
       password: password
     }

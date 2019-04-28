@@ -1,8 +1,8 @@
 /**
  * External
  */
-import flatPickr from 'vue-flatpickr-component'
 import * as SimpleMDE from 'simplemde'
+import flatPickr from 'vue-flatpickr-component'
 import Vue from 'vue'
 
 /**
@@ -49,7 +49,7 @@ export default {
     predictedSlug: function () {
       // If the post object is set don't re-generate the slug.
       // TODO: Allow slugs to set manually, or changed.
-      if (store.state.post !== null) {
+      if (store.getters.post !== null) {
         return
       }
 
@@ -87,9 +87,9 @@ export default {
         title: this.post.title
       }
 
-      if (store.state.post !== null) {
+      if (store.getters.post !== null) {
         // Post is set in the store, update the existing record.
-        API.post().update(store.state.post.id, data)
+        API.post().update(store.getters.post.id, data)
           .then(this.successfulStore)
           .catch(response => this.failedStore(response))
         return
@@ -176,18 +176,18 @@ export default {
     this.post.slug = this.post.defaultSlug
 
     // If the post is available in the global store use the data provided.
-    if (store.state.post !== null) {
+    if (store.getters.post !== null) {
       let publishAt = ''
-      if (store.state.post.publish_at !== null) {
-        publishAt = new Date(store.state.post.publish_at.date)
+      if (store.getters.post.publish_at !== null) {
+        publishAt = new Date(store.getters.post.publish_at.date)
       }
 
-      this.post.id = store.state.post.id
-      this.post.title = store.state.post.title
-      this.post.slug = store.state.post.slug
+      this.post.id = store.getters.post.id
+      this.post.title = store.getters.post.title
+      this.post.slug = store.getters.post.slug
       this.post.publishAt = publishAt
-      this.post.excerpt = store.state.post.excerpt
-      this.post.body = store.state.post.body
+      this.post.excerpt = store.getters.post.excerpt
+      this.post.body = store.getters.post.body
     }
 
     this.startEditor()

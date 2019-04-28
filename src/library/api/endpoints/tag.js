@@ -18,7 +18,7 @@ export default class Tag {
    * @return {Promise}
    */
   store (data) {
-    data.csrf = store.state.csrf
+    data.csrf = store.getters.csrf
     return axios.post('/api/tags/store', qs.stringify(data))
   }
 
@@ -30,7 +30,7 @@ export default class Tag {
    * @return {Promise}
    */
   delete (tagID) {
-    const data = { csrf: store.state.csrf }
+    const data = { csrf: store.getters.csrf }
     return axios.post(`/api/tags/${tagID}/delete`, qs.stringify(data))
   }
 };
