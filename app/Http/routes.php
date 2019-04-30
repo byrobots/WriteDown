@@ -48,7 +48,7 @@ $router->group(
 /**
  * Logged in administration routes.
  */
-$router->group('/admin', function ($route) use ($csrfMiddleware) {
+$router->group('/admin', function ($route) {
     $route->get('/dashboard', 'Admin\DashboardController::index');
 
     // Posts.
