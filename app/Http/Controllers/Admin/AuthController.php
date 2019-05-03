@@ -22,4 +22,24 @@ class AuthController extends BaseController
             'csrf' => $this->writedown->getService('csrf')->get(),
         ]);
     }
+
+    /**
+     * Log the user out.
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function logout()
+    {
+        $user = $this->writedown->getService('auth')->user(
+            $this->writedown->getService('session')->get('auth_token')
+        );
+
+        $this->writedown->getService('api')
+            ->user()
+            ->update($user->id, ['token' => null]);
+
+        $this->writedown->getService('session')->destroy();
+
+        return new RedirectResponse('/admin/login');
+    }
 }

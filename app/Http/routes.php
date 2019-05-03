@@ -49,7 +49,7 @@ $router->group(
  * Logged in administration routes.
  */
 $router->group('/admin', function ($route) {
-    $route->get('/dashboard', 'Admin\DashboardController::index');
+    $route->get('/logout', 'Admin\AuthController::logout');
 
     // Posts.
     $route->get('/posts', 'Admin\PostController::index');
