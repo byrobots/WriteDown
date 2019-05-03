@@ -1,11 +1,11 @@
 /**
- * External
- */
-/**
  * Internal
  */
 import store from '../../../store'
 
+/**
+ * External
+ */
 const axios = require('axios')
 const qs = require('qs')
 
