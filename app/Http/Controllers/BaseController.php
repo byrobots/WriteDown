@@ -48,4 +48,22 @@ class BaseController extends Controller
 
         return $response;
     }
+
+    /**
+     * Is the user authenticated?
+     *
+     * @return bool
+     */
+    protected function isAuthenticated()
+    {
+        $session = $this->writedown->getService('session');
+        if (
+            $session->get('auth_token') and
+            $this->writedown->getService('auth')->verifyToken($session->get('auth_token'))
+        ) {
+            return true;
+        }
+
+        return false;
+    }
 }

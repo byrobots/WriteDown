@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\BaseController;
+use Zend\Diactoros\Response\RedirectResponse;
 
 class AuthController extends BaseController
 {
@@ -13,6 +14,10 @@ class AuthController extends BaseController
      */
     public function loginForm()
     {
+        if ($this->isAuthenticated()) {
+            return new RedirectResponse('/admin/posts');
+        }
+
         return $this->respond('admin/auth/login.twig', [
             'csrf' => $this->writedown->getService('csrf')->get(),
         ]);
