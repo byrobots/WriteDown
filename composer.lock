@@ -115,12 +115,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/by-robots/writedown-core.git",
-                "reference": "404d4be52e460ec23df820b583e7ba1dad734c27"
+                "reference": "f8ddf393164d8da090d7416897bf1fcb73bbd51b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/by-robots/writedown-core/zipball/404d4be52e460ec23df820b583e7ba1dad734c27",
-                "reference": "404d4be52e460ec23df820b583e7ba1dad734c27",
+                "url": "https://api.github.com/repos/by-robots/writedown-core/zipball/f8ddf393164d8da090d7416897bf1fcb73bbd51b",
+                "reference": "f8ddf393164d8da090d7416897bf1fcb73bbd51b",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +162,7 @@
                 "source": "https://github.com/by-robots/writedown-core/tree/master",
                 "issues": "https://github.com/by-robots/writedown-core/issues"
             },
-            "time": "2019-04-27T20:37:20+00:00"
+            "time": "2019-04-27T20:42:20+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -1713,7 +1713,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -1777,7 +1777,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -1849,7 +1849,7 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -1905,7 +1905,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -2072,7 +2072,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -2131,16 +2131,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.8.1",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "91cc2594d3143761ce0399c1caffd0b500ffe5b9"
+                "reference": "82a1c055c8ed4c4705023bfd0405f3c74db6e3ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/91cc2594d3143761ce0399c1caffd0b500ffe5b9",
-                "reference": "91cc2594d3143761ce0399c1caffd0b500ffe5b9",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/82a1c055c8ed4c4705023bfd0405f3c74db6e3ae",
+                "reference": "82a1c055c8ed4c4705023bfd0405f3c74db6e3ae",
                 "shasum": ""
             },
             "require": {
@@ -2156,7 +2156,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "2.9-dev"
                 }
             },
             "autoload": {
@@ -2194,7 +2194,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-04-16T17:14:24+00:00"
+            "time": "2019-04-28T06:57:38+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -2376,16 +2376,16 @@
         },
         {
             "name": "kint-php/kint",
-            "version": "3.2",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kint-php/kint.git",
-                "reference": "5cd8ac3c2957c3ef5bbf89934983a7ccf6a4c8fb"
+                "reference": "c332db9529fdce74ae6a347f97a1e7395e76ced8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kint-php/kint/zipball/5cd8ac3c2957c3ef5bbf89934983a7ccf6a4c8fb",
-                "reference": "5cd8ac3c2957c3ef5bbf89934983a7ccf6a4c8fb",
+                "url": "https://api.github.com/repos/kint-php/kint/zipball/c332db9529fdce74ae6a347f97a1e7395e76ced8",
+                "reference": "c332db9529fdce74ae6a347f97a1e7395e76ced8",
                 "shasum": ""
             },
             "require": {
@@ -2442,7 +2442,7 @@
                 "kint",
                 "php"
             ],
-            "time": "2019-03-20T20:19:15+00:00"
+            "time": "2019-05-03T16:49:16+00:00"
         }
     ],
     "aliases": [],
