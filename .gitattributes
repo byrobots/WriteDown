@@ -1,0 +1,18 @@
+# Set the default behavior
+* text=auto
+
+# Binary files that should not be modified
+*.png  binary -delta
+*.jpg  binary -delta
+*.jpeg binary -delta
+*.gif  binary -delta
+
+*.eot   binary -delta
+*.svg   binary -delta
+*.ttf   binary -delta
+*.woff  binary -delta
+*.woff2 binary -delta
+
+*.mp4 binary -delta
+*.mp3 binary -delta
+*.zip binary -delta

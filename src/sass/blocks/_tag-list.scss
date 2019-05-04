@@ -1,0 +1,23 @@
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: $space-base 0 0;
+    padding: 0;
+    list-style: none;
+
+    &__item {
+        flex: 0 0 auto;
+        margin-right: $space-base;
+        padding-bottom: $space-base;
+    }
+
+    &__delete-button {
+        padding-left: $space-nano;
+        color: $colour-primary;
+
+        .fas {
+            display: inline;
+            font-size: 1em;
+        }
+    }
+}

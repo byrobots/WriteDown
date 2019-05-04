@@ -1,0 +1,14 @@
+.page-header {
+    padding-top: $space-base;
+    box-shadow: $shadow;
+    background: $colour-primary;
+    background: $background-gradient;
+
+    .header2 {
+        margin-top: 0;
+
+        &__fancy {
+            color: $colour-tertiary;
+        }
+    }
+}

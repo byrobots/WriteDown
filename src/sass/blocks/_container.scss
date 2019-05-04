@@ -1,0 +1,10 @@
+.container {
+    padding: $space-big;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    background: $colour-tertiary;
+
+    .fas {
+        margin-bottom: 0;
+    }
+}

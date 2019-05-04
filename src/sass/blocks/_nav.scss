@@ -1,0 +1,20 @@
+.main-nav {
+    &__list-container {
+        width: 100%;
+        padding: 0 0 $space-base;
+        list-style: none;
+        text-align: center;
+    }
+
+    &__item {
+        display: inline-block;
+        margin: 0;
+        padding: 0 $space-base;
+
+        a,
+        a:hover {
+            font-size: 1.25em;
+            color: $colour-secondary;
+        }
+    }
+}

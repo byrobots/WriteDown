@@ -2,23 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\BaseController;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Slim\Views\PhpRenderer;
 
-class TagController extends CRUDController
+class TagController extends BaseController
 {
     /**
-     * Set-up CRUDController.
+     * Display the tag index.
      *
-     * @param \Slim\Views\PhpRenderer $view
+     * @return \Psr\Http\Message\ResponseInterface
      */
-    public function __construct(PhpRenderer $view)
+    public function index()
     {
-        parent::__construct($view);
+        $tags = $this->writedown->getService('api')->tag()->index([
+            'pagination' => [],
+        ]);
 
-        $this->viewFolder   = 'tag';
-        $this->resourcePath = 'tags';
-        $this->endpoint     = 'tag';
+        return $this->respond('admin/tag/index.twig', [
+            'csrf' => $this->writedown->getService('csrf')->get(),
+            'tags' => $tags,
+        ]);
     }
 }

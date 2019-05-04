@@ -1,0 +1,30 @@
+<template>
+  <main class="login-container">
+    <header>
+      <h1
+        class="header1 header1__fancy"
+        v-text="pagetitle"
+      />
+    </header>
+
+    <login-form />
+
+    <footer class="sign-off">
+      <a href="https://github.com/by-robots/writedown">WriteDown</a>,
+      a project <a href="https://by-robots.dev">By Robots</a>.
+    </footer>
+  </main>
+</template>
+
+<script>
+/**
+ * Internal.
+ */
+import loginForm from '../components/login-form'
+import template from '../mixins/template.js'
+
+export default {
+  components: { loginForm },
+  mixins: [template]
+}
+</script>

@@ -1,17 +1,14 @@
 /.idea
-
-/db/*
-!/db/migrations
-!/db/seeds
-
-/public/css/*
-/public/js/*
-!/public/css/.gitkeep
-!/public/js/.gitkeep
-
 /node_modules
+/public/dist
 /vendor
 
 .DS_Store
 .env
+/db/*
+/logs/*
 composer.phar
+
+!/db/migrations
+!/db/seeds
+!/logs/.gitkeep

@@ -1,72 +1,61 @@
 <?php
 
-/**
- * Front facing posts.
- */
-$writedown->getRouter()->get('/', 'PostController::index');
-$writedown->getRouter()->get('/{page:number}', 'PostController::index');
+$router = $writedown->getRouter();
 
-$writedown->getRouter()->get('/{slug}', 'PostController::read');
+// Admin login. The only admin route that doesn't require authentication.
+$router->get('/admin/login', 'Admin\AuthController::loginForm');
 
 /**
- * Admin login routes.
+ * API Routes.
+ *
+ * These expose the HTTP API used for making asyncronous requests in the
+ * frontend. Not to be confused with the API provided by the writedown-core
+ * package.
  */
-$writedown->getRouter()
-    ->get('/admin/login', 'Admin\AuthController::loginForm');
+$router->post('/api/login', 'API\AuthController::validateLogin')
+    ->middleware($apiCsrfMiddleware);
 
-$writedown->getRouter()
-    ->post('/admin/login', 'Admin\AuthController::validateLogin')
-    ->middleware($csrfMiddleware);
+$router->group(
+    '/api',
+    function ($route) use ($apiCsrfMiddleware) {
+        // Posts.
+        $route->get('/posts', 'API\PostController::index');
+
+        $route->post('/posts/store', 'API\PostController::store')
+            ->middleware($apiCsrfMiddleware);
+
+        $route->get('/posts/{postID}', 'API\PostController::read');
+
+        $route->post('/posts/{postID}/update', 'API\PostController::update')
+            ->middleware($apiCsrfMiddleware);
+
+        $route->post('/posts/{postID}/delete', 'API\PostController::delete')
+            ->middleware($apiCsrfMiddleware);
+
+        // Slugs.
+        $route->post('slugs/predicted', 'API\SlugController::predicted')
+            ->middleware($apiCsrfMiddleware);
+
+        // Tags.
+        $route->post('/tags/store', 'API\TagController::store')
+            ->middleware($apiCsrfMiddleware);
+
+        $route->post('/tags/{tagID}/delete', 'API\TagController::delete')
+            ->middleware($apiCsrfMiddleware);
+    }
+)->middleware($authMiddleware);
 
 /**
  * Logged in administration routes.
  */
-$writedown->getRouter()->group('/admin', function ($route) use ($csrfMiddleware) {
-    // Log the user out
+$router->group('/admin', function ($route) {
     $route->get('/logout', 'Admin\AuthController::logout');
 
-    // Posts CRUD
+    // Posts.
     $route->get('/posts', 'Admin\PostController::index');
-    $route->get('/posts/{page:number}', 'Admin\PostController::index');
-
     $route->get('/posts/new', 'Admin\PostController::create');
-    $route->post('/posts', 'Admin\PostController::store')
-        ->middleware($csrfMiddleware);
+    $route->get('/posts/{postID}/edit', 'Admin\PostController::edit');
 
-    $route->get('/posts/edit/{resourceID}', 'Admin\PostController::edit');
-    $route->post('/posts/edit/{resourceID}', 'Admin\PostController::update')
-        ->middleware($csrfMiddleware);
-
-    $route->get('/posts/delete/{resourceID}', 'Admin\PostController::delete')
-        ->middleware($csrfMiddleware);
-
-    // Users CRUD
-    $route->get('/users', 'Admin\UserController::index');
-    $route->get('/users/{page:number}', 'Admin\UserController::index');
-
-    $route->get('/users/new', 'Admin\UserController::create');
-    $route->post('/users', 'Admin\UserController::store')
-        ->middleware($csrfMiddleware);
-
-    $route->get('/users/edit/{resourceID}', 'Admin\UserController::edit');
-    $route->post('/users/edit/{resourceID}', 'Admin\UserController::update')
-        ->middleware($csrfMiddleware);
-
-    $route->get('/users/delete/{resourceID}', 'Admin\UserController::delete')
-        ->middleware($csrfMiddleware);
-
-    // Tag CRUD
+    // Tags.
     $route->get('/tags', 'Admin\TagController::index');
-    $route->get('/tags/{page:number}', 'Admin\TagController::index');
-
-    $route->get('/tags/new', 'Admin\TagController::create');
-    $route->post('/tags', 'Admin\TagController::store')
-          ->middleware($csrfMiddleware);
-
-    $route->get('/tags/edit/{resourceID}', 'Admin\TagController::edit');
-    $route->post('/tags/edit/{resourceID}', 'Admin\TagController::update')
-          ->middleware($csrfMiddleware);
-
-    $route->get('/tags/delete/{resourceID}', 'Admin\TagController::delete')
-        ->middleware($csrfMiddleware);
 })->middleware($authMiddleware);

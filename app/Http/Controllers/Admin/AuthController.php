@@ -14,39 +14,13 @@ class AuthController extends BaseController
      */
     public function loginForm()
     {
-        return $this->view->render($this->response, 'admin/auth/login.php', [
-            'csrf'  => $this->csrf->get(),
-            'error' => $this->session->getFlash('error'),
-        ]);
-    }
-
-    /**
-     * Validate the login.
-     *
-     * @return \Psr\Http\Message\ResponseInterface
-     * @throws \Exception
-     */
-    public function validateLogin()
-    {
-        // Attempt to verify the submitted details
-        $user = $this->auth->verifyCredentials(
-            $this->request->getParsedBody()['email'],
-            $this->request->getParsedBody()['password']
-        );
-
-        // Sad trombone
-        if (!$user) {
-            $this->session->setFlash('error', 'Can not login.');
-            return new RedirectResponse('/admin/login');
+        if ($this->isAuthenticated()) {
+            return new RedirectResponse('/admin/posts');
         }
 
-        // Generate and set the user's authentication token
-        $token = $this->auth->generate();
-        $this->api->user()->update($user->id, ['token' => $token]);
-        $this->session->set('auth_token', $token);
-
-        // Onwards to the admin area
-        return new RedirectResponse('/admin/posts');
+        return $this->respond('admin/auth/login.twig', [
+            'csrf' => $this->writedown->getService('csrf')->get(),
+        ]);
     }
 
     /**
@@ -56,10 +30,16 @@ class AuthController extends BaseController
      */
     public function logout()
     {
-        $user = $this->loggedInAs();
-        $this->api->user()->update($user->id, ['token' => null]);
-        $this->session->destroy();
+        $user = $this->writedown->getService('auth')->user(
+            $this->writedown->getService('session')->get('auth_token')
+        );
 
-        return new RedirectResponse('/');
+        $this->writedown->getService('api')
+            ->user()
+            ->update($user->id, ['token' => null]);
+
+        $this->writedown->getService('session')->destroy();
+
+        return new RedirectResponse('/admin/login');
     }
 }

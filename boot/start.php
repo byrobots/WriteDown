@@ -2,6 +2,7 @@
 
 // Include WriteDown's dependencies
 require_once __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/global.php';
 
 // Set WriteDown's path
 putenv('ROOT_PATH=' . realpath(__DIR__ . '/..'));
@@ -12,14 +13,15 @@ $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
 $dotenv->load();
 
 // Get the WriteDown object, load providers
-$writedown = new ByRobots\WriteDown\WriteDown(new League\Container\Container);
+$writedown = writedown();
 require __DIR__ . '/container.php';
 
 // Initialise some middleware
-$csrfMiddleware = [new \ByRobots\WriteDown\HTTP\Middleware\CSRFMiddleware($writedown->csrf()), 'validate'];
-$authMiddleware = [new \ByRobots\WriteDown\HTTP\Middleware\AuthenticatedMiddleware(
-    $writedown->auth(),
-    $writedown->session()
+$apiCsrfMiddleware = [new \App\HTTP\Middleware\ApiCsrfMiddleware($writedown->getService('csrf')), 'validate'];
+$csrfMiddleware    = [new \ByRobots\WriteDown\HTTP\Middleware\CSRFMiddleware($writedown->getService('csrf')), 'validate'];
+$authMiddleware    = [new \ByRobots\WriteDown\HTTP\Middleware\AuthenticatedMiddleware(
+    $writedown->getService('auth'),
+    $writedown->getService('session')
 ), 'validate'];
 
 // Load routes

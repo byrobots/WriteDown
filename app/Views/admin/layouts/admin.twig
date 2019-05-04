@@ -1,0 +1,22 @@
+{% include 'admin/partials/html_header.twig' %}
+
+    <header class="page-header">
+        <h2 class="header2 header2__fancy">WriteDown</h2>
+
+        <nav class="main-nav">
+            <ul class="main-nav__list-container">
+                <li class="main-nav__item"><a href="/admin/posts">Posts</a></li>
+                <li class="main-nav__item"><a href="/admin/tags">Tags</a></li>
+                <li class="main-nav__item"><a href="/admin/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="sign-off">
+        <a href="https://github.com/by-robots/writedown">WriteDown</a>,
+        a project <a href="https://by-robots.dev">By Robots</a>.
+    </footer>
+
+{% include 'admin/partials/html_footer.twig' %}

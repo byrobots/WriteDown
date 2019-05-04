@@ -1,0 +1,18 @@
+.header1,
+.header2 {
+    font-family: 'Roboto', serif;
+
+    &__fancy {
+        font-family: 'Satisfy', 'Roboto', Helvetica, sans-serif;
+        color: $colour-primary;
+        text-align: center;
+    }
+}
+
+.header1 {
+    font-size: 3em;
+}
+
+.header2 {
+    font-size: 2em;
+}

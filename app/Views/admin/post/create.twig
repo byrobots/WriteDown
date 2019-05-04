@@ -1,0 +1,19 @@
+{% set pagetitle = 'New Post' %}
+
+{% extends 'admin/layouts/admin.twig' %}
+
+{% block content %}
+    <main class="content-container">
+        <header>
+            <h1 class="header2 page-title">{{ pagetitle }}</h1>
+        </header>
+
+        <section class="container">
+            <div id="app"></div>
+        </section>
+    </main>
+
+    <script>
+        writedown.tags = {{ tags.data|json_encode|raw }}
+    </script>
+{% endblock %}
