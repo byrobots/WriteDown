@@ -1,6 +1,6 @@
 /.idea
 /node_modules
-/public/dist
+/public/dist/*
 /vendor
 
 .DS_Store
@@ -12,3 +12,4 @@ composer.phar
 !/db/migrations
 !/db/seeds
 !/logs/.gitkeep
+!/public/dist/.gitkeep
