@@ -8,6 +8,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const path = require('path')
 const pkg = require('./package.json')
 const TerserPlugin = require('terser-webpack-plugin')
 
@@ -64,26 +65,6 @@ const configureBabel = (browserList) => ({
 })
 
 /**
- * Configure the Manifest file generation.
- *
- * @return {Object}
- */
-const configureManifest = () => ({
-  map: (file) => {
-    // However, if the file name doesn't match those rules we need to
-    // add it in to keep things nice and tidy. Note the special case -
-    // if the extension is .map it's the js map file so correct that.
-    let extension = file.name.split('.').pop()
-    if (extension === 'map') {
-      extension = 'js'
-    }
-
-    file.name = `${extension}/${file.name}`
-    return file
-  }
-})
-
-/**
  * Export the config.
  *
  * @type {Object}
@@ -124,11 +105,15 @@ module.exports = {
   },
   output: {
     filename: 'js/[name].[hash:8].js',
-    publicPath: '/public/dist/'
+    path: path.resolve(__dirname, 'public/dist'),
+    publicPath: '/dist/'
   },
   plugins: [
     new CleanWebpackPlugin(['public/dist'], { exclude: [ '.gitkeep' ] }),
-    new ManifestPlugin(configureManifest()),
+    new ManifestPlugin({
+      // Don't include source maps in the manifest file.
+      filter: ({ name }) => !name.endsWith('.map')
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash:8].css'
     }),
