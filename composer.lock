@@ -74,12 +74,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/by-robots/twig-webpack-manifest.git",
-                "reference": "c8395673753c15618fd1cf01e035cc19a50344a4"
+                "reference": "312c697e5625ae3142eb6cc7cb273efa91958840"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/by-robots/twig-webpack-manifest/zipball/c8395673753c15618fd1cf01e035cc19a50344a4",
-                "reference": "c8395673753c15618fd1cf01e035cc19a50344a4",
+                "url": "https://api.github.com/repos/by-robots/twig-webpack-manifest/zipball/312c697e5625ae3142eb6cc7cb273efa91958840",
+                "reference": "312c697e5625ae3142eb6cc7cb273efa91958840",
                 "shasum": ""
             },
             "require": {
@@ -98,7 +98,7 @@
             "support": {
                 "source": "https://github.com/by-robots/twig-webpack-manifest/tree/master"
             },
-            "time": "2019-05-05T14:05:58+00:00"
+            "time": "2019-05-05T14:47:38+00:00"
         },
         {
             "name": "byrobots/validation",

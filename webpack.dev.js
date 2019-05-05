@@ -26,8 +26,7 @@ module.exports = {
   },
   output: {
     filename: 'WriteDown.js',
-    path: path.join(__dirname, '/public'),
-    publicPath: 'http://localhost:8080/'
+    path: path.join(__dirname, '/public/dist/')
   },
   plugins: [
     new VueLoaderPlugin(),
