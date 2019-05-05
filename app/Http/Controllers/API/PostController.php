@@ -42,7 +42,8 @@ class PostController extends BaseController
     public function update(ServerRequestInterface $request, ResponseInterface $response, array $args = [])
     {
         $input  = $this->request->getParsedBody();
-        $result = $this->writedown->getService('api')
+        $result = $this->writedown
+            ->getService('api')
             ->post()
             ->update($args['postID'], [
                 'title'      => $input['title'],

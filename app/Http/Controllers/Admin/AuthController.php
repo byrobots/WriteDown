@@ -34,7 +34,8 @@ class AuthController extends BaseController
             $this->writedown->getService('session')->get('auth_token')
         );
 
-        $this->writedown->getService('api')
+        $this->writedown
+            ->getService('api')
             ->user()
             ->update($user->id, ['token' => null]);
 

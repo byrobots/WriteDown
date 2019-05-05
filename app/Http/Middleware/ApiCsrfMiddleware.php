@@ -55,8 +55,7 @@ class ApiCsrfMiddleware
                 $body = $request->getQueryParams();
                 break;
             default:
-                return $this
-                    ->apiResponse
+                return $this->apiResponse
                     ->setSuccess(false)
                     ->setStatusCode(400)
                     ->setData('Invalid request.')
@@ -65,8 +64,7 @@ class ApiCsrfMiddleware
 
         $token = isset($body['csrf']) ? $body['csrf'] : '';
         if (!$this->csrf->isValid($token)) {
-            return $this
-                ->apiResponse
+            return $this->apiResponse
                 ->setSuccess(false)
                 ->setStatusCode(400)
                 ->setData('Bad CSRF.')

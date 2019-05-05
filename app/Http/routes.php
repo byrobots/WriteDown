@@ -15,35 +15,32 @@ $router->get('/admin/login', 'Admin\AuthController::loginForm');
 $router->post('/api/login', 'API\AuthController::validateLogin')
     ->middleware($apiCsrfMiddleware);
 
-$router->group(
-    '/api',
-    function ($route) use ($apiCsrfMiddleware) {
-        // Posts.
-        $route->get('/posts', 'API\PostController::index');
+$router->group('/api', function ($route) use ($apiCsrfMiddleware) {
+    // Posts.
+    $route->get('/posts', 'API\PostController::index');
 
-        $route->post('/posts/store', 'API\PostController::store')
-            ->middleware($apiCsrfMiddleware);
+    $route->post('/posts/store', 'API\PostController::store')
+        ->middleware($apiCsrfMiddleware);
 
-        $route->get('/posts/{postID}', 'API\PostController::read');
+    $route->get('/posts/{postID}', 'API\PostController::read');
 
-        $route->post('/posts/{postID}/update', 'API\PostController::update')
-            ->middleware($apiCsrfMiddleware);
+    $route->post('/posts/{postID}/update', 'API\PostController::update')
+        ->middleware($apiCsrfMiddleware);
 
-        $route->post('/posts/{postID}/delete', 'API\PostController::delete')
-            ->middleware($apiCsrfMiddleware);
+    $route->post('/posts/{postID}/delete', 'API\PostController::delete')
+        ->middleware($apiCsrfMiddleware);
 
-        // Slugs.
-        $route->post('slugs/predicted', 'API\SlugController::predicted')
-            ->middleware($apiCsrfMiddleware);
+    // Slugs.
+    $route->post('slugs/predicted', 'API\SlugController::predicted')
+        ->middleware($apiCsrfMiddleware);
 
-        // Tags.
-        $route->post('/tags/store', 'API\TagController::store')
-            ->middleware($apiCsrfMiddleware);
+    // Tags.
+    $route->post('/tags/store', 'API\TagController::store')
+        ->middleware($apiCsrfMiddleware);
 
-        $route->post('/tags/{tagID}/delete', 'API\TagController::delete')
-            ->middleware($apiCsrfMiddleware);
-    }
-)->middleware($authMiddleware);
+    $route->post('/tags/{tagID}/delete', 'API\TagController::delete')
+        ->middleware($apiCsrfMiddleware);
+})->middleware($authMiddleware);
 
 /**
  * Logged in administration routes.

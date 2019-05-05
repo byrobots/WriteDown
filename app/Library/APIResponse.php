@@ -49,7 +49,8 @@ class APIResponse
      * @return self
      * @throws \Exception
      */
-    public function setSuccess($success) {
+    public function setSuccess($success)
+    {
         if (!is_bool($success)) {
             throw new \Exception('Invalid success status received.');
         }

@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use League\Container\ServiceProvider\AbstractServiceProvider;

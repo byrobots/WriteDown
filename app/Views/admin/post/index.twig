@@ -20,6 +20,6 @@
     </main>
 
     <script>
-        writedown.posts = {{ posts.data|json_encode|raw }}
+        writedown.posts = {{ posts|json_encode|raw }}
     </script>
 {% endblock %}

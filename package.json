@@ -2,29 +2,25 @@
   "name": "writedown",
   "version": "1.0.0",
   "description": "WriteDown - A really simple blogging platform.",
-  "scripts": {
-    "build": "webpack --config webpack.dev.js",
-    "fix": "standard --fix; eslint --fix --ext .vue src",
-    "lint": "standard; eslint --ext .vue src",
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.dev.js",
-    "precommit-msg": "echo 'Running pre-commit checks.'",
-    "prod": "webpack --config webpack.prod.js"
-  },
-  "pre-commit": [
-    "precommit-msg",
-    "fix"
-  ],
+  "author": "By Robots",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com:byrobots/writedown.git"
   },
-  "author": "By Robots",
-  "license": "MIT",
+  "pre-commit": [ "precommit-msg", "fix" ],
   "browserslist": [
     "> 1%",
     "last 2 version",
     "Firefox ESR"
   ],
+  "scripts": {
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.dev.js",
+    "fix": "standard --fix; eslint --fix --ext .vue src",
+    "lint": "standard; eslint --ext .vue src",
+    "precommit-msg": "echo 'Running pre-commit checks.'",
+    "prod": "webpack --config webpack.prod.js"
+  },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
     "@babel/runtime": "^7.2.0",

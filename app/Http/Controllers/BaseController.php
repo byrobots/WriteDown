@@ -56,11 +56,10 @@ class BaseController extends Controller
      */
     protected function isAuthenticated()
     {
+        $auth    = $this->writedown->getService('auth');
         $session = $this->writedown->getService('session');
-        if (
-            $session->get('auth_token') and
-            $this->writedown->getService('auth')->verifyToken($session->get('auth_token'))
-        ) {
+
+        if ($session->get('auth_token') and $auth->verifyToken($session->get('auth_token'))) {
             return true;
         }
 

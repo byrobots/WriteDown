@@ -21,12 +21,13 @@ module.exports = {
       use: 'vue-loader'
     }, {
       test: /\.s[c|a]ss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader']
+      use: [ 'style-loader', 'css-loader', 'sass-loader' ]
     }]
   },
   output: {
     filename: 'WriteDown.js',
-    path: path.join(__dirname, '/public/dist/')
+    path: path.join(__dirname, '/public'),
+    publicPath: 'http://localhost:8080/'
   },
   plugins: [
     new VueLoaderPlugin(),

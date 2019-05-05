@@ -27,16 +27,9 @@ class APIControllerServiceProvider extends AbstractServiceProvider
      */
     public function register()
     {
-        $this->getContainer()
-            ->add('API\AuthController', AuthController::class);
-
-        $this->getContainer()
-            ->add('API\PostController', PostController::class);
-
-        $this->getContainer()
-            ->add('API\SlugController', SlugController::class);
-
-        $this->getContainer()
-            ->add('API\TagController', TagController::class);
+        $this->getContainer()->add('API\AuthController', AuthController::class);
+        $this->getContainer()->add('API\PostController', PostController::class);
+        $this->getContainer()->add('API\SlugController', SlugController::class);
+        $this->getContainer()->add('API\TagController', TagController::class);
     }
 }
