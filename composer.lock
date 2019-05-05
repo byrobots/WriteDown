@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "38a678101efd05669bbb3515d5acb041",
+    "content-hash": "2d0729c98d46ba30b418aad471bb6356",
     "packages": [
         {
             "name": "aura/session",
@@ -67,6 +67,38 @@
                 "sessions"
             ],
             "time": "2016-10-03T20:28:32+00:00"
+        },
+        {
+            "name": "by-robots/twig-webpack-manifest",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/by-robots/twig-webpack-manifest.git",
+                "reference": "ba930ba85929ce1528fc724d58d9b1c042de5791"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/by-robots/twig-webpack-manifest/zipball/ba930ba85929ce1528fc724d58d9b1c042de5791",
+                "reference": "ba930ba85929ce1528fc724d58d9b1c042de5791",
+                "shasum": ""
+            },
+            "require": {
+                "twig/twig": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ByRobots\\TwigWebpackManifestExtension\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Injects the correct CSS and JS files from a manifest file into a Twig template.",
+            "support": {
+                "source": "https://github.com/by-robots/twig-webpack-manifest/tree/master"
+            },
+            "time": "2019-05-05T13:27:09+00:00"
         },
         {
             "name": "byrobots/validation",
@@ -2448,6 +2480,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "by-robots/twig-webpack-manifest": 20,
         "byrobots/writedown-core": 20
     },
     "prefer-stable": true,

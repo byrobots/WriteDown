@@ -4,6 +4,7 @@
   "type": "project",
   "license": "MIT",
   "require": {
+    "by-robots/twig-webpack-manifest": "dev-master",
     "byrobots/writedown-core": "dev-master",
     "monolog/monolog": "^1.23",
     "twig/twig": "^2.0",
@@ -35,10 +36,12 @@
   "repositories": [{
       "type": "vcs",
       "url": "https://github.com/byrobots/writedown-core"
-    },
-    {
+    }, {
       "type": "vcs",
       "url": "https://github.com/byrobots/validation"
+    }, {
+      "type": "vcs",
+      "url": "https://github.com/by-robots/twig-webpack-manifest"
     }
   ]
 }
