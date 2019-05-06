@@ -1,10 +1,12 @@
 'use strict'
 
 const { VueLoaderPlugin } = require('vue-loader')
+const ManifestPlugin = require('webpack-manifest-plugin')
 const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
+  entry: { 'WriteDown': './src/index.js' },
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     headers: { 'Access-Control-Allow-Origin': '*' },
@@ -26,10 +28,11 @@ module.exports = {
   },
   output: {
     filename: 'WriteDown.js',
-    path: path.join(__dirname, '/public'),
-    publicPath: 'http://localhost:8080/'
+    path: path.join(__dirname, '/public/dist/'),
+    publicPath: 'http://localhost:8080/dist/'
   },
   plugins: [
+    new ManifestPlugin(),
     new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ]
