@@ -2,8 +2,11 @@
 
 $router = $writedown->getRouter();
 
-// Admin login. The only admin route that doesn't require authentication.
+// Admin login.
 $router->get('/admin/login', 'Admin\AuthController::loginForm');
+
+// Admin root. Re-directs the user based on whether or not they're logged in.
+$router->get('/admin', 'Admin\RootController::onYourWay');
 
 /**
  * API Routes.
