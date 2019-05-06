@@ -8,6 +8,27 @@ use Psr\Http\Message\ServerRequestInterface;
 class PostController extends BaseController
 {
     /**
+     * Get an index of posts.
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request  Not used here. Just placeholder so we can get to $args.
+     * @param \Psr\Http\Message\ResponseInterface      $response As above.
+     * @param array                                    $args     Modifiers for requesting posts. Think pagination.
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function index(ServerRequestInterface $request, ResponseInterface $response, array $args = [])
+    {
+        $posts = $this->writedown->getService('api')->post()->index([
+            'where'      => [],
+            'pagination' => [
+                'current_page' => array_key_exists('page', $args) ? $args['page'] : 1,
+                'per_page'     => env('MAX_ITEMS', 10),
+            ],
+        ]);
+        return $this->apiResponse->setData($posts['data'])->respond();
+    }
+
+    /**
      * Attempt to save a new post.
      *
      * @return \Psr\Http\Message\ResponseInterface
