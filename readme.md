@@ -1,11 +1,14 @@
 # WriteDown
+
 A simple Markdown blogging platform.
 
 ## DO NOT USE
+
 WriteDown is currently in development. There will be breaking changes until a
 release is tagged.
 
-### Config Values
+## Config Values
+
 These are values that can be set in the `.env` file.
 
 - `ENVIRONMENT`: The environment this instance of WriteDown is running in.
@@ -18,18 +21,41 @@ of items that will be displayed on one page.
 seeding the database.
 - `SEED_USER_PASSWORD`: Password for the user above.
 
-## Basic Development Environment
+## Development
+
+### Test Environment
+
+Frontend assets can be served with
+[webpack-dev-server](https://webpack.js.org/configuration/dev-server/) which
+will allow for live reload as you work.
+
+`cd ~/path/to/writedown && npm run dev`
+
+Note that the `ENVIRONMENT` value must be set to `development` for this to work.
+
 WriteDown will happily run using PHP's built in web server. To use this, run the
 following in your terminal:
 
 `cd ~/path/to/writedown/public && php -S localhost:8000`
 
-### Debug
-WriteDown uses [Kint](https://github.com/kint-php/kint) to make dumping
-variables a bit nicer. Use `d($var)` to use it.
+WriteDown can then be accessed in your browser at `http://localhost:8000`. Note
+that both of the above should be running at the same time when developing
+locally.
 
-WriteDown will be available in your browser at `http://localhost:8000`.
+### Debug
+
+WriteDown uses [Kint](https://github.com/kint-php/kint) to make dumping
+variables a bit nicer. Use `d($var)` to output the contents of `$var`.
 
 ### Linting
+
 #### JavaScript
-TODO: Linting with `standard`.
+
+WriteDown's JavaScript follows the [Standard JS](https://standardjs.com/) code
+style. To lint the code run:
+
+`cd ~/path/to/writedown && npm run lint`
+
+Some mistakes can be corrected automatically with:
+
+`cd ~/path/to/writedown && npm run fix`
