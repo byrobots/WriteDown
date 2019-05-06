@@ -50,7 +50,7 @@ const app = new Vue({
     store.commit('csrf', writedown.csrf || null)
     store.commit('pagetitle', writedown.pagetitle || null)
     store.commit('post', writedown.post || null)
-    store.commit('posts', writedown.posts.data || null)
+    store.commit('posts', writedown.posts ? writedown.posts.data : null)
     store.commit('tags', writedown.tags || null)
   },
 
