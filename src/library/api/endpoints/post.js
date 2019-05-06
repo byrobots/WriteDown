@@ -14,6 +14,17 @@ const qs = require('qs')
  */
 export default class Post {
   /**
+   * Retrieve available posts.
+   *
+   * TODO: Handle pagination.
+   *
+   * @return {Promise}
+   */
+  index () {
+    return axios.get('/api/posts')
+  }
+
+  /**
    * Attempt to store a new post.
    *
    * @param {Object} data
