@@ -11,12 +11,12 @@ $container->addServiceProvider(\App\Providers\APIControllerServiceProvider::clas
 switch (getenv('ENVIRONMENT')) {
     case 'development':
         $manifestFile = 'http://localhost:8080/dist/manifest.json';
-        $options      = ['publicPath' => 'http://localhost:8080'];
+        $options      = ['missingResources' => 'nothing'];
         break;
 
     default:
         $manifestFile = __DIR__ . '/../public/dist/manifest.json';
-        $options      = ['publicPath' => ''];
+        $options      = [];
 }
 
 $twig = new Twig_Environment(
