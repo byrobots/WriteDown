@@ -49,6 +49,11 @@
         </p>
       </li>
     </ol>
+
+    <pagination
+      v-if="postPagination.total_pages > 1"
+      :pagination="postPagination"
+    />
   </section>
 </template>
 

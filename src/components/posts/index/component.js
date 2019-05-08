@@ -5,13 +5,18 @@ import API from '../../../library/api'
 import getFullHours from '../../../helpers/get-full-hours.js'
 import getFullMinutes from '../../../helpers/get-full-minutes.js'
 import getFullSeconds from '../../../helpers/get-full-seconds.js'
+import pagination from '../../pagination'
 import store from '../../../store'
 
 /**
  * The component
  */
 export default {
-  data: () => ({ posts: null }),
+  components: { pagination },
+  data: () => ({
+    postPagination: null,
+    posts: null
+  }),
   methods: {
     /**
      * Use the response from the API call to populate the posts list.
@@ -59,6 +64,7 @@ export default {
    * Once the component is mounted grab the posts from the API.
    */
   mounted: function () {
+    this.postPagination = store.getters.postPagination
     this.posts = store.getters.posts
     this.populateList()
   }

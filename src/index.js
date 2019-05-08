@@ -44,12 +44,13 @@ const app = new Vue({
   },
 
   /**
-   * Standard data that will always be present.
+   * Populate the store.
    */
   beforeMount () {
     store.commit('csrf', writedown.csrf || null)
     store.commit('pagetitle', writedown.pagetitle || null)
     store.commit('post', writedown.post || null)
+    store.commit('postPagination', writedown.posts ? writedown.posts.meta : null)
     store.commit('posts', writedown.posts ? writedown.posts.data : null)
     store.commit('tags', writedown.tags || null)
   },
