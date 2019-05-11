@@ -57,6 +57,19 @@ export default {
           })
           .catch(() => { /* TODO: Error message */ })
       }
+    },
+
+    /**
+     * Called when the pagination component emits the `gotoPage` event. Will
+     * request the post index API endpoint and request the selected page.
+     *
+     * @param {Integer} page The page to request.
+     */
+    gotoPage (page) {
+      API.post().index(page)
+        .then((response) => {
+          console.log(response)
+        }).catch(() => { /* TODO: Error message */ })
     }
   },
 

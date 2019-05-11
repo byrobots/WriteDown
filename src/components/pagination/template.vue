@@ -5,33 +5,47 @@
         v-if="pagination.current_page > 1"
         class="pagination__item pagination__item-prev"
       >
-        Prev
-      </li>
+        <a
+          class="pagination__link"
+          @click="gotoPage(pagination.current_page-1)"
+        >
+          &lt; Prev
+        </a>
+      </li><!--
 
-      <li
+      --><li
         v-for="index in pagination.total_pages"
         :key="index"
-        class=""
+        class="pagination__item"
       >
         <!-- An active link. -->
         <a
           v-if="index !== pagination.current_page"
-          href=""
-          class="pagination__link pagination__link-current"
-        >{{ index }}</a>
+          class="pagination__link"
+          @click="gotoPage(index)"
+        >
+          {{ index }}
+        </a>
 
         <!-- Disabled item for the current page. -->
         <span
           v-if="index === pagination.current_page"
           class="pagination__link pagination__link-disabled pagination__link-current"
-        >{{ index }}</span>
-      </li>
+        >
+          {{ index }}
+        </span>
+      </li><!--
 
-      <li
+      --><li
         v-if="pagination.current_page < pagination.total_pages"
         class="pagination__item pagination__item-next"
       >
-        Next
+        <a
+          class="pagination__link"
+          @click="gotoPage(pagination.current_page+1)"
+        >
+          Next &gt;
+        </a>
       </li>
     </ul>
   </nav>

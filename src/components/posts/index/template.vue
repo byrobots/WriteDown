@@ -53,6 +53,7 @@
     <pagination
       v-if="postPagination.total_pages > 1"
       :pagination="postPagination"
+      @gotoPage="gotoPage"
     />
   </section>
 </template>

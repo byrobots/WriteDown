@@ -16,12 +16,14 @@ export default class Post {
   /**
    * Retrieve available posts.
    *
-   * TODO: Handle pagination.
+   * @param {Integer} page The page to request. Blank will retrieve the first
+   * page.
    *
    * @return {Promise}
    */
-  index () {
-    return axios.get('/api/posts')
+  index (page) {
+    page = page || 1
+    return axios.get(`/api/posts?page=${page}`)
   }
 
   /**

@@ -1,0 +1,43 @@
+.pagination {
+    padding-top: $space-base;
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+    }
+
+    &__item {
+        display: inline-block;
+        margin-right: $space-nano;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &-prev {
+            margin-right: $space-tiny;
+        }
+
+        &-next {
+            margin-left: $space-tiny;
+        }
+    }
+
+    &__link {
+        padding: $space-tiny;
+        border-radius: $border-radius;
+        box-shadow: $shadow;
+        text-decoration: underline;
+        background: $colour-tertiary;
+        color: $colour-secondary;
+        cursor: pointer;
+
+        &-current {
+            text-decoration: none;
+            color: $colour-primary;
+            cursor: auto;
+        }
+    }
+}
