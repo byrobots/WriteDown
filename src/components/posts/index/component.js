@@ -14,8 +14,8 @@ import store from '../../../store'
 export default {
   components: { pagination },
   data: () => ({
-    postPagination: null,
-    posts: null
+    postPagination: [],
+    posts: []
   }),
   methods: {
     /**
