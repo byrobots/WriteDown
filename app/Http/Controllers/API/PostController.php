@@ -25,6 +25,7 @@ class PostController extends BaseController
                 'per_page'     => env('MAX_ITEMS', 10),
             ],
         ]);
+
         return $this->apiResponse->setData($posts['data'])->respond();
     }
 

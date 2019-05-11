@@ -21,11 +21,10 @@ $router->post('/api/login', 'API\AuthController::validateLogin')
 $router->group('/api', function ($route) use ($apiCsrfMiddleware) {
     // Posts.
     $route->get('/posts', 'API\PostController::index');
+    $route->get('/posts/{page}', 'API\PostController::index');
 
     $route->post('/posts/store', 'API\PostController::store')
         ->middleware($apiCsrfMiddleware);
-
-    $route->get('/posts/{postID}', 'API\PostController::read');
 
     $route->post('/posts/{postID}/update', 'API\PostController::update')
         ->middleware($apiCsrfMiddleware);

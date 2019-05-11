@@ -52,8 +52,9 @@
 
     <pagination
       v-if="postPagination.total_pages > 1"
-      :pagination="postPagination"
+      v-bind:pagination="postPagination"
       @gotoPage="gotoPage"
+      :key="componentKey"
     />
   </section>
 </template>

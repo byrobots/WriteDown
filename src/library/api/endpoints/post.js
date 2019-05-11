@@ -23,7 +23,7 @@ export default class Post {
    */
   index (page) {
     page = page || 1
-    return axios.get(`/api/posts?page=${page}`)
+    return axios.get(`/api/posts/${page}`)
   }
 
   /**

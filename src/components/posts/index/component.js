@@ -14,6 +14,7 @@ import store from '../../../store'
 export default {
   components: { pagination },
   data: () => ({
+    componentKey: 0,
     postPagination: [],
     posts: []
   }),
@@ -22,14 +23,14 @@ export default {
      * Use the response from the API call to populate the posts list.
      */
     populateList () {
-      this.posts.forEach((post, index) => {
+      this.posts.forEach((post) => {
         // If we have a publish_at value convert it to a DateTime
         // object. We'll then use that to establish if a post is
         // unpublished, published or scheduled to be published.
         if (post.publish_at !== null) {
           const dateObject = new Date(post.publish_at.date)
-          this.posts[index].publish_at = dateObject
-          this.posts[index].date_string = `${dateObject.toLocaleDateString()} at
+          post.publish_at = dateObject
+          post.date_string = `${dateObject.toLocaleDateString()} at
             ${getFullHours(dateObject)}:${getFullMinutes(dateObject)}:${getFullSeconds(dateObject)}.`
         }
       })
@@ -68,17 +69,25 @@ export default {
     gotoPage (page) {
       API.post().index(page)
         .then((response) => {
-          console.log(response)
+          // Update the store.
+          store.commit('posts', response.data.data)
+          store.commit('postPagination', response.data.meta)
+
+          // Force the pagination component to be re-rendered.
+          this.populateList()
+          this.componentKey++
         }).catch(() => { /* TODO: Error message */ })
     }
   },
 
   /**
-   * Once the component is mounted grab the posts from the API.
+   * When the view is loaded we'll run some transformations on the post data so
+   * it can be worked with in the view itself.
    */
   mounted: function () {
     this.postPagination = store.getters.postPagination
     this.posts = store.getters.posts
+
     this.populateList()
   }
 }
