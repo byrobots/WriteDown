@@ -1,14 +1,14 @@
 <template>
   <section>
     <p
-      v-if="null !== posts && posts.length < 1"
+      v-if="posts.length < 1"
       class="no-content-placeholder"
     >
       No posts yet. Why not <a href="/admin/posts/new">write one</a>?
     </p>
 
     <ol
-      v-if="null !== posts && posts.length > 0"
+      v-if="posts.length > 0"
       class="item-list post-list"
     >
       <li

@@ -14,7 +14,5 @@ export default {
       this.$emit('gotoPage', page)
     }
   },
-  props: {
-    pagination: Object
-  }
+  props: { pagination: Object }
 }

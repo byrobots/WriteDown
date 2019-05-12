@@ -2,9 +2,6 @@
  * Internal
  */
 import API from '../../../library/api'
-import getFullHours from '../../../helpers/get-full-hours.js'
-import getFullMinutes from '../../../helpers/get-full-minutes.js'
-import getFullSeconds from '../../../helpers/get-full-seconds.js'
 import pagination from '../../pagination'
 import store from '../../../store'
 
@@ -13,29 +10,27 @@ import store from '../../../store'
  */
 export default {
   components: { pagination },
-  data: () => ({
-    componentKey: 0,
-    postPagination: [],
-    posts: []
-  }),
-  methods: {
+  computed: {
     /**
-     * Use the response from the API call to populate the posts list.
+     * Returns the current post list from the store.
+     *
+     * @return {Array}
      */
-    populateList () {
-      this.posts.forEach((post) => {
-        // If we have a publish_at value convert it to a DateTime
-        // object. We'll then use that to establish if a post is
-        // unpublished, published or scheduled to be published.
-        if (post.publish_at !== null) {
-          const dateObject = new Date(post.publish_at.date)
-          post.publish_at = dateObject
-          post.date_string = `${dateObject.toLocaleDateString()} at
-            ${getFullHours(dateObject)}:${getFullMinutes(dateObject)}:${getFullSeconds(dateObject)}.`
-        }
-      })
+    posts () {
+      return store.getters.posts
     },
 
+    /**
+     * Return post pagination data.
+     *
+     * @return {Object}
+     */
+    postPagination () {
+      return store.getters.postPagination
+    }
+  },
+  data: () => ({ componentKey: 0 }),
+  methods: {
     /**
      * Confirm the user wants to delete the post. When confirmed the post
      * will be deleted.
@@ -53,6 +48,7 @@ export default {
         API.post().delete(postID)
           .then(() => {
             // Delete from the page.
+            // TODO: Request an updated list from the API.
             const index = event.target.getAttribute('data-index')
             this.posts.splice(index, 1)
           })
@@ -78,16 +74,5 @@ export default {
           this.componentKey++
         }).catch(() => { /* TODO: Error message */ })
     }
-  },
-
-  /**
-   * When the view is loaded we'll run some transformations on the post data so
-   * it can be worked with in the view itself.
-   */
-  mounted: function () {
-    this.postPagination = store.getters.postPagination
-    this.posts = store.getters.posts
-
-    this.populateList()
   }
 }
