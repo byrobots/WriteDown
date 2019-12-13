@@ -20,7 +20,7 @@
         "grunt-sass": "^2.1",
         "jquery": "^3.4",
         "jquery-datetimepicker": "^2.5",
-        "npm": "^6.7.0",
+        "npm": "^6.13.4",
         "simplemde": "^1.11"
     }
 }
