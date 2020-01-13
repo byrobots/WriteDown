@@ -73,13 +73,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/byrobots/validation.git",
-                "reference": "dd27baa16ec092273116980c18ee20ecdcf007bc"
+                "url": "https://github.com/by-robots/validation.git",
+                "reference": "9c0b692c039764c416b61ee1e772e211e4f56b3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/byrobots/validation/zipball/dd27baa16ec092273116980c18ee20ecdcf007bc",
-                "reference": "dd27baa16ec092273116980c18ee20ecdcf007bc",
+                "url": "https://api.github.com/repos/by-robots/validation/zipball/9c0b692c039764c416b61ee1e772e211e4f56b3c",
+                "reference": "9c0b692c039764c416b61ee1e772e211e4f56b3c",
                 "shasum": ""
             },
             "require": {
@@ -104,22 +104,22 @@
             ],
             "description": "Straightforward and extendable data validation.",
             "support": {
-                "source": "https://github.com/byrobots/validation/tree/master",
-                "issues": "https://github.com/byrobots/validation/issues"
+                "source": "https://github.com/by-robots/validation/tree/master",
+                "issues": "https://github.com/by-robots/validation/issues"
             },
-            "time": "2018-05-23T16:05:44+00:00"
+            "time": "2019-01-25T12:23:44+00:00"
         },
         {
             "name": "byrobots/writedown-core",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/byrobots/writedown-core.git",
+                "url": "https://github.com/by-robots/writedown-core.git",
                 "reference": "b20d91d9593093d4e39d2aa9b48aa9e3afc999e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/byrobots/writedown-core/zipball/b20d91d9593093d4e39d2aa9b48aa9e3afc999e1",
+                "url": "https://api.github.com/repos/by-robots/writedown-core/zipball/b20d91d9593093d4e39d2aa9b48aa9e3afc999e1",
                 "reference": "b20d91d9593093d4e39d2aa9b48aa9e3afc999e1",
                 "shasum": ""
             },
@@ -128,7 +128,7 @@
                 "byrobots/validation": "dev-master",
                 "container-interop/container-interop": "^1.2",
                 "doctrine/orm": "^2.6",
-                "league/commonmark": "^0.17",
+                "league/commonmark": "^0.18",
                 "league/container": "^2.4",
                 "league/html-to-markdown": "^4.6",
                 "league/route": "^3.0",
@@ -138,7 +138,7 @@
             "require-dev": {
                 "fzaninotto/faker": "~1.4",
                 "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "~7.0"
+                "phpunit/phpunit": "~8.0"
             },
             "type": "library",
             "autoload": {
@@ -159,10 +159,10 @@
             ],
             "description": "WriteDown's core code.",
             "support": {
-                "source": "https://github.com/byrobots/writedown-core/tree/master",
-                "issues": "https://github.com/byrobots/writedown-core/issues"
+                "source": "https://github.com/by-robots/writedown-core/tree/master",
+                "issues": "https://github.com/by-robots/writedown-core/issues"
             },
-            "time": "2018-07-03T07:44:12+00:00"
+            "time": "2019-04-27T20:42:20+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -193,6 +193,7 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
+            "abandoned": "psr/container",
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
@@ -732,12 +733,12 @@
             "version": "v2.6.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/doctrine2.git",
+                "url": "https://github.com/doctrine/orm.git",
                 "reference": "87ee409783a4a322b5597ebaae558661404055a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/87ee409783a4a322b5597ebaae558661404055a7",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/87ee409783a4a322b5597ebaae558661404055a7",
                 "reference": "87ee409783a4a322b5597ebaae558661404055a7",
                 "shasum": ""
             },
@@ -861,16 +862,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "0.17.5",
+            "version": "0.18.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "82d7ab62d7f68391cb9d323f3ccce50be24a5369"
+                "reference": "f94e18d68260f43a7d846279cad88405854b1306"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/82d7ab62d7f68391cb9d323f3ccce50be24a5369",
-                "reference": "82d7ab62d7f68391cb9d323f3ccce50be24a5369",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/f94e18d68260f43a7d846279cad88405854b1306",
+                "reference": "f94e18d68260f43a7d846279cad88405854b1306",
                 "shasum": ""
             },
             "require": {
@@ -886,7 +887,7 @@
                 "erusev/parsedown": "~1.0",
                 "michelf/php-markdown": "~1.4",
                 "mikehaertl/php-shellcommand": "^1.2",
-                "phpunit/phpunit": "^5.7|^6.5",
+                "phpunit/phpunit": "^5.7.27|^6.5.14",
                 "scrutinizer/ocular": "^1.1",
                 "symfony/finder": "^3.0|^4.0"
             },
@@ -899,7 +900,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.18-dev"
+                    "dev-master": "0.19-dev"
                 }
             },
             "autoload": {
@@ -919,14 +920,14 @@
                     "role": "Lead Developer"
                 }
             ],
-            "description": "Markdown parser for PHP based on the CommonMark spec",
+            "description": "PHP Markdown parser based on the CommonMark spec",
             "homepage": "https://github.com/thephpleague/commonmark",
             "keywords": [
                 "commonmark",
                 "markdown",
                 "parser"
             ],
-            "time": "2018-03-29T14:35:19+00:00"
+            "time": "2019-03-28T13:52:31+00:00"
         },
         {
             "name": "league/container",
@@ -1956,6 +1957,7 @@
                 "psr",
                 "psr-7"
             ],
+            "abandoned": "laminas/laminas-diactoros",
             "time": "2018-06-27T18:52:43+00:00"
         }
     ],
